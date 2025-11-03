@@ -1,0 +1,71 @@
+
+*
+{
+    color: #000;
+}
+
+
+header,
+footer
+{
+    background-color: #f6e3ff;
+}
+
+#center-page
+{
+    background-color: #fff;
+}
+
+.border-page{
+    background-color: #dfdfdf;
+    /*#ece5ea*/
+}
+
+
+button, 
+input[type="button"],
+input[type="submit"]
+{
+    background-color: rgb(220, 220, 220);
+}
+button:hover, 
+input[type="button"]:hover,
+input[type="submit"]:hover
+{
+    background-color: rgb(200, 200, 200);
+}
+button:active, 
+input[type="button"]:active,
+input[type="submit"]:active
+{
+    background-color: rgb(180, 180, 180);
+}
+
+button:hover, 
+input[type="button"]:hover,
+input[type="submit"]:hover,
+input[type="text"]:hover, 
+input:not([type]):hover,
+textarea:hover
+{
+    outline: 3px solid rgb(200, 200, 200);
+}
+input[type="text"]:active, 
+input:not([type]):active,
+textarea:active,
+input[type="button"]:focus,
+input[type="submit"]:focus,
+input[type="text"]:focus, 
+input:not([type]):focus,
+textarea:focus
+{
+    outline: 3px solid rgb(180, 180, 180);
+}
+button:focus
+{
+    box-shadow: /* fake outline for button */
+        rgb(180, 180, 180) -3px -3px 0px 0px,
+        rgb(180, 180, 180)  3px -3px 0px 0px,
+        rgb(180, 180, 180) -3px  3px 0px 0px,
+        rgb(180, 180, 180)  3px  3px 0px 0px;
+}

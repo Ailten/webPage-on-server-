@@ -7,3 +7,30 @@ h1, h2, h3, h4, h5, h6
 }
 
 
+.border-page
+{
+    width: 20vw;
+    height: 100vh;
+}
+
+
+button, 
+input[type="button"],
+input[type="text"], 
+input:not([type]),
+textarea,
+input[type="submit"]
+{
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+button, 
+input[type="button"],
+input[type="submit"]
+{
+    text-align: center;
+}
+
+

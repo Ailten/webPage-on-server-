@@ -7,42 +7,113 @@
 	  <!-- js -->
 	  <script src="js/main.js"></script>
     
-	  <!-- bootstrap -/->
-	  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-      -->
-    
 	  <!-- css -->
-	  <link rel="stylesheet" href="css/main.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+	  <link href="css/main.css" rel="stylesheet">
+	  <link href="css/responcive.css" rel="stylesheet">
+
+	  <link href="css/whiteTheme.css" rel="stylesheet">
 
   </head>
 
   <body>
 
-    <section>
+    <header>
 
-      <h1>page de test !</h1>
-      <p>- ailten</p>
+    </header>
 
-      <article style="margin: 20px;">
+    <div class="d-flex">
 
-        <h2>button</h2>
+      <section class="border-page" id="border-page-left"></section>
 
-        <button>button</button>
-        <input type="button" value="input button">
+      <section id="center-page" class="flex-fill">
 
-      </article>
+        <h1>page de test !</h1>
+        <p>- ailten</p>
 
-      <article style="margin: 20px;">
+        <article style="margin: 20px;">
 
-        <h2>text</h2>
+          <h2>button, text, submit</h2>
 
-        <input type="text" value="input text">
-        <textarea>textarea</textarea>
+          <button>button</button>
+          <input type="button" value="input button">
+          <input type="submit" value="Submit">
 
-      </article>
+        </article>
 
-    </section>
+        <article style="margin: 20px;">
+
+          <h2>text, textarea</h2>
+
+          <input type="text" value="input text">
+          <textarea>textarea</textarea>
+
+        </article>
+
+        <!-- todo css color and size -->
+        
+        <article style="margin: 20px;">
+
+          <h2>checkbox, radio</h2>
+
+          <input type="checkbox">
+          <input type="checkbox">
+          <input type="checkbox">
+          <br/>
+          <input type="radio" name="my-radio-test" value="value-one">
+          <input type="radio" name="my-radio-test" value="value-two">
+          <input type="radio" name="my-radio-test" value="value-tre">
+
+        </article>
+        
+        <article style="margin: 20px;">
+
+          <h2>select</h2>
+
+          <select name="my-select" id="my-select">
+            <option value="one">one</option>
+            <option value="two">two</option>
+            <option value="tre">tre</option>
+          </select>
+
+        </article>
+        
+        <article style="margin: 20px;">
+
+          <h2>color</h2>
+
+          <input type="color">
+
+        </article>
+
+        <!--
+        <input type="date">
+        <input type="datetime-local">
+        <input type="email">
+        <input type="file">
+        <input type="hidden">
+        <input type="image">
+        <input type="month">
+        <input type="number">
+        <input type="password">
+        <input type="range">
+        <input type="reset">
+        <input type="search">
+        <input type="tel">
+        <input type="time">
+        <input type="url">
+        <input type="week">
+        -->
+
+      </section>
+
+      <section class="border-page" id="border-page-right"></section>
+
+    </div>
+
+    <footer>
+
+    </footer>
 
   </body>
 </html>

@@ -1,0 +1,23 @@
+
+/* --- tablette --- */
+@media (max-width: 768px)
+{
+
+    .border-page
+    {
+        width: 10vw;
+    }
+
+}
+
+
+/* --- mobile --- */
+@media (max-width: 600px)
+{
+
+    .border-page
+    {
+        display: none;
+    }
+
+}
