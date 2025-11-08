@@ -24,19 +24,25 @@ footer
 
 button, 
 input[type="button"],
-input[type="submit"]
+input[type="submit"],
+select,
+input[type="color"]
 {
     background-color: rgb(220, 220, 220);
 }
 button:hover, 
 input[type="button"]:hover,
-input[type="submit"]:hover
+input[type="submit"]:hover,
+select:hover,
+input[type="color"]:hover
 {
     background-color: rgb(200, 200, 200);
 }
 button:active, 
 input[type="button"]:active,
-input[type="submit"]:active
+input[type="submit"]:active,
+select:active,
+input[type="color"]:active
 {
     background-color: rgb(180, 180, 180);
 }
@@ -46,7 +52,9 @@ input[type="button"]:hover,
 input[type="submit"]:hover,
 input[type="text"]:hover, 
 input:not([type]):hover,
-textarea:hover
+textarea:hover,
+select:hover,
+input[type="color"]:hover
 {
     outline: 3px solid rgb(200, 200, 200);
 }
