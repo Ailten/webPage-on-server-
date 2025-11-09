@@ -33,6 +33,7 @@ input[type="color"]
 button:hover, 
 input[type="button"]:hover,
 input[type="submit"]:hover,
+.checkbox-mark:hover,
 select:hover,
 input[type="color"]:hover
 {
@@ -41,6 +42,8 @@ input[type="color"]:hover
 button:active, 
 input[type="button"]:active,
 input[type="submit"]:active,
+.checkbox-mark:active,
+.checkbox-mark[checked],
 select:active,
 input[type="color"]:active
 {
@@ -53,6 +56,7 @@ input[type="submit"]:hover,
 input[type="text"]:hover, 
 input:not([type]):hover,
 textarea:hover,
+.checkbox-mark:hover,
 select:hover,
 input[type="color"]:hover
 {
@@ -65,7 +69,8 @@ input[type="button"]:focus,
 input[type="submit"]:focus,
 input[type="text"]:focus, 
 input:not([type]):focus,
-textarea:focus
+textarea:focus,
+.checkbox-mark:active
 {
     outline: 3px solid rgb(180, 180, 180);
 }

@@ -46,25 +46,66 @@
           <h2>text, textarea</h2>
 
           <input type="text" value="input text">
+          <hr style="opacity: 0; height: 8px; margin: 0;"/>
           <textarea>textarea</textarea>
 
         </article>
 
-        <!-- todo css for checkbox and radio -->
-        
         <article style="margin: 20px;">
 
           <h2>checkbox, radio</h2>
 
-          <input type="checkbox">
-          <input type="checkbox">
-          <input type="checkbox"> 
-          <label>checkbox</label>
-          <br/>
-          <input type="radio" name="my-radio-test" value="value-one">
-          <input type="radio" name="my-radio-test" value="value-two">
-          <input type="radio" name="my-radio-test" value="value-tre">
-          <label>radio</label>
+          <div style="display: inline-block;">
+            <p style="margin-bottom: 8px;">checkbox</p>
+            <ul>
+              <li>
+                <input type="checkbox" value="check-one" checked>
+                <span class="checkbox-mark"></span>
+                <label>one</label>
+              </li>
+              <li>
+                <input type="checkbox" value="check-two">
+                <span class="checkbox-mark"></span>
+                <label>two</label>
+              </li>
+              <li>
+                <input type="checkbox" value="check-tre">
+                <span class="checkbox-mark"></span>
+                <label>tre</label>
+              </li>
+            </ul>
+          </div>
+          <hr style="display: inline-block; opacity: 0; width: 8px;"/>
+          <div style="display: inline-block;">
+            <p style="margin-bottom: 8px;">radio</p>
+            <ul>
+              <li>
+                <input type="radio" name="my-radio-test" value="radio-one" checked>
+                <span class="checkbox-mark" name="my-radio-test"></span>
+                <label>one</label>
+              </li>
+              <li>
+                <input type="radio" name="my-radio-test" value="radio-two">
+                <span class="checkbox-mark" name="my-radio-test"></span>
+                <label>two</label>
+              </li>
+              <li>
+                <input type="radio" name="my-radio-test" value="radio-tre">
+                <span class="checkbox-mark" name="my-radio-test"></span>
+                <label>tre</label>
+              </li>
+            </ul>
+          </div>
+
+          <hr style="opacity: 0; margin: 0; height: 8px;"/>
+          <button onclick="
+            let inputs = document.querySelectorAll('input[type=checkbox], input[type=radio]');
+            let output = '';
+            for(let i=0; i<inputs.length; i++){
+              output += inputs[i].value + ' is ' + inputs[i].checked + '\n';
+            }
+            console.log(output);
+          ">debug</button>
 
         </article>
         
@@ -85,6 +126,8 @@
           <h2>color</h2>
 
           <input type="color">
+          <input type="color" value="#FC1">
+          <input type="color" value="#F00">
 
         </article>
 
