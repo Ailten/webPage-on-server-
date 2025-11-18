@@ -35,9 +35,15 @@
 
           <h2>button, text, submit</h2>
 
+          <!-- button (depreciate: use input button) -->
           <button>button</button>
+          <!-- input button -->
           <input type="button" value="input button">
-          <input type="submit" value="Submit">
+          <!-- input submit -->
+          <input type="submit" value="Submit"> <!-- use in a form -->
+
+          <!-- event on-click for get interaction user -->
+          <!-- also see required attribute, label balise -->
 
         </article>
 
@@ -45,9 +51,23 @@
 
           <h2>text, textarea</h2>
 
+          <!-- input text (for short text) -->
           <input type="text" value="input text">
+
           <hr style="opacity: 0; height: 8px; margin: 0;"/>
+
+          <!-- textarea (for long text) -->
           <textarea>textarea</textarea>
+
+          <hr style="opacity: 0; margin: 0; height: 8px;"/>
+          <button onclick="
+            let inputsTxt = document.querySelectorAll('input[type=text], textarea');
+            let outputTxt = '';
+            for(let i=0; i<inputsTxt.length; i++){
+              outputTxt += inputsTxt[i].value + '\n';
+            }
+            console.log(outputTxt);
+          ">debug console</button>
 
         </article>
 
@@ -55,57 +75,61 @@
 
           <h2>checkbox, radio</h2>
 
+          <!-- checkbox -->
           <div style="display: inline-block;">
             <p style="margin-bottom: 8px;">checkbox</p>
             <ul>
               <li>
-                <input type="checkbox" value="check-one" checked>
-                <span class="checkbox-mark"></span>
-                <label>one</label>
+                <input type="checkbox" value="check-one" name="check-one" checked> <!-- input (hidde, but used to logic JS) -->
+                <span class="checkbox-mark"></span> <!-- fake input (use to visuel, take and send event to input upper) -->
+                <label for="check-one">one</label> <!-- label (for print details text about checkbox, link by name/for) -->
               </li>
               <li>
-                <input type="checkbox" value="check-two">
+                <input type="checkbox" value="check-two" name="check-two">
                 <span class="checkbox-mark"></span>
-                <label>two</label>
+                <label for="check-one">two</label>
               </li>
               <li>
-                <input type="checkbox" value="check-tre">
+                <input type="checkbox" value="check-tre" name="check-tre">
                 <span class="checkbox-mark"></span>
-                <label>tre</label>
+                <label for="check-one">tre</label>
               </li>
             </ul>
           </div>
+
           <hr style="display: inline-block; opacity: 0; width: 8px;"/>
+
+          <!-- input radio (like checkbox, but allow only one checked) -->
           <div style="display: inline-block;">
             <p style="margin-bottom: 8px;">radio</p>
             <ul>
               <li>
                 <input type="radio" name="my-radio-test" value="radio-one" checked>
                 <span class="checkbox-mark" name="my-radio-test"></span>
-                <label>one</label>
+                <label name="radio-one">one</label> <!-- label (link by value/for when it's input radio) -->
               </li>
               <li>
                 <input type="radio" name="my-radio-test" value="radio-two">
                 <span class="checkbox-mark" name="my-radio-test"></span>
-                <label>two</label>
+                <label name="radio-two">two</label>
               </li>
               <li>
                 <input type="radio" name="my-radio-test" value="radio-tre">
                 <span class="checkbox-mark" name="my-radio-test"></span>
-                <label>tre</label>
+                <label name="radio-tre">tre</label>
               </li>
             </ul>
           </div>
 
           <hr style="opacity: 0; margin: 0; height: 8px;"/>
           <button onclick="
-            let inputs = document.querySelectorAll('input[type=checkbox], input[type=radio]');
-            let output = '';
-            for(let i=0; i<inputs.length; i++){
-              output += inputs[i].value + ' is ' + inputs[i].checked + '\n';
+            let inputsCheck = document.querySelectorAll('input[type=checkbox], input[type=radio]');
+            let outputCheck = '';
+            for(let i=0; i<inputsCheck.length; i++){
+              outputCheck += inputsCheck[i].value + ' is ' + inputsCheck[i].checked + '\n';
             }
-            console.log(output);
-          ">debug</button>
+            console.log(outputCheck);
+          ">debug console</button>
 
         </article>
         
@@ -130,10 +154,54 @@
           <input type="color" value="#F00">
 
         </article>
+        
+        <article style="margin: 20px;">
+
+          <h2>date</h2>
+
+          <!-- input date (dd/mm/yyyy)-->
+          <div>
+            <label for="date" style="width: 24%; text-align: right; margin-right: 10px">date</label>
+            <div style="display: inline-block; width: 24%; text-align: left;">
+              <input type="date" name="date">
+            </div>
+          </div>
+
+          <hr style="opacity: 0; height: 8px; margin: 0;"/>
+
+          <!-- input time (hh:mm)-->
+          <div>
+            <label for="time" style="width: 24%; text-align: right; margin-right: 10px">time</label>
+            <div style="display: inline-block; width: 24%; text-align: left;">
+              <input type="time" name="time">
+            </div>
+          </div>
+
+          <hr style="opacity: 0; height: 8px; margin: 0;"/>
+
+          <!-- input datetime (dd/mm/yyyy hh:mm)-->
+          <div>
+            <label for="datetime-local" style="width: 24%; text-align: right; margin-right: 10px">datetime-local</label>
+            <div style="display: inline-block; width: 24%; text-align: left;">
+              <input type="datetime-local" name="datetime-local">
+            </div>
+          </div>
+
+          <!-- also see min, max attribute -->
+
+          <hr style="opacity: 0; margin: 0; height: 8px;"/>
+          <button onclick="
+            let inputsDate = document.querySelectorAll('input[type^=date], input[type=time]');
+            let outputDate = '';
+            for(let i=0; i<inputsDate.length; i++){
+              outputDate += inputsDate[i].name + ' is ' + inputsDate[i].value + '\n';
+            }
+            console.log(outputDate);
+          ">debug console</button>
+
+        </article>
 
         <!--
-        <input type="date">
-        <input type="datetime-local">
         <input type="email">
         <input type="file">
         <input type="hidden">
@@ -145,7 +213,6 @@
         <input type="reset">
         <input type="search">
         <input type="tel">
-        <input type="time">
         <input type="url">
         <input type="week">
         -->

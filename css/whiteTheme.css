@@ -26,7 +26,9 @@ button,
 input[type="button"],
 input[type="submit"],
 select,
-input[type="color"]
+input[type="color"],
+input[type^="date"],
+input[type="time"]
 {
     background-color: rgb(220, 220, 220);
 }
@@ -35,7 +37,9 @@ input[type="button"]:hover,
 input[type="submit"]:hover,
 .checkbox-mark:hover,
 select:hover,
-input[type="color"]:hover
+input[type="color"]:hover,
+input[type^="date"]:hover,
+input[type="time"]:hover
 {
     background-color: rgb(200, 200, 200);
 }
@@ -45,7 +49,9 @@ input[type="submit"]:active,
 .checkbox-mark:active,
 .checkbox-mark[checked],
 select:active,
-input[type="color"]:active
+input[type="color"]:active,
+input[type^="date"]:active,
+input[type="time"]:active
 {
     background-color: rgb(180, 180, 180);
 }
@@ -58,7 +64,9 @@ input:not([type]):hover,
 textarea:hover,
 .checkbox-mark:hover,
 select:hover,
-input[type="color"]:hover
+input[type="color"]:hover,
+input[type^="date"]:hover,
+input[type="time"]:hover
 {
     outline: 3px solid rgb(200, 200, 200);
 }
@@ -70,7 +78,11 @@ input[type="submit"]:focus,
 input[type="text"]:focus, 
 input:not([type]):focus,
 textarea:focus,
-.checkbox-mark:active
+.checkbox-mark:active,
+input[type^="date"]:active,
+input[type^="date"]:focus,
+input[type="time"]:active,
+input[type="time"]:focus
 {
     outline: 3px solid rgb(180, 180, 180);
 }
