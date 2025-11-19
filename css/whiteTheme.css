@@ -66,7 +66,9 @@ textarea:hover,
 select:hover,
 input[type="color"]:hover,
 input[type^="date"]:hover,
-input[type="time"]:hover
+input[type="time"]:hover,
+input[type="email"]:hover,
+input[type="password"]:hover
 {
     outline: 3px solid rgb(200, 200, 200);
 }
@@ -82,7 +84,11 @@ textarea:focus,
 input[type^="date"]:active,
 input[type^="date"]:focus,
 input[type="time"]:active,
-input[type="time"]:focus
+input[type="time"]:focus,
+input[type="email"]:active,
+input[type="password"]:active,
+input[type="email"]:focus,
+input[type="password"]:focus
 {
     outline: 3px solid rgb(180, 180, 180);
 }
@@ -93,4 +99,32 @@ button:focus
         rgb(180, 180, 180)  3px -3px 0px 0px,
         rgb(180, 180, 180) -3px  3px 0px 0px,
         rgb(180, 180, 180)  3px  3px 0px 0px;
+}
+
+/*  --- always print ---
+input[type="text"]:valid, 
+input:not([type]):valid,
+textarea:valid,
+input[type="checkbox"]:valid + .checkbox-mark,
+input[type="color"]:valid,
+input[type^="date"]:valid,
+input[type="time"]:valid,
+input[type="email"]:valid,
+input[type="password"]:valid
+{
+    outline: 3px solid rgb(179, 255, 169);
+}
+*/
+input[type="text"]:invalid, 
+input:not([type]):invalid,
+textarea:invalid,
+input[type="checkbox"]:invalid + .checkbox-mark,
+input[type="checkbox"]:invalid + .checkbox-mark,
+input[type="color"]:invalid,
+input[type^="date"]:invalid,
+input[type="time"]:invalid,
+input[type="email"]:invalid,
+input[type="password"]:invalid
+{
+    outline: 3px solid rgb(255, 162, 162);
 }

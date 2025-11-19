@@ -43,7 +43,9 @@ input[type="submit"],
 select,
 input[type="color"],
 input[type^="date"],
-input[type="time"]
+input[type="time"],
+input[type="email"],
+input[type="password"]
 {
     border: 1px solid;
     border-radius: 0.7ch;

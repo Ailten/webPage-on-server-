@@ -10,8 +10,6 @@ window.addEventListener('load', () => {
             // get input associate.
             let input = checkboxMark.previousElementSibling;
             if(input.tagName !== "INPUT")
-                input = checkboxMark.nextElementSibling;
-            if(input.tagName !== "INPUT")
                 throw new Error("checkbox-mark has no input");
             if(!input.hasAttribute("type") || (input.getAttribute("type") !== "checkbox" && input.getAttribute("type") !== "radio"))
                 throw new Error("checkbox-mark input is not checkbox");
