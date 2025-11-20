@@ -45,18 +45,14 @@ input[type="color"],
 input[type^="date"],
 input[type="time"],
 input[type="email"],
-input[type="password"]
+input[type="password"],
+input[type="reset"],
+input[type="week"],
+input[type="month"]
 {
     border: 1px solid;
     border-radius: 0.7ch;
     padding: 1.2ch 1.8ch;
-}
-
-button, 
-input[type="button"],
-input[type="submit"]
-{
-    text-align: center;
 }
 
 

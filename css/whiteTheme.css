@@ -28,7 +28,8 @@ input[type="submit"],
 select,
 input[type="color"],
 input[type^="date"],
-input[type="time"]
+input[type="time"],
+input[type="reset"]
 {
     background-color: rgb(220, 220, 220);
 }
@@ -39,7 +40,8 @@ input[type="submit"]:hover,
 select:hover,
 input[type="color"]:hover,
 input[type^="date"]:hover,
-input[type="time"]:hover
+input[type="time"]:hover,
+input[type="reset"]:hover
 {
     background-color: rgb(200, 200, 200);
 }
@@ -51,7 +53,8 @@ input[type="submit"]:active,
 select:active,
 input[type="color"]:active,
 input[type^="date"]:active,
-input[type="time"]:active
+input[type="time"]:active,
+input[type="reset"]:active
 {
     background-color: rgb(180, 180, 180);
 }
@@ -68,7 +71,10 @@ input[type="color"]:hover,
 input[type^="date"]:hover,
 input[type="time"]:hover,
 input[type="email"]:hover,
-input[type="password"]:hover
+input[type="password"]:hover,
+input[type="reset"]:hover,
+input[type="week"]:hover,
+input[type="month"]:hover
 {
     outline: 3px solid rgb(200, 200, 200);
 }
@@ -88,7 +94,12 @@ input[type="time"]:focus,
 input[type="email"]:active,
 input[type="password"]:active,
 input[type="email"]:focus,
-input[type="password"]:focus
+input[type="password"]:focus,
+input[type="reset"]:focus,
+input[type="week"]:active,
+input[type="month"]:active,
+input[type="week"]:focus,
+input[type="month"]:focus
 {
     outline: 3px solid rgb(180, 180, 180);
 }
@@ -110,7 +121,9 @@ input[type="color"]:valid,
 input[type^="date"]:valid,
 input[type="time"]:valid,
 input[type="email"]:valid,
-input[type="password"]:valid
+input[type="password"]:valid,
+input[type="week"]:valid,
+input[type="month"]:valid
 {
     outline: 3px solid rgb(179, 255, 169);
 }
@@ -124,7 +137,9 @@ input[type="color"]:invalid,
 input[type^="date"]:invalid,
 input[type="time"]:invalid,
 input[type="email"]:invalid,
-input[type="password"]:invalid
+input[type="password"]:invalid,
+input[type="week"]:invalid,
+input[type="month"]:invalid
 {
     outline: 3px solid rgb(255, 162, 162);
 }
