@@ -48,9 +48,10 @@ input[type="email"],
 input[type="password"],
 input[type="reset"],
 input[type="week"],
-input[type="month"]
+input[type="month"],
+input[type="search"]
 {
-    border: 1px solid;
+    border: none;
     border-radius: 0.7ch;
     padding: 1.2ch 1.8ch;
 }
@@ -74,7 +75,6 @@ input[type="radio"]
 {
     display: inline-block;
     border-radius: 0.5ch;
-    border: 1px solid;
 }
 
 select

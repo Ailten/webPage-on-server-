@@ -31,6 +31,8 @@
         <h1>page de test !</h1>
         <p>- ailten</p>
 
+        <form>
+
         <article style="margin: 20px;">
 
           <h2>button, text, submit</h2>
@@ -41,10 +43,12 @@
           <input type="button" value="input button">
           <!-- input submit -->
           <input type="submit" value="Submit"> <!-- use in a form -->
+          <!-- input reset (depreciate) -->
+          <input type="reset" value="Reset"> <!-- use in a form -->
+
 
           <!-- event on-click for get interaction user -->
           <!-- also see required attribute, label balise -->
-          <!-- type reset not suported, make it hidden and relay action to a button -->
 
         </article>
 
@@ -62,6 +66,11 @@
 
           <!-- textarea (for long text) -->
           <textarea>textarea</textarea>
+
+          <hr style="opacity: 0; height: 8px; margin: 0;"/>
+
+          <!-- search (like text, for making search) -->
+          <input type="search" name="search" placeholder="search">
 
           <hr style="opacity: 0; margin: 0; height: 8px;"/>
           <button onclick="
@@ -191,13 +200,31 @@
             </div>
           </div>
 
+          <hr style="opacity: 0; height: 8px; margin: 0;"/>
+
+          <!-- week (depreciate) -->
+          <div>
+            <label for="week" style="width: 24%; text-align: right; margin-right: 10px">week (depreciate)</label>
+            <div style="display: inline-block; width: 24%; text-align: left;">
+              <input type="week" name="week" placeholder="week">
+            </div>
+          </div>
+
+          <hr style="opacity: 0; height: 8px; margin: 0;"/>
+
+          <!-- month (depreciate) -->
+          <div>
+            <label for="month" style="width: 24%; text-align: right; margin-right: 10px">month (depreciate)</label>
+            <div style="display: inline-block; width: 24%; text-align: left;">
+              <input type="month" name="month" placeholder="month">
+            </div>
+          </div>
+
           <!-- also see min, max attribute -->
-          <!-- type week not suported, use select, number, or date -->
-          <!-- type month not suported, use select, number, or date -->
 
           <hr style="opacity: 0; margin: 0; height: 8px;"/>
           <button onclick="
-            let inputsDate = document.querySelectorAll('input[type^=date], input[type=time]');
+            let inputsDate = document.querySelectorAll('input[type^=date], input[type=time], input[type=week], input[type=month]');
             let outputDate = '';
             for(let i=0; i<inputsDate.length; i++){
               outputDate += inputsDate[i].name + ' is ' + inputsDate[i].value + '\n';
@@ -243,13 +270,25 @@
 
         </article>
 
+        <article style="margin: 20px;">
+
+          <h2>aaa</h2>
+
+          <!-- input search -->
+          
+        </article>
+        
+
+
         <!--
         <input type="number">
         <input type="range">
+
         <input type="file">
         <input type="image">
+
         <input type="hidden">
-        <input type="search">
+
         <input type="tel">
         <input type="url">
 
@@ -258,6 +297,8 @@
         <input type="week">
         <input type="month">
         -->
+
+        </form>
 
       </section>
 

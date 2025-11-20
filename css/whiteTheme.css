@@ -18,7 +18,6 @@ footer
 
 .border-page{
     background-color: #dfdfdf;
-    /*#ece5ea*/
 }
 
 
@@ -74,32 +73,35 @@ input[type="email"]:hover,
 input[type="password"]:hover,
 input[type="reset"]:hover,
 input[type="week"]:hover,
-input[type="month"]:hover
+input[type="month"]:hover,
+input[type="search"]:hover
 {
     outline: 3px solid rgb(200, 200, 200);
 }
 input[type="text"]:active, 
+input[type="text"]:focus, 
 input:not([type]):active,
+input:not([type]):focus,
 textarea:active,
+textarea:focus,
 input[type="button"]:focus,
 input[type="submit"]:focus,
-input[type="text"]:focus, 
-input:not([type]):focus,
-textarea:focus,
 .checkbox-mark:active,
 input[type^="date"]:active,
 input[type^="date"]:focus,
 input[type="time"]:active,
 input[type="time"]:focus,
 input[type="email"]:active,
-input[type="password"]:active,
 input[type="email"]:focus,
+input[type="password"]:active,
 input[type="password"]:focus,
 input[type="reset"]:focus,
 input[type="week"]:active,
-input[type="month"]:active,
 input[type="week"]:focus,
-input[type="month"]:focus
+input[type="month"]:active,
+input[type="month"]:focus,
+input[type="search"]:active,
+input[type="search"]:focus
 {
     outline: 3px solid rgb(180, 180, 180);
 }
@@ -123,7 +125,8 @@ input[type="time"]:valid,
 input[type="email"]:valid,
 input[type="password"]:valid,
 input[type="week"]:valid,
-input[type="month"]:valid
+input[type="month"]:valid,
+input[type="search"]:valid
 {
     outline: 3px solid rgb(179, 255, 169);
 }
@@ -139,7 +142,22 @@ input[type="time"]:invalid,
 input[type="email"]:invalid,
 input[type="password"]:invalid,
 input[type="week"]:invalid,
-input[type="month"]:invalid
+input[type="month"]:invalid,
+input[type="search"]:invalid
 {
     outline: 3px solid rgb(255, 162, 162);
+}
+
+
+input[type=text],
+input:not([type]),
+textarea,
+input[type=search],
+.checkbox-mark,
+input[type=week],
+input[type=month],
+input[type=email],
+input[type=password]
+{
+    outline: 2px solid rgb(220, 220, 220);
 }
