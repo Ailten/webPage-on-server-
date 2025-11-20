@@ -49,7 +49,9 @@ input[type="password"],
 input[type="reset"],
 input[type="week"],
 input[type="month"],
-input[type="search"]
+input[type="search"],
+input[type="tel"],
+input[type="url"]
 {
     border: none;
     border-radius: 0.7ch;

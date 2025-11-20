@@ -114,7 +114,7 @@
 
           <!-- input radio (like checkbox, but allow only one checked) -->
           <div style="display: inline-block;">
-            <p style="margin-bottom: 8px;">radio</p>
+            <p style="margin-bottom: 8px;">radio (one)</p>
             <ul>
               <li>
                 <input type="radio" name="my-radio-test" value="radio-one" checked>
@@ -288,6 +288,29 @@
           
         </article>
         
+        <article style="margin: 20px;">
+
+          <h2>tel, url</h2>
+
+          <!-- input tel -->
+          <div>
+            <label for="tel" style="width: 24%; text-align: right; margin-right: 10px">tel</label>
+            <div style="display: inline-block; width: 24%; text-align: left;">
+              <input type="tel" name="tel"> <!-- implement +32 select -->
+            </div>
+          </div>
+
+          <hr style="opacity: 0; height: 8px; margin: 0;"/>
+
+          <!-- url -->
+          <div>
+            <label for="url" style="width: 24%; text-align: right; margin-right: 10px">url</label>
+            <div style="display: inline-block; width: 24%; text-align: left;">
+              <input type="url" name="url">
+            </div>
+          </div>
+
+        </article>
 
         <!--
         <input type="number">
@@ -296,8 +319,8 @@
         <input type="file">
         <input type="image">
 
-        <input type="tel">
-        <input type="url">
+        <many to many>
+        <combo box>
         -->
 
       </section>

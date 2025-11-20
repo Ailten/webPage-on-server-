@@ -74,7 +74,9 @@ input[type="password"]:hover,
 input[type="reset"]:hover,
 input[type="week"]:hover,
 input[type="month"]:hover,
-input[type="search"]:hover
+input[type="search"]:hover,
+input[type="tel"]:hover,
+input[type="url"]:hover
 {
     outline: 3px solid rgb(200, 200, 200);
 }
@@ -101,7 +103,11 @@ input[type="week"]:focus,
 input[type="month"]:active,
 input[type="month"]:focus,
 input[type="search"]:active,
-input[type="search"]:focus
+input[type="search"]:focus,
+input[type="tel"]:active,
+input[type="tel"]:focus,
+input[type="url"]:active,
+input[type="url"]:focus
 {
     outline: 3px solid rgb(180, 180, 180);
 }
@@ -126,7 +132,9 @@ input[type="email"]:valid,
 input[type="password"]:valid,
 input[type="week"]:valid,
 input[type="month"]:valid,
-input[type="search"]:valid
+input[type="search"]:valid,
+input[type="tel"]:valid,
+input[type="url"]:valid
 {
     outline: 3px solid rgb(179, 255, 169);
 }
@@ -143,7 +151,9 @@ input[type="email"]:invalid,
 input[type="password"]:invalid,
 input[type="week"]:invalid,
 input[type="month"]:invalid,
-input[type="search"]:invalid
+input[type="search"]:invalid,
+input[type="tel"]:invalid,
+input[type="url"]:invalid
 {
     outline: 3px solid rgb(255, 162, 162);
 }
@@ -157,7 +167,9 @@ input[type=search],
 input[type=week],
 input[type=month],
 input[type=email],
-input[type=password]
+input[type=password],
+input[type="tel"],
+input[type="url"]
 {
     outline: 2px solid rgb(220, 220, 220);
 }
