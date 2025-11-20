@@ -32,6 +32,24 @@ input[type="reset"]
 {
     background-color: rgb(220, 220, 220);
 }
+
+input[type=text],
+input:not([type]),
+textarea,
+input[type=search],
+.checkbox-mark,
+input[type=week],
+input[type=month],
+input[type=email],
+input[type=password],
+input[type="tel"],
+input[type="url"],
+input[type="number"],
+input[type=range]
+{
+    outline: 2px solid rgb(220, 220, 220);
+}
+
 button:hover, 
 input[type="button"]:hover,
 input[type="submit"]:hover,
@@ -44,6 +62,7 @@ input[type="reset"]:hover
 {
     background-color: rgb(200, 200, 200);
 }
+
 button:active, 
 input[type="button"]:active,
 input[type="submit"]:active,
@@ -53,7 +72,9 @@ select:active,
 input[type="color"]:active,
 input[type^="date"]:active,
 input[type="time"]:active,
-input[type="reset"]:active
+input[type="reset"]:active,
+input[type=range]::-webkit-slider-thumb, /* button slider range */
+input[type=range]::-moz-range-thumb
 {
     background-color: rgb(180, 180, 180);
 }
@@ -76,10 +97,13 @@ input[type="week"]:hover,
 input[type="month"]:hover,
 input[type="search"]:hover,
 input[type="tel"]:hover,
-input[type="url"]:hover
+input[type="url"]:hover,
+input[type="number"]:hover,
+input[type=range]:hover
 {
     outline: 3px solid rgb(200, 200, 200);
 }
+
 input[type="text"]:active, 
 input[type="text"]:focus, 
 input:not([type]):active,
@@ -107,7 +131,11 @@ input[type="search"]:focus,
 input[type="tel"]:active,
 input[type="tel"]:focus,
 input[type="url"]:active,
-input[type="url"]:focus
+input[type="url"]:focus,
+input[type="number"]:active,
+input[type="number"]:focus,
+input[type=range]:active,
+input[type=range]:focus
 {
     outline: 3px solid rgb(180, 180, 180);
 }
@@ -134,7 +162,9 @@ input[type="week"]:valid,
 input[type="month"]:valid,
 input[type="search"]:valid,
 input[type="tel"]:valid,
-input[type="url"]:valid
+input[type="url"]:valid,
+input[type="number"]:valid,
+input[type=range]:valid
 {
     outline: 3px solid rgb(179, 255, 169);
 }
@@ -153,23 +183,16 @@ input[type="week"]:invalid,
 input[type="month"]:invalid,
 input[type="search"]:invalid,
 input[type="tel"]:invalid,
-input[type="url"]:invalid
+input[type="url"]:invalid,
+input[type="number"]:invalid,
+input[type=range]:invalid
 {
     outline: 3px solid rgb(255, 162, 162);
 }
 
 
-input[type=text],
-input:not([type]),
-textarea,
-input[type=search],
-.checkbox-mark,
-input[type=week],
-input[type=month],
-input[type=email],
-input[type=password],
-input[type="tel"],
-input[type="url"]
+input[type=range]::-webkit-slider-thumb,
+input[type=range]::-moz-range-thumb /* button slider range */
 {
-    outline: 2px solid rgb(220, 220, 220);
+    background-color: rgb(180, 180, 180);
 }
