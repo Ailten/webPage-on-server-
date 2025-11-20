@@ -31,8 +31,6 @@
         <h1>page de test !</h1>
         <p>- ailten</p>
 
-        <form>
-
         <article style="margin: 20px;">
 
           <h2>button, text, submit</h2>
@@ -59,10 +57,12 @@
           <!-- input text (for short text) -->
           <input type="text" value="input text">
 
+          <hr style="display: inline-block; opacity: 0; width: 4px;"/>
+
           <!-- input (like text, without attribute type) -->
           <input value="input">
 
-          <hr style="opacity: 0; height: 8px; margin: 0;"/>
+          <hr style="opacity: 0; height: 12px; margin: 0;"/>
 
           <!-- textarea (for long text) -->
           <textarea>textarea</textarea>
@@ -242,7 +242,7 @@
           <div>
             <label for="email" style="width: 24%; text-align: right; margin-right: 10px">email</label>
             <div style="display: inline-block; width: 24%; text-align: left;">
-              <input type="email" name="email">
+              <input type="email" name="email" placeholder="email">
             </div>
           </div>
 
@@ -252,7 +252,7 @@
           <div>
             <label for="password" style="width: 24%; text-align: right; margin-right: 10px">password (min 4 chars)</label>
             <div style="display: inline-block; width: 24%; text-align: left;">
-              <input type="password" name="password" pattern=".{4,}">
+              <input type="password" name="password" pattern=".{4,}"> <!-- implement button to see/un-see character -->
             </div>
           </div>
 
@@ -272,13 +272,22 @@
 
         <article style="margin: 20px;">
 
-          <h2>aaa</h2>
+          <h2>hidden</h2>
 
-          <!-- input search -->
+          <!-- input hidden (nothing change) -->
+          <input type="hidden" name="hidden" value="data-hidden-test">
+
+          <button onclick="
+            let inputsHidde = document.querySelectorAll('input[type=hidden]');
+            let outputHidde = '';
+            for(let i=0; i<inputsHidde.length; i++){
+              outputHidde += `${inputsHidde[i].name} is ${inputsHidde[i].value}\n`;
+            }
+            console.log(outputHidde);
+          ">debug console</button>
           
         </article>
         
-
 
         <!--
         <input type="number">
@@ -287,18 +296,9 @@
         <input type="file">
         <input type="image">
 
-        <input type="hidden">
-
         <input type="tel">
         <input type="url">
-
-        -- barely suported, but depressiate --
-        <input type="reset">
-        <input type="week">
-        <input type="month">
         -->
-
-        </form>
 
       </section>
 
