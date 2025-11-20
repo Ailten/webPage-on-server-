@@ -296,7 +296,7 @@
           <div>
             <label for="tel" style="width: 24%; text-align: right; margin-right: 10px">tel</label>
             <div style="display: inline-block; width: 24%; text-align: left;">
-              <input type="tel" name="tel"> <!-- implement +32 select -->
+              <input type="tel" name="tel"> <!-- implement +32 select, patern, fake input text for add space and send edit -->
             </div>
           </div>
 
@@ -306,7 +306,7 @@
           <div>
             <label for="url" style="width: 24%; text-align: right; margin-right: 10px">url</label>
             <div style="display: inline-block; width: 24%; text-align: left;">
-              <input type="url" name="url">
+              <input type="url" name="url" pattern="http[s]?://.{1,}">
             </div>
           </div>
 
