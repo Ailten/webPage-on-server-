@@ -52,7 +52,8 @@ input[type="month"],
 input[type="search"],
 input[type="tel"],
 input[type="url"],
-input[type="number"]
+input[type="number"],
+input[type="file"]::file-selector-button
 {
     border: none;
     border-radius: 0.7ch;
@@ -114,5 +115,18 @@ input[type=range]::-moz-range-thumb /* button slider range */
     border: none;
 }
 
+input[type="file"]
+{
+    border-radius: 0.7ch;
+    padding: 0.8ch;
+}
+input[type="file"]::file-selector-button
+{
+    margin-right: 2ch;
+}
+input[type="file"]::file-selector-button:hover
+{
+    border-radius: 0.4ch;
+}
 
 

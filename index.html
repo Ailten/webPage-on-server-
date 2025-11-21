@@ -314,7 +314,7 @@
         
         <article style="margin: 20px;">
 
-          <h2>tel, url</h2>
+          <h2>number, range</h2>
 
           <!-- input number -->
           <div>
@@ -330,16 +330,31 @@
           <div>
             <label for="range" style="width: 24%; text-align: right; margin-right: 10px">range</label>
             <div style="display: inline-block; width: 24%; text-align: left;">
-              <input type="range" name="range" min="1" max="100" value="50" step="5" style="transform: translateY(5px);">
+              <input type="range" name="range" min="0" max="100" value="50" step="5" style="transform: translateY(5px);">
             </div>
           </div>
 
         </article>
 
-        <!--
-        <input type="file">
-        <input type="image">
+        <article style="margin: 20px;">
 
+          <h2>file</h2>
+
+          <!-- input url -->
+          <div>
+            <label for="file" style="width: 24%; text-align: right; margin-right: 10px">file</label>
+            <div style="display: inline-block; width: 24%; text-align: left;">
+              <input type="file" name="file">
+              <!-- input-file-drag -->
+              <span class="input-area-drag"></span>
+            </div>
+          </div>
+
+          <!-- see also attribute multiple -->
+
+        </article>
+
+        <!--
         <many to many>
         <combo box>
         -->
