@@ -34,6 +34,7 @@ input[type="file"]::file-selector-button
     background-color: rgb(220, 220, 220);
 }
 
+
 input[type="text"],
 input:not([type]),
 textarea,
@@ -47,9 +48,15 @@ input[type="tel"],
 input[type="url"],
 input[type="number"],
 input[type="range"],
-input[type="file"]
+input[type="file"],
+.input-file-remap
 {
     outline: 2px solid rgb(220, 220, 220);
+}
+input[type="file"],
+.input-file-remap
+{
+    outline-style: dashed;
 }
 
 button:hover, 
@@ -105,7 +112,9 @@ input[type="url"]:hover,
 input[type="number"]:hover,
 input[type="range"]:hover,
 input[type="file"]::file-selector-button:hover,
-input[type="file"][drag-count] /* when file is drag */
+input[type="file"][drag-count], /* when file is drag */
+.input-file-remap:hover,
+.input-file-remap[drag-count]
 {
     outline: 3px solid rgb(200, 200, 200);
 }
@@ -173,7 +182,8 @@ input[type="tel"]:valid,
 input[type="url"]:valid,
 input[type="number"]:valid,
 input[type="range"]:valid,
-input[type="file"]:valid
+input[type="file"]:valid,
+.input-file-remap:has(> input[type="file"]:valid)
 {
     outline: 3px solid rgb(179, 255, 169);
 }
@@ -195,7 +205,8 @@ input[type="tel"]:invalid,
 input[type="url"]:invalid,
 input[type="number"]:invalid,
 input[type="range"]:invalid,
-input[type="file"]:invalid
+input[type="file"]:invalid,
+.input-file-remap:has(> input[type="file"]:invalid)
 {
     outline: 3px solid rgb(255, 162, 162);
 }

@@ -92,4 +92,65 @@ window.addEventListener('load', () => {
         }
     );
 
+    // loop every input file remap.
+    Array.prototype.forEach.call(
+        document.getElementsByClassName("input-file-remap"),
+        inputFileRemap => {
+
+            // get file input in child.
+            let inputFile = inputFileRemap.querySelector("input[type=file]");
+            let text = inputFileRemap.getElementsByClassName("input-file-remap-text")[0];
+
+            // set default text.
+            text.innerText = text.getAttribute("placeholder") || "Parcourir...";
+
+            // remap click event.
+            inputFileRemap.addEventListener("click", () => {
+                inputFile.click();
+            });
+            inputFileRemap.addEventListener("change", () => {
+                text.innerText = Array.from(inputFile.files || text.getAttribute("placeholder") || "Parcourir...")
+                    .map((f) => f.name).join(", ");
+            });
+
+            // prevent to open the file drag on a new tab.
+            inputFileRemap.addEventListener("dragover", (e) => {
+                e.preventDefault();
+            }, false);
+            
+            // add class to style drag.
+            inputFileRemap.addEventListener("dragenter", () => {
+                let dragCount = inputFileRemap.getAttribute("drag-count") || 0;
+                dragCount = Number(dragCount);
+                dragCount += 1;
+                if(dragCount === 1){
+                    inputFileRemap.classList.add("input-file-drag");
+                }
+                inputFileRemap.setAttribute("drag-count", dragCount);
+            });
+            
+            // remove class to style drag.
+            inputFileRemap.addEventListener("dragleave", () => {
+                let dragCount = inputFileRemap.getAttribute("drag-count") || 0;
+                dragCount = Number(dragCount);
+                dragCount -= 1;
+                if(dragCount === 0){
+                    inputFileRemap.removeAttribute("drag-count");
+                    return;
+                }
+                inputFileRemap.setAttribute("drag-count", dragCount);
+            });
+            
+            // send files drop to input.
+            inputFileRemap.addEventListener("drop", (e) => {
+                e.preventDefault();
+                inputFile.files = e.dataTransfer.files;
+                text.innerText = Array.from(e.dataTransfer.files || text.getAttribute("placeholder") || "Parcourir...")
+                    .map((f) => f.name).join(", ");
+                inputFileRemap.removeAttribute("drag-count");
+            });
+
+        }
+    );
+
 });

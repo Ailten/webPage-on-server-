@@ -340,21 +340,33 @@
 
           <h2>file</h2>
 
-          <!-- input url -->
+          <!-- input file -->
           <div>
             <label for="file" style="width: 24%; text-align: right; margin-right: 10px">file</label>
             <div style="display: inline-block; width: 24%; text-align: left;">
               <input type="file" name="file">
-              <!-- input-file-drag -->
-              <span class="input-area-drag"></span>
             </div>
           </div>
 
           <!-- see also attribute multiple -->
 
+          <hr style="opacity: 0; height: 8px; margin: 0;"/>
+
+          <!-- input file (remap) -->
+          <div>
+            <label for="file" style="width: 24%; text-align: right; margin-right: 10px;">file (remap)</label>
+            <div style="display: inline-block; width: 24%; text-align: left;">
+              <span class="input-file-remap"> <!-- input file remap -->
+                <span class="input-file-remap-text" placeholder="aucun fichier"></span>
+                <input type="file" name="file">
+              </span>
+            </div>
+          </div>
+
         </article>
 
         <!--
+        TODO :
         <many to many>
         <combo box>
         -->
