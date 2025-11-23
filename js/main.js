@@ -153,4 +153,91 @@ window.addEventListener('load', () => {
         }
     );
 
+
+    // combobox implement.
+    Array.prototype.forEach.call(
+        document.getElementsByClassName("combobox-container"),
+        comboboxContainer => {
+
+            let inputCombobox = comboboxContainer.querySelector("input[type=combobox]");
+            let ul = comboboxContainer.querySelector("ul");
+            let inputHidden = comboboxContainer.querySelector("input[type=hidden]");
+            
+            // verify if somthing wrong.
+            if(inputCombobox === null)
+                throw new Error("combobox-container has no input combobox");
+            if(ul === null)
+                throw new Error("combobox-container has no ul");
+
+            // set default css ul.
+            ul.style.display = "none";
+            ul.style.minWidth = inputCombobox.offsetWidth + "px";
+
+            inputCombobox.addEventListener("keyup", (e) => {
+
+                // switch input validity.
+                inputCombobox.setAttribute("invalid", "");
+                inputCombobox.removeAttribute("valid");
+                if(inputHidden !== null){
+                    inputHidden.setAttribute("invalid", "");
+                    inputHidden.removeAttribute("valid");
+                }
+
+                let value = e.target.value.trim();
+                let minKeySearch = Number(inputCombobox.getAttribute("min-key-search") || 3);
+
+                // hidde the whole pool.
+                if(value.length < minKeySearch){
+                    ul.style.display = "none";
+                    return;
+                }
+                ul.style.display = "";
+                
+                // show only li match the filter.
+                Array.prototype.forEach.call(
+                    ul.getElementsByTagName("li"),
+                    li => {
+                        let liText = li.innerText.trim();
+                        let isInclude = liText.includes(value);
+                        li.style.display = (isInclude ? "": "none");
+                    }
+                );
+
+            });
+
+            // set event click on li.
+            Array.prototype.forEach.call(
+                ul.getElementsByTagName("li"),
+                li => {
+
+                    li.style.display = "none";
+                    
+                    li.addEventListener("click", (e) => {
+
+                        // switch input validity.
+                        inputCombobox.setAttribute("valid", "");
+                        inputCombobox.removeAttribute("invalid");
+                        if(inputHidden !== null){
+                            inputHidden.setAttribute("valid", "");
+                            inputHidden.removeAttribute("invalid");
+                        }
+
+                        // un-show the ul.
+                        ul.style.display = "none";
+
+                        // set input combobox value.
+                        inputCombobox.value = li.innerText.trim();
+
+                        // set input hidden id value (facultatif).
+                        if(inputHidden !== null && li.hasAttribute("combobox-id")){
+                            inputHidden.value = li.getAttribute("combobox-id");
+                        }
+                    });
+
+                }
+            );
+        }
+    );
+
+
 });

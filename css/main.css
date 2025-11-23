@@ -54,7 +54,8 @@ input[type="tel"],
 input[type="url"],
 input[type="number"],
 input[type="file"]::file-selector-button,
-.input-file-remap
+.input-file-remap,
+input[type="combobox"]
 {
     border: none;
     border-radius: 0.7ch;
@@ -139,6 +140,26 @@ input[type="file"]::file-selector-button:hover
     display: inline-block;
     width: 257.3px;
     height: fit-content;
+}
+
+.combobox-container
+{
+    width: fit-content;
+    margin: 0 auto;
+}
+.combobox-container > ul 
+{
+    overflow-y: scroll;
+    max-height: 200px;
+    border-radius: 0.7ch;
+    margin-top: 1.2ch;
+    position: absolute;
+}
+.combobox-container > ul > li
+{
+    /*padding: 1.2ch 1.8ch;*/
+    padding: 0.8ch 1.8ch;
+    border-radius: 0.7ch;
 }
 
 

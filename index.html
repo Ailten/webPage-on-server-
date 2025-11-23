@@ -365,6 +365,56 @@
 
         </article>
 
+        <article style="margin: 20px;">
+
+          <h2>combobox (implemented)</h2>
+
+          <div class="combobox-container">
+            <input type="combobox" name="combobox">
+            <input type="hidden" name="combobox-id">
+            <ul>
+              <li combobox-id="101">
+                one
+              </li>
+              <li combobox-id="102">
+                two
+              </li>
+              <li combobox-id="103">
+                tre
+              </li>
+              <li combobox-id="201">
+                test-one
+              </li>
+              <li combobox-id="202">
+                test-two
+              </li>
+              <li combobox-id="203">
+                test-tre
+              </li>
+              <li combobox-id="204">
+                test-for
+              </li>
+            </ul>
+          </div>
+
+          <!-- input combobox implemented -->
+          <!-- see also attribute min-key-search (on input) (default set to 3) -->
+          <!-- combobox-id (on li) (facultatif), when present set value to input hidden (facultatif) -->
+          <!-- set max-height on ul for activate a scroll bar -->
+
+          <hr style="opacity: 0; margin: 0; height: 8px;"/>
+          <button onclick="
+            let inputsCombobox = document.querySelectorAll('.combobox-container > input');
+            let outputCombobox = '';
+            for(let i=0; i<inputsCombobox.length; i++){
+              outputCombobox += `${inputsCombobox[i].name} is ${inputsCombobox[i].value} (valid: ${inputsCombobox[i].hasAttribute('valid')})\n`;
+            }
+            console.log(outputCombobox);
+          ">debug console</button>
+          
+
+        </article>
+
         <!--
         TODO :
         <many to many>
