@@ -1,23 +1,33 @@
 
 /* --- tablette --- */
-@media (max-width: 768px)
+/* @media (max-width: 768px) */
+body[type-size-screen="Tablette"]
 {
 
-    .border-page
+    & .border-page
     {
         width: 10vw;
+    }
+    & #center-page
+    {
+        margin: 0 10vw;
     }
 
 }
 
 
 /* --- mobile --- */
-@media (max-width: 600px)
+/* @media (max-width: 600px) */
+body[type-size-screen="Mobile"]
 {
 
-    .border-page
+    & .border-page
     {
         display: none;
+    }
+    & #center-page
+    {
+        margin: 0;
     }
 
 }

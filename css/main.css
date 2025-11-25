@@ -1,165 +1,55 @@
 
-body, 
-h1, h2, h3, h4, h5, h6
+/* generic */
+*
 {
     margin: 0;
-    text-align: center;
+    padding: 0;
 }
 
 
+/* header footer */
+header,
+footer
+{
+    width: 100vw;
+}
+header
+{
+    position: fixed;
+    border-bottom: 2px solid;
+    top: 0;
+}
+footer
+{
+    border-top: 2px solid;
+}
+
+
+/* border page */
 .border-page
 {
     width: 20vw;
     height: 100vh;
     position: fixed;
+    z-index: -100;
 }
 #border-page-right
 {
     right: 0;
 }
+#center-page
+{
+    margin: 0 20vw;
+    overflow: hidden;
+
+    height: 2000px;
+}
 
 
-ul
+/* list */
+header menu ul
 {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    text-align: left;
 }
-
-
-p
-{
-    margin: 0;
-}
-
-
-button, 
-input[type="button"],
-input[type="text"], 
-input:not([type]),
-textarea,
-input[type="submit"],
-select,
-input[type="color"],
-input[type^="date"],
-input[type="time"],
-input[type="email"],
-input[type="password"],
-input[type="reset"],
-input[type="week"],
-input[type="month"],
-input[type="search"],
-input[type="tel"],
-input[type="url"],
-input[type="number"],
-input[type="file"]::file-selector-button,
-.input-file-remap,
-input[type="combobox"]
-{
-    border: none;
-    border-radius: 0.7ch;
-    padding: 1.2ch 1.8ch;
-}
-
-
-input[type="checkbox"],
-input[type="radio"],
-.checkbox-mark
-{
-    width: 2.5ch;
-    height: 2.5ch;
-    transform: translateY(0.65ch);
-}
-input[type="checkbox"],
-input[type="radio"]
-{
-    position: absolute;
-    opacity: 0;
-}
-.checkbox-mark
-{
-    display: inline-block;
-    border-radius: 0.5ch;
-}
-
-select
-{
-    appearance: none;
-}
-
-input[type="color"]
-{
-    padding: 3px;
-}
-input[type="color"]::-moz-color-swatch
-{
-    border: none;
-    border-radius: 5px;
-}
-
-input[type="number"]
-{
-    -webkit-appearance: none;
-    -moz-appearance: textfield;
-}
-
-input[type=range]
-{
-    -webkit-appearance: none; /* disable slider back bare style */
-    height: 20px;
-    border-radius: 1.5ex;
-    padding: 0 2px;
-}
-input[type=range]::-webkit-slider-thumb,
-input[type=range]::-moz-range-thumb /* button slider range */
-{
-    border: none;
-}
-
-input[type="file"]
-{
-    border-radius: 0.7ch;
-    padding: 0.8ch;
-}
-input[type="file"]::file-selector-button
-{
-    margin-right: 2ch;
-}
-input[type="file"]::file-selector-button:hover
-{
-    border-radius: 0.4ch;
-}
-
-.input-file-remap > input[type="file"]
-{
-    display: none;
-}
-.input-file-remap
-{
-    display: inline-block;
-    width: 257.3px;
-    height: fit-content;
-}
-
-.combobox-container
-{
-    width: fit-content;
-    margin: 0 auto;
-}
-.combobox-container > ul 
-{
-    overflow-y: scroll;
-    max-height: 200px;
-    border-radius: 0.7ch;
-    margin-top: 1.2ch;
-    position: absolute;
-}
-.combobox-container > ul > li
-{
-    /*padding: 1.2ch 1.8ch;*/
-    padding: 0.8ch 1.8ch;
-    border-radius: 0.7ch;
-}
-
-
