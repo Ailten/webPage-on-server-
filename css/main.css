@@ -32,6 +32,7 @@ footer
     height: 100vh;
     position: fixed;
     z-index: -100;
+    top: 0;
 }
 #border-page-right
 {

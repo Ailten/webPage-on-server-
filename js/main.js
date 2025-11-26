@@ -3,15 +3,7 @@
 window.addEventListener('load', () => {
 
     // eval size screen.
-    {
-        let windowWidth = window.innerWidth;
-        let typeSizeScreen = (
-            (windowWidth > 768)? "PC":
-            (windowWidth > 600)? "Tablette":
-            "Mobile"
-        );
-        document.body.setAttribute("type-size-screen", typeSizeScreen);
-    }
+    evalSizeScreen();
 
     // set margin-top to center-page (prevent overlap to header).
     {
@@ -20,3 +12,27 @@ window.addEventListener('load', () => {
     }
 
 });
+
+
+// event resize.
+window.addEventListener("resize", () => {
+
+    // eval size screen.
+    evalSizeScreen();
+
+});
+
+
+// ------ functions.
+
+
+// set attribute "type-size-screen" based on width window.
+function evalSizeScreen(){
+    let windowWidth = window.innerWidth;
+    let typeSizeScreen = (
+        (windowWidth > 768)? "PC":
+        (windowWidth > 600)? "Tablette":
+        "Mobile"
+    );
+    document.body.setAttribute("type-size-screen", typeSizeScreen);
+}
