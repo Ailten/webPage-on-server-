@@ -11,6 +11,27 @@ window.addEventListener('load', () => {
         document.getElementById("center-page").style.marginTop = `${headerHeight}px`;
     }
 
+    // set link on menu header.
+    {
+        Array.prototype.forEach.call(
+            document.querySelectorAll("header menu ul li"),
+            li => {
+
+                li.addEventListener("click", (e) => {
+
+                    let href = li.getAttribute("href");
+                    if(href === null)
+                        return;
+                    let ahref = document.createElement("a");
+                    ahref.setAttribute("href", href);
+                    ahref.click();
+    
+                });
+
+            }
+        );
+    }
+
 });
 
 
