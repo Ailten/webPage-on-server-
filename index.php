@@ -35,9 +35,9 @@
     <section id="center-page" class="flex-fill">
 
       <?php
-        #for ($i = 0; $i < 5; $i++) {
-          echo "<p>line placeholder $ i</p>";
-        #}
+        for ($i = 0; $i < 5; $i++) {
+          echo "<p>line placeholder $i</p>";
+        }
       ?>
 
     </section>
