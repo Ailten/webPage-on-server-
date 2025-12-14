@@ -1,3 +1,5 @@
+import './bootstrap';
+
 
 // load page.
 window.addEventListener('load', () => {
