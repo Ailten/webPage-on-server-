@@ -16,7 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->rememberToken();  // use to stay connected.
+            $table->integer('gold')->default(0);
+            $table->integer('gemme')->default(0);
+            //$table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
