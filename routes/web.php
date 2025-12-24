@@ -1,5 +1,6 @@
 <?php
 
+use App\Utils\Twitch\TwitchAPI;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +16,30 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+})->name('index');
+
+Route::prefix('/login')->name('login.')->group(function () {
+
+    Route::get('/twitch', function(Request $request) {
+
+        // login with twitch parameters.
+        //dd($request->all());
+
+        $twitchAPI = new TwitchAPI(env('TWITCH_CLIENT_ID'), env('TWITCH_CLIENT_SECRET'));
+        $twitchLogin = $twitchAPI->tryAndLoginWithTwitch($request->input('code'), env('TWITCH_REDIRECT_URL'));
+
+        // need a controler to cast param from api twitch, into a class fillable "user".
+
+        /*
+        $request->input('code')  // a token.
+        $request->input('scope')  // "user:read:email".
+        $request->input('state')  // a token.
+        */
+
+        return route('index');
+    })->name('twitch');
+
 });
 
 Route::get('/debug', function (Request $request) {
