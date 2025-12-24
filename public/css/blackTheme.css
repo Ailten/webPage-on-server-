@@ -1,0 +1,62 @@
+
+
+body,
+header menu ul li.btn
+{
+    color: #FFF;
+}
+
+body,
+header,
+footer
+{
+    background-color: #18121a;
+}
+
+
+header,
+footer
+{
+    border-color: #000;
+}
+
+header menu ul li
+{
+    background-color: rgb(50, 38, 54);
+    background: linear-gradient(
+        0deg,
+        rgb(0, 0, 0) 0%,
+        rgb(50, 38, 54) 50%,
+        hsl(285, 18%, 9%) 100%
+    );
+    outline-color: rgb(109, 99, 110);
+}
+header menu ul li:hover
+{
+    background: linear-gradient(
+        0deg,
+        rgb(29, 29, 29) 0%,
+        rgb(90, 68, 97) 50%,
+        hsl(286, 17%, 20%) 100%
+    );
+}
+
+
+#border-page-left
+{
+    background: linear-gradient(
+        -90deg,
+        rgb(0, 0, 0) 0%,
+        rgb(50, 38, 54) 20%,
+        #18121a 100%
+    );
+}
+#border-page-right
+{
+    background: linear-gradient(
+        90deg,
+        rgb(0, 0, 0) 0%,
+        rgb(50, 38, 54) 20%,
+        #18121a 100%
+    );
+}

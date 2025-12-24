@@ -1,0 +1,102 @@
+
+/* generic */
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+
+/* header footer */
+header,
+footer
+{
+    width: 100vw;
+}
+header
+{
+    position: fixed;
+    border-bottom: 2px solid;
+    top: 0;
+}
+footer
+{
+    border-top: 2px solid;
+}
+
+
+/* border page */
+.border-page
+{
+    width: 20vw;
+    height: 100vh;
+    position: fixed;
+    z-index: -100;
+    top: 0;
+}
+#border-page-right
+{
+    right: 0;
+}
+#center-page
+{
+    margin: 0 20vw;
+    overflow: hidden;
+
+    height: 2000px;
+}
+
+
+/* header menu */
+header,
+footer
+{
+    padding: 16px 40px;
+}
+header menu{
+    margin-top: 5px;
+}
+header menu ul
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+/*
+header menu ul li
+{
+    display: inline-block;
+    padding: 1.2ch 1.8ch;
+    border-radius: 0.7ch;
+}
+*/
+header menu ul li:nth-child(n+2) {
+    margin-left: 8px;
+}
+header menu ul li:hover
+{
+    animation-name: header-menu-li-hover;
+    animation-duration: 1s;
+    outline-style: solid;
+    outline-width: 2px;
+}
+
+
+section#center-page {
+    padding: 20px;
+}
+
+
+.btn.btn-twitch {
+    color: #FFF;
+    background-color: #9147ff;
+}
+.btn.btn-twitch:hover{
+    background-color: #772ce8;
+    outline-style: solid;
+    outline-width: 2px;
+    outline-color: rgb(109, 99, 110);
+}
+.btn.btn-twitch:active{
+    background-color: #5c16c5;
+}
