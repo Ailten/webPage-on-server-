@@ -1,3 +1,4 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
 
 /* generic */
 *
@@ -73,7 +74,7 @@ header menu ul li
 header menu ul li:nth-child(n+2) {
     margin-left: 8px;
 }
-header menu ul li:hover
+header menu ul li[data-href]:hover
 {
     animation-name: header-menu-li-hover;
     animation-duration: 1s;

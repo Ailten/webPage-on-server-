@@ -1,20 +1,11 @@
+@extends('generic.layoutLink')
+
 
 <!DOCTYPE html>
 <html lang="fr">
     <head>
         <title>Ailten-WebPage</title>
 	    <meta charset="utf-8">
-
-	    <!-- js -->
-	    <script src="{{ URL::asset('js/main.js') }}"></script>
-    
-	    <!-- css -->
-        <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet">
-	    <link href="{{ URL::asset('css/main.css') }}" rel="stylesheet">
-	    <link href="{{ URL::asset('css/responcive.css') }}" rel="stylesheet">
-
-	    <link href="{{ URL::asset('css/blackTheme.css') }}" rel="stylesheet">
-
 
     </head>
 
@@ -57,14 +48,12 @@
                     ];
                     @endphp
                     @foreach($links as $link)
-                        <li class="btn" href="{{ route($link['view']) }}">{{ $link['name'] }}</li>
+                        <li class="btn" 
+                            data-href="{{ route($link['view']) }}">
+                            {{ $link['name'] }}
+                        </li>
                     @endforeach
 
-                    <!--
-                    <li href="accueil">acceuil</li>
-                    <li>placeholder-one</li>
-                    <li>placeholder-two</li>
-                    -->
                 </ul>
             </menu>
 

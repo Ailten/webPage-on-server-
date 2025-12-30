@@ -1,7 +1,7 @@
 
 /* --- tablette --- */
 /* @media (max-width: 768px) */
-body[type-size-screen="Tablette"]
+body[data-type-size-screen="Tablette"]
 {
 
     & .border-page
@@ -23,7 +23,7 @@ body[type-size-screen="Tablette"]
 
 /* --- mobile --- */
 /* @media (max-width: 600px) */
-body[type-size-screen="Mobile"]
+body[data-type-size-screen="Mobile"]
 {
 
     & .border-page

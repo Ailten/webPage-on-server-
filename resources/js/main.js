@@ -1,3 +1,4 @@
+import 'bootstrap';
 
 // load page.
 window.addEventListener('load', () => {
@@ -14,13 +15,16 @@ window.addEventListener('load', () => {
     // set link on menu header.
     {
         Array.prototype.forEach.call(
-            document.querySelectorAll("*[href]:not(a)"),
+            document.querySelectorAll("*[data-href]"),
             hrefDom => {
 
                 hrefDom.addEventListener("click", (e) => {
 
-                    let href = e.target.getAttribute("href");
+                    let dom = e.target;
+                    let href = dom.getAttribute("data-href");
                     if(href === null)
+                        return;
+                    if(dom.classList.contains("disabled-href"))  // not used.
                         return;
                     let ahref = document.createElement("a");
                     ahref.setAttribute("href", href);
@@ -55,5 +59,5 @@ function evalSizeScreen(){
         (windowWidth > 600)? "Tablette":
         "Mobile"
     );
-    document.body.setAttribute("type-size-screen", typeSizeScreen);
+    document.body.setAttribute("data-type-size-screen", typeSizeScreen);
 }
