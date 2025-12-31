@@ -55,6 +55,9 @@ class TwitchAPI {
     }
 
     public function makeApiCall($params) {
+
+        // TODO: verify if can't use a twitch redirect url without SSL certificat and without domaine name.
+
         $curlOptions = [
             CURLOPT_URL => $params['endpoint'],
             //CURLOPT_CAINFO => env('PATH_TO_CERT'),  // path to certificat SSL (for https).

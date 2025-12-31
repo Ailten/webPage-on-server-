@@ -28,7 +28,7 @@ Route::prefix('/login')->name('login.')->group(function () {
 
         $twitchAPI = new TwitchAPI(env('TWITCH_CLIENT_ID'), env('TWITCH_CLIENT_SECRET'));
         $twitchLogin = $twitchAPI->tryAndLoginWithTwitch($request->input('code'), env('TWITCH_REDIRECT_URL'));
-
+        
         // need a controler to cast param from api twitch, into a class fillable "user".
 
         /*
