@@ -70,5 +70,7 @@ class TwitchAPI {
             $curlOptions[CURLOPT_POST] = true;
             $curlOptions[CURLOPT_POSTFIELDS] = http_build_query($params['url_params']);
         }
+
+        return;  // TODO: return somehting.
     }
 }
