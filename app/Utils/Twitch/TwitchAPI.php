@@ -58,18 +58,30 @@ class TwitchAPI {
 
         // TODO: verify if can't use a twitch redirect url without SSL certificat and without domaine name.
 
+        // example for https (SSL).
+        //$curlOptions = [
+        //    CURLOPT_URL => $params['endpoint'],
+        //    //CURLOPT_CAINFO => env('PATH_TO_CERT'),  // path to certificat SSL (for https).
+        //    CURLOPT_RETURNTRANSFER => true,
+        //    CURLOPT_SSL_VERIFYPEER => true,
+        //    CURLOPT_SSL_VERIFYHOST => 2
+        //];
+
         $curlOptions = [
             CURLOPT_URL => $params['endpoint'],
-            //CURLOPT_CAINFO => env('PATH_TO_CERT'),  // path to certificat SSL (for https).
             CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_SSL_VERIFYPEER => true,
-            CURLOPT_SSL_VERIFYHOST => 2
         ];
 
         if( $params['type'] == 'POST'){
             $curlOptions[CURLOPT_POST] = true;
             $curlOptions[CURLOPT_POSTFIELDS] = http_build_query($params['url_params']);
         }
+
+        // FIXME : verify with tuto ytb.
+        //$ch = curl_init();
+        //curl_setopt_array($ch, $curlOptions);
+        //$response = curl_exec($ch);
+        //curl_close($ch);
 
         return;  // TODO: return somehting.
     }
