@@ -20,8 +20,20 @@ class TwitchAPI {
         $this->_accessToken = $accessToken;
     }
 
+    public static function castUriLocalHost($uri){
+        return str_replace(
+            env("IP_SERVER"), 
+            "localhost:8000", 
+            $uri
+        );
+    }
+
     public function getLoginUrl($redirectUri) {
         $endpoint = self::TWITCH_ID_DOMAIN."oauth2/authorize";
+
+        if(env("IS_DEV_MODE")){
+            $redirectUri = self::castUriLocalHost($redirectUri);
+        }
 
         $_SESSION['twitch_state'] = md5(microtime() . mt_rand());
 
@@ -38,6 +50,10 @@ class TwitchAPI {
 
     public function tryAndLoginWithTwitch($code, $redirectUri) {
         $endpoint = self::TWITCH_ID_DOMAIN."oauth2/token";
+
+        if(env("IS_DEV_MODE")){
+            $redirectUri = self::castUriLocalHost($redirectUri);
+        }
 
         $apiParams = [
             'endpoint' => $endpoint,
@@ -56,23 +72,18 @@ class TwitchAPI {
 
     public function makeApiCall($params) {
 
-        // TODO: verify if can't use a twitch redirect url without SSL certificat and without domaine name.
-
-        // example for https (SSL).
-        //$curlOptions = [
-        //    CURLOPT_URL => $params['endpoint'],
-        //    //CURLOPT_CAINFO => env('PATH_TO_CERT'),  // path to certificat SSL (for https).
-        //    CURLOPT_RETURNTRANSFER => true,
-        //    CURLOPT_SSL_VERIFYPEER => true,
-        //    CURLOPT_SSL_VERIFYHOST => 2
-        //];
-
-        $curlOptions = [
+        $curlOptions = [  // base (for http localhost).
             CURLOPT_URL => $params['endpoint'],
             CURLOPT_RETURNTRANSFER => true,
         ];
 
-        if( $params['type'] == 'POST'){
+        if(!env("IS_DEV_MODE")){  // for https mode (need verification).
+            $curlOptions[CURLOPT_CAINFO] = env('PATH_TO_CERT');  // path to certificat SSL (for https).
+            $curlOptions[CURLOPT_SSL_VERIFYPEER] = true;
+            $curlOptions[CURLOPT_SSL_VERIFYHOST] = 2;
+        }
+
+        if($params['type'] == 'POST'){  // mode post.
             $curlOptions[CURLOPT_POST] = true;
             $curlOptions[CURLOPT_POSTFIELDS] = http_build_query($params['url_params']);
         }
