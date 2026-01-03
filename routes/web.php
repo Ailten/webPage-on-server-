@@ -43,6 +43,7 @@ Route::prefix('/login')->name('login.')->group(function () {
         }
 
         // TODO : from DB an acount who has matching twitch_id, or create a new one.
+        // update user with access_token, refresh_token
 
         // need a controler to cast param from api twitch, into a class fillable "user".
 

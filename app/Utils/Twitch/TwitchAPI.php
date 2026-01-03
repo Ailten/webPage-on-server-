@@ -31,14 +31,14 @@ class TwitchAPI {
             $redirectUri = UrlManager::castLocalHost($redirectUri);
         }
 
-        $_SESSION['twitch_state'] = md5(microtime() . mt_rand());
+        $twitchState = md5(microtime() . mt_rand());  // previously in $_SESSION.
 
         $params = [
             'client_id' => $this->_clientId,
             'redirect_uri' => $redirectUri,
             'response_type' => 'code',
             'scope' => 'user:read:email',
-            'state' => $_SESSION['twitch_state']
+            'state' => $twitchState
         ];
 
         return "$endpoint?".http_build_query($params);

@@ -16,7 +16,7 @@ return new class extends Migration
 
             $table->integer('twitch_id')->unique();  // id twitch acount (to match OAuth connection).
             $table->longText('twitch_access_token');  // token twitch.
-            $table->longText('twitch_refresh_toekn');  // token to renouvelle token twitch.
+            $table->longText('twitch_refresh_token');  // token to renouvelle token twitch.
             $table->string('twitch_email')->unique();  // email from twitch acount (only use to recuperation acount).
 
             $table->string('name');  // pseudo twitch.  ->  get from obj twitch User, no need to be stocked.
