@@ -2,7 +2,7 @@
 
 namespace App\Utils\Twitch;
 
-use UrlManager;
+use App\Utils\UrlManager;
 
 // doc : https://www.youtube.com/watch?v=n9oO5D-aHCY
 // TODO : add url https in Twitch platform dev.
@@ -45,7 +45,7 @@ class TwitchAPI {
     }
 
     // try to login with twithc (call back from button "login with twitch").
-    public function tryAndLoginWithTwitch($code, $redirectUri) {
+    public function tryLoginWithTwitch($code, $redirectUri) {
         $endpoint = self::TWITCH_ID_DOMAIN."oauth2/token";
 
         if(env("IS_DEV_MODE")){
@@ -167,22 +167,4 @@ class TwitchAPI {
         ];
     }
 
-    /*
-    // get user from DB matching to the user return from login.
-    private function _logUserInWithTwitch($apiUserInfo) {
-        $_SESSION['twitch_user_info'] = $apiUserInfo;
-        $_SESSION['twitch_user_info']['access_token'] = $this->_accessToken;
-        $_SESSION['twitch_user_info']['refresh_token'] = $this->_refreshToken;
-        $_SESSION['eci_login_required_to_connect_twitch'] = false;
-
-        // check to find user in DB.
-        $userInfoWithId = getRowWithValue('users', 'twitch_user_id', $apiUserInfo['id']);
-
-        // check to find user with email.
-        $userInfoWithEmail = getRowWithValue('users', 'email', $apiUserInfo['email']);
-
-        // ... continue tuto, not used (19:19).
-
-    }
-    */
 }

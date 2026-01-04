@@ -12,34 +12,26 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+    // champs to send for create an instance of this model.
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'twitch_id',
+        'twitch_access_token',  // not sur need to fillable.
+        'twitch_refresh_token',  // not sur need to fillable.
+        'twitch_email',
+        'twitch_pseudo',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
+    // champs ignored when cast into array or json (to protect secret data befor print at screen).
     protected $hidden = [
-        'password',
+        'twitch_access_token',
+        'twitch_refresh_token',
+        'twitch_email',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-    ];
+    // champs who need a cast type.
+    //protected $casts = [
+    //    //'email_verified_at' => 'datetime',
+    //    //'password' => 'hashed',
+    //];
 }

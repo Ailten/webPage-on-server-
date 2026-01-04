@@ -18,9 +18,9 @@ return new class extends Migration
             $table->longText('twitch_access_token');  // token twitch.
             $table->longText('twitch_refresh_token');  // token to renouvelle token twitch.
             $table->string('twitch_email')->unique();  // email from twitch acount (only use to recuperation acount).
+            $table->string('twitch_pseudo');  // pseudo twitch.  ->  get from obj twitch User, no need to be stocked.
 
-            $table->string('name');  // pseudo twitch.  ->  get from obj twitch User, no need to be stocked.
-            $table->integer('xp')->default(0);  // need a function to cast xp as level (stock in user obj for nor re-calculate).
+            //$table->integer('xp')->default(0);  // need a function to cast xp as level (stock in user obj for nor re-calculate).
             $table->integer('gold')->default(0);  // money in game.
             $table->integer('gemme')->default(0);  // money ++.
 

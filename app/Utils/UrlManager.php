@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Utils;
+
 class UrlManager {
 
     // cast a string url for replace ip server by localhost.

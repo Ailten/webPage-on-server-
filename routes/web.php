@@ -34,7 +34,7 @@ Route::prefix('/login')->name('login.')->group(function () {
 
         // TODO: place all this bloc in a Controller.
         $twitchAPI = new TwitchAPI(env('TWITCH_CLIENT_ID'), env('TWITCH_CLIENT_SECRET'));
-        $twitchLogin = $twitchAPI->tryAndLoginWithTwitch($request->input('code'), env('TWITCH_REDIRECT_URL'));
+        $twitchLogin = $twitchAPI->tryLoginWithTwitch($request->input('code'), env('TWITCH_REDIRECT_URL'));
         
         // error during login.
         if(!$twitchLogin['is_success']){
@@ -44,6 +44,9 @@ Route::prefix('/login')->name('login.')->group(function () {
 
         // TODO : from DB an acount who has matching twitch_id, or create a new one.
         // update user with access_token, refresh_token
+        // stock user in session (alternative laravel).
+
+        //$userLog = new User();
 
         // need a controler to cast param from api twitch, into a class fillable "user".
 
