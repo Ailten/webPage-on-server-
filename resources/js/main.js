@@ -6,10 +6,24 @@ window.addEventListener('load', () => {
     // eval size screen.
     evalSizeScreen();
 
-    // set margin-top to center-page (prevent overlap to header).
+    // set margin-top/bottom and height to center-page (prevent overlap to header/footer and footer position).
     {
+        let centerPage = document.getElementById("center-page");
+
+        // margin-top for header overlap.
         let headerHeight = document.getElementsByTagName("header")[0].offsetHeight;
-        document.getElementById("center-page").style.marginTop = `${headerHeight}px`;
+        centerPage.style.marginTop = `${headerHeight}px`;
+
+        // height for footer position.
+        let footerHeight = document.getElementsByTagName("footer")[0].offsetHeight;
+        let centerPageHeight = centerPage.getBoundingClientRect().height;
+        let centerPagePosBottom = headerHeight + centerPageHeight;
+        let posUpFooterTheoric = window.innerHeight - footerHeight;
+        if(centerPagePosBottom < posUpFooterTheoric){
+            // height for footer position.
+            let centerPageHeightNeed = window.innerHeight - (headerHeight + footerHeight);
+            centerPage.style.height = `${centerPageHeightNeed}px`;
+        }
     }
 
     // set link on menu header.

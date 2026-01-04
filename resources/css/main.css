@@ -13,6 +13,7 @@ header,
 footer
 {
     width: 100vw;
+    backdrop-filter: saturate(2) blur(5px);
 }
 header
 {
@@ -43,8 +44,6 @@ footer
 {
     margin: 0 20vw;
     overflow: hidden;
-
-    height: 2000px;
 }
 
 

@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('twitch_email')->unique();  // email from twitch acount (only use to recuperation acount).
             $table->string('twitch_pseudo');  // pseudo twitch.  ->  get from obj twitch User, no need to be stocked.
 
+            $table->boolean('is_dark_theme')->default(true);  // to know preference CSS.
+
             //$table->integer('xp')->default(0);  // need a function to cast xp as level (stock in user obj for nor re-calculate).
             $table->integer('gold')->default(0);  // money in game.
             $table->integer('gemme')->default(0);  // money ++.

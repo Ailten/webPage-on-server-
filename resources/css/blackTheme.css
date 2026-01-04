@@ -6,9 +6,7 @@ header menu ul li.btn
     color: #FFF;
 }
 
-body,
-header,
-footer
+body
 {
     background-color: #18121a;
 }
@@ -19,6 +17,7 @@ footer
 {
     border-color: #000;
 }
+
 
 header menu ul li
 {
