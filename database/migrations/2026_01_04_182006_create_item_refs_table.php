@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ItemCategorie;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -26,6 +27,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('item_refs', function(Blueprint $table){
+            $table->dropForeignIdFor(ItemCategorie::class);
+        });
         Schema::dropIfExists('item_refs');
     }
 };

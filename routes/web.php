@@ -24,13 +24,7 @@ Route::prefix('/login')->name('login.')->group(function () {
     // route to login-redirect, with twitch OAuth.
     Route::get('/twitch', function(Request $request) {
 
-        // login with twitch parameters.
-        /*
-        dd($request->all());
-        $request->input('code')  // a token.
-        $request->input('scope')  // "user:read:email".
-        $request->input('state')  // a token.
-        */
+        // TODO: continue to create the ORM (and create the DB MCD with flowgoritme).
 
         // TODO: place all this bloc in a Controller.
         $twitchAPI = new TwitchAPI(env('TWITCH_CLIENT_ID'), env('TWITCH_CLIENT_SECRET'));
