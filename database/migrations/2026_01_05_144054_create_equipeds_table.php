@@ -33,6 +33,6 @@ return new class extends Migration
         Schema::table('equipeds', function(Blueprint $table){
             $table->dropForeignIdFor(Inventory::class);
         });
-        Schema::dropIfExists('equipeds');
+        Schema::dropIfExists(table: 'equipeds');
     }
 };

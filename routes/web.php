@@ -40,6 +40,8 @@ Route::prefix('/login')->name('login.')->group(function () {
         // update user with access_token, refresh_token
         // stock user in session (alternative laravel).
 
+        // TODO : class utils for IA mob and character (with a flowgorithme).
+
         //$userLog = new User();
 
         // need a controler to cast param from api twitch, into a class fillable "user".

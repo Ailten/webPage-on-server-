@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('stat_types', function (Blueprint $table) {
             $table->id();
             
-            $table->string('name');  // libele.
+            $table->string('name')->unique();  // libele.
             $table->int('weight');  // weight of stats.
         });
     }
