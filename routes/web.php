@@ -24,6 +24,8 @@ Route::prefix('/login')->name('login.')->group(function () {
     // route to login-redirect, with twitch OAuth.
     Route::get('/twitch', function(Request $request) {
 
+        // TODO : verify if I can delete Factories and seeders (and verify what use for Factories), and if after deleting I need to delete some line from other file php who can call it.
+
         // TODO: continue to create the ORM (and create the DB MCD with flowgoritme).
 
         // TODO: place all this bloc in a Controller.

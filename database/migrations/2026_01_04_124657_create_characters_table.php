@@ -16,8 +16,6 @@ return new class extends Migration
         Schema::create('characters', function (Blueprint $table) {
             $table->id();
 
-            // TODO : verify if I can delete Factories and seeders (and verify what use for Factories), and if after deleting I need to delete some line from other file php who can call it.
-
             // FK.
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('character_spacie_id')->constrained()->onDelete('cascade');
