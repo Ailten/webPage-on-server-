@@ -5,7 +5,6 @@ namespace App\Utils\Twitch;
 use App\Utils\UrlManager;
 
 // doc : https://www.youtube.com/watch?v=n9oO5D-aHCY
-// TODO : add url https in Twitch platform dev.
 
 class TwitchAPI {
     const TWITCH_ID_DOMAIN = 'https://id.twitch.tv/';

@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\CharacterSpecie;
+use App\Models\Stat;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -19,7 +20,7 @@ return new class extends Migration
             // FK.
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('character_spacie_id')->constrained()->onDelete('cascade');
-            //$table->foreignId('stats_id');  // TODO : stock in the model, not in DB (re-calculate when get from DB, create, or switch an equipement).
+            $table->foreignId('stats_id')->constrained()->onDelete('cascade');
 
             $table->string('pseudo');  // pseudo of the character.
             $table->int('xp')->default(0);  // xp cumul of a perso.
@@ -41,6 +42,9 @@ return new class extends Migration
         });
         Schema::table('characters', function(Blueprint $table){
             $table->dropForeignIdFor(CharacterSpecie::class);
+        });
+        Schema::table('characters', function(Blueprint $table){
+            $table->dropForeignIdFor(Stat::class);
         });
         Schema::dropIfExists('characters');
     }
