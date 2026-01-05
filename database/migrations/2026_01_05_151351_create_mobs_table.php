@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('name')->unique();  // libele.
             $table->int('level');  // level of mob.
             $table->int('xp_given');  // xp give when killed.
+            $table->int('gold_given');  // gold give when killed.
 
         });
     }

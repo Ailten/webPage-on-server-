@@ -24,10 +24,6 @@ Route::prefix('/login')->name('login.')->group(function () {
     // route to login-redirect, with twitch OAuth.
     Route::get('/twitch', function(Request $request) {
 
-        // TODO : verify if I can delete Factories and seeders (and verify what use for Factories), and if after deleting I need to delete some line from other file php who can call it.
-
-        // TODO: continue to create the ORM (and create the DB MCD with flowgoritme).
-
         // TODO: place all this bloc in a Controller.
         $twitchAPI = new TwitchAPI(env('TWITCH_CLIENT_ID'), env('TWITCH_CLIENT_SECRET'));
         $twitchLogin = $twitchAPI->tryLoginWithTwitch($request->input('code'), env('TWITCH_REDIRECT_URL'));
@@ -37,12 +33,6 @@ Route::prefix('/login')->name('login.')->group(function () {
             // TODO : allow to print the 'message' at the page index (re-watch laravel tuto for it).
             return route('index');
         }
-
-        // TODO : from DB an acount who has matching twitch_id, or create a new one.
-        // update user with access_token, refresh_token
-        // stock user in session (alternative laravel).
-
-        // TODO : class utils for IA mob and character (with a flowgorithme).
 
         //$userLog = new User();
 

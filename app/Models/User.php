@@ -28,10 +28,4 @@ class User extends Authenticatable
         'twitch_email',
         'remember_token',
     ];
-
-    // champs who need a cast type.
-    //protected $casts = [
-    //    //'email_verified_at' => 'datetime',
-    //    //'password' => 'hashed',
-    //];
 }
