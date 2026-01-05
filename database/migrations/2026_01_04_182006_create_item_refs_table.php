@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('item_categories_id')->constrained()->onDelete('cascade');
 
             $table->string('name')->unique();  // libele.  
+            $table->int('price');  // price reference for trade to pnj/shop.
         });
     }
 

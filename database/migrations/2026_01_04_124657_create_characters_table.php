@@ -24,8 +24,8 @@ return new class extends Migration
             //$table->foreignId('stats_id');  // TODO : stock in the model, not in DB (re-calculate when get from DB, create, or switch an equipement).
 
             $table->string('pseudo');  // pseudo of the character.
-            $table->int('xp')->default(0);  // xp cumul of a perso,
-            //$table->int('level');  // calculate based on xp, not stocked.
+            $table->int('xp')->default(0);  // xp cumul of a perso.
+            $table->int('level')->default(1);  // level of character.
             
             $table->boolean('is_selected')->default(false);  // define wish character is used for fight.
 
