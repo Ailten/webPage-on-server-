@@ -20,13 +20,13 @@ return new class extends Migration
             // FK.
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('character_spacie_id')->constrained()->onDelete('cascade');
-            $table->foreignId('stats_id')->constrained()->onDelete('cascade');
+            $table->foreignId('stat_id')->constrained()->onDelete('cascade');
 
             $table->string('pseudo');  // pseudo of the character.
             $table->int('xp')->default(0);  // xp cumul of a perso.
             $table->int('level')->default(1);  // level of character.
             
-            $table->boolean('is_selected')->default(false);  // define wish character is used for fight.
+            $table->boolean('is_active')->default(false);  // define wish character is used for fight .
 
             $table->timestamps();
         });

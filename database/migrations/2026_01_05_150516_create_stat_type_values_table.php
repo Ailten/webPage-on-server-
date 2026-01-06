@@ -14,7 +14,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('stat_type_values', function (Blueprint $table) {
-            $table->id();
+            //$table->id();  // no need PK.
             
             // FK.
             $table->foreignId('stat_id')->constrained()->onDelete('cascade');
