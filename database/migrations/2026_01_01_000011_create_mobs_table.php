@@ -19,9 +19,9 @@ return new class extends Migration
             $table->foreignId('stat_id')->constrained()->onDelete('cascade');
 
             $table->string('name')->unique();  // libele.
-            $table->int('level');  // level of mob.
-            $table->int('xp_given');  // xp give when killed.
-            $table->int('gold_given');  // gold give when killed.
+            $table->tinyInteger('level')->unsigned();  // level of mob.
+            $table->integer('xp_given');  // xp give when killed.
+            $table->integer('gold_given');  // gold give when killed.
 
         });
     }

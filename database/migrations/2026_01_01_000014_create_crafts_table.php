@@ -18,7 +18,7 @@ return new class extends Migration
             // FK.
             $table->foreignId('item_ref_id')->constrained()->onDelete('cascade');  // item result of craft.
 
-            $table->int('quantity')->default(1);  // quantity of item generate when craft make.
+            $table->integer('quantity')->default(1);  // quantity of item generate when craft make.
             $table->float('rate');  // success rate of craft work (1.0 = 100%).
 
         });

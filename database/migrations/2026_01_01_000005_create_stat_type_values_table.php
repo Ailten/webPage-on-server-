@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignId('stat_id')->constrained()->onDelete('cascade');
             $table->foreignId('stat_type_id')->constrained()->onDelete('cascade');
 
-            $table->int('value');
+            $table->integer('value');
         });
     }
 

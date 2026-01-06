@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:146.0) Gecko/20100101 Firefox/146.0" version="29.2.9">
   <diagram name="Page-1" id="uv_-s529ffK3sC7qoQBK">
-    <mxGraphModel dx="1188" dy="638" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2852" dy="1532" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -100,7 +100,7 @@
           <mxGeometry height="30" width="140" y="90" as="geometry" />
         </mxCell>
         <mxCell id="TxEx0tso6GFz2tgrT9j_-40" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Item_refs" vertex="1">
-          <mxGeometry height="210" width="140" x="600" y="840" as="geometry" />
+          <mxGeometry height="240" width="140" x="600" y="840" as="geometry" />
         </mxCell>
         <mxCell id="TxEx0tso6GFz2tgrT9j_-41" parent="TxEx0tso6GFz2tgrT9j_-40" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" value="// like &quot;épée du segnieur guerrier&quot;." vertex="1">
           <mxGeometry height="30" width="140" y="30" as="geometry" />
@@ -119,6 +119,9 @@
         </mxCell>
         <mxCell id="TxEx0tso6GFz2tgrT9j_-47" parent="TxEx0tso6GFz2tgrT9j_-40" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" value="- price" vertex="1">
           <mxGeometry height="30" width="140" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="uJ8yCI2y3clAv7cUgkbG-1" parent="TxEx0tso6GFz2tgrT9j_-40" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" value="- level" vertex="1">
+          <mxGeometry height="30" width="140" y="210" as="geometry" />
         </mxCell>
         <mxCell id="TxEx0tso6GFz2tgrT9j_-50" edge="1" parent="1" source="TxEx0tso6GFz2tgrT9j_-40" style="endArrow=classic;html=1;rounded=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;" target="TxEx0tso6GFz2tgrT9j_-36" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
@@ -253,7 +256,7 @@
         <mxCell id="TxEx0tso6GFz2tgrT9j_-82" parent="TxEx0tso6GFz2tgrT9j_-78" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" value="- weight" vertex="1">
           <mxGeometry height="30" width="140" y="120" as="geometry" />
         </mxCell>
-        <mxCell id="TxEx0tso6GFz2tgrT9j_-83" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Stats" vertex="1">
+        <mxCell id="TxEx0tso6GFz2tgrT9j_-83" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Stats_type_values" vertex="1">
           <mxGeometry height="150" width="140" x="80" y="1600" as="geometry" />
         </mxCell>
         <mxCell id="TxEx0tso6GFz2tgrT9j_-84" parent="TxEx0tso6GFz2tgrT9j_-83" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" value="// a block of stat." vertex="1">

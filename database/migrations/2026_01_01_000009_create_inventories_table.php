@@ -22,7 +22,7 @@ return new class extends Migration
             $table->foreignId('item_ref_id')->constrained()->onDelete('cascade');
             $table->foreignId('stat_id')->nullable()->default(null)->constrained()->onDelete('cascade');
 
-            $table->int('quantity')->default(1);
+            $table->integer('quantity')->default(1);
         });
     }
 

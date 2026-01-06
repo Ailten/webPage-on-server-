@@ -21,7 +21,8 @@ return new class extends Migration
             $table->foreignId('stat_id')->nullable()->default(null)->constrained()->onDelete('cascade');
 
             $table->string('name')->unique();  // libele.  
-            $table->int('price');  // price reference for trade to pnj/shop.
+            $table->integer('price');  // price reference for trade to pnj/shop.
+            $table->tinyInteger('level');  // level of item (can be use as contraint for equiped).
         });
     }
 

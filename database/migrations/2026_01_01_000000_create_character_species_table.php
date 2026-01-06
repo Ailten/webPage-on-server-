@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('character_species', function (Blueprint $table) {
             $table->id();
 
-            $table->pseudo('name')->unique();  // libele.
+            $table->string('name')->unique();  // libele.
             
         });
     }

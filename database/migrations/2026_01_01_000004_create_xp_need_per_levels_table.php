@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('xp_need_per_levels', function (Blueprint $table) {
             //$table->id();  // no need PK.
 
-            $table->int('level')->unique();  // level of the character, when he want to lvl up.
-            $table->int('xp_need');  // xp need to level up.
+            $table->tinyInteger('level')->unsigned()->unique();  // level of the character, when he want to lvl up.
+            $table->integer('xp_need');  // xp need to level up.
         });
     }
 

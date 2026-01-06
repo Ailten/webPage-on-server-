@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignId('craft_id')->constrained()->onDelete('cascade');
             $table->foreignId('item_ref_id')->constrained()->onDelete('cascade');
 
-            $table->int('quantity')->default(1);  // quantity of this ingredient need for this craft.
+            $table->integer('quantity')->default(1);  // quantity of this ingredient need for this craft.
 
         });
     }

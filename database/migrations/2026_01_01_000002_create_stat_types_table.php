@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             
             $table->string('name')->unique();  // libele.
-            $table->int('weight');  // weight of stats.
+            $table->integer('weight');  // weight of stats.
         });
     }
 
