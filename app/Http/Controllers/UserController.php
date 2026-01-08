@@ -14,8 +14,7 @@ class UserController extends Controller
 
         // if don't have parameter "code" in redirection.
         if(!isset($code)){
-            // send a message and redirect to 'index'.
-            return route('index');
+            return redirect()->route('index')->with('error', 'le parametre code est absent !');
         }
 
         // twitch interact API to get token.
@@ -24,8 +23,7 @@ class UserController extends Controller
         
         // error during login.
         if(!$twitchLogin['is_success']){
-            // TODO : allow to print the 'message' at the page index (re-watch laravel tuto for it).
-            return route('index');
+            return redirect()->route('index')->with('error', $twitchLogin['message']);
         }
 
         $userTwitch = $twitchLogin['api_data']['data'][0];
@@ -46,6 +44,6 @@ class UserController extends Controller
 
         // TODO: place userLog on session (or alternative in Laravel).
 
-        return route('index');
+        return redirect()->route('index');
     }
 }

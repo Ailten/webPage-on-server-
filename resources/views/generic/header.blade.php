@@ -59,6 +59,12 @@
 
         </header>
 
+        @if(session('error'))
+            <div>
+                <p>{{ session('error') }}</p>
+            </div>
+        @endif
+
         <section class="border-page" id="border-page-left"></section>
         
 
