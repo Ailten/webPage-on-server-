@@ -1,7 +1,7 @@
 
 
 body,
-header menu ul li.btn
+header .btn-header
 {
     color: #FFF;
 }
@@ -19,7 +19,7 @@ footer
 }
 
 
-header menu ul li
+.btn-header
 {
     background-color: rgb(50, 38, 54);
     background: linear-gradient(
@@ -30,7 +30,7 @@ header menu ul li
     );
     outline-color: rgb(109, 99, 110);
 }
-header menu ul li[data-href]:hover
+.btn-header[data-href]:hover
 {
     background: linear-gradient(
         0deg,

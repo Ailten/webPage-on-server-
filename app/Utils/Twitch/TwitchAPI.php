@@ -83,14 +83,15 @@ class TwitchAPI {
             $output['message'] = $userInfo['message'];
 
             // handle error from obj User not get properly.
-            if($output['is_success'] && !isset($userInfo['api_data']->data[0])){
+            $userIsSet = isset($userInfo['api_data']['data'][0]);
+            if($output['is_success'] && !$userIsSet){
                 $output['is_success'] = false;
                 $output['message'] = 'success to login-in to API Twitch, but no acount found';
             }
 
             // add obj user to the return.
             if($output['is_success']){
-                $output['user'] = $userInfo['api_data']->data[0];
+                $output['user'] = $userInfo['api_data']['data'][0];
             }
         }
 

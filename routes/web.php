@@ -15,17 +15,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// index (default page).
 Route::get('/', function () {
     return view('index');
 })->name('index');
 
-Route::prefix('/login')->name('login.')->controller(UserController::class)->group(function () {
+Route::prefix('/login')
+->name('login.')
+->controller(UserController::class)
+->middleware('guest')
+->group(function () {
 
     // route to login-redirect, with twitch OAuth.
     Route::get('/twitch', 'loginTwitch')->name('twitch');
 
 });
 
+// route to logout.
+Route::delete('/logout', [UserController::class, 'logout'])
+->name('logout')
+->middleware('auth');
+
+// debug.
 Route::get('/debug', function (Request $request) {
 
     // TODO: add a controller, to verify is loged and if it's an user who has permission to this page (table permissions, maybe role).

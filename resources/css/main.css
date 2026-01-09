@@ -62,21 +62,12 @@ header menu ul
     padding: 0;
     margin: 0;
 }
-/*
-header menu ul li
-{
-    display: inline-block;
-    padding: 1.2ch 1.8ch;
-    border-radius: 0.7ch;
-}
-*/
 header menu ul li:nth-child(n+2) {
     margin-left: 8px;
 }
-header menu ul li[data-href]:hover
+
+.btn-header[data-href]:hover
 {
-    animation-name: header-menu-li-hover;
-    animation-duration: 1s;
     outline-style: solid;
     outline-width: 2px;
 }
@@ -99,4 +90,15 @@ section#center-page {
 }
 .btn.btn-twitch:active{
     background-color: #5c16c5;
+}
+
+
+.p-align-btn {
+    margin: 0;
+    padding: 0px 12px;
+    padding-top: 7px;
+}
+
+.margin-right {
+    margin-right: 12px;
 }

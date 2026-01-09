@@ -15,12 +15,13 @@
 
             <div class="d-flex justify-content-end">
 
-                <!-- button twitch log. -->
-                @if(False)
+                @auth
 
-                    <input ype="button" class="btn btn-twitch" value="disconnect">
+                    <p class="p-align-btn margin-right">{{ auth()->user()->twitch_pseudo }}</p>
+                    <input type="button" class="btn btn-twitch" value="Ce déconnecter" data-href="{{ route('logout') }}">
 
-                @else
+                @endauth
+                @guest
 
                     @php
                     $twitchAPI = new App\Utils\Twitch\TwitchAPI(env('TWITCH_CLIENT_ID'), env('TWITCH_CLIENT_SECRET'));
@@ -28,7 +29,7 @@
                     @endphp
                     <input type="button" class="btn btn-twitch" value="Ce connecter avec Twitch" data-href="{{ $twitchLoginUrl }}">
 
-                @endif
+                @endguest
 
                 <!-- if session log or not : print button log or disconnect OAuth -->
             </div>
@@ -48,7 +49,7 @@
                     ];
                     @endphp
                     @foreach($links as $link)
-                        <li class="btn" 
+                        <li class="btn btn-header" 
                             data-href="{{ route($link['view']) }}">
                             {{ $link['name'] }}
                         </li>

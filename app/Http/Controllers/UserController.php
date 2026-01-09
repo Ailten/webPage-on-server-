@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Utils\Twitch\TwitchAPI;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -26,10 +27,10 @@ class UserController extends Controller
             return redirect()->route('index')->with('error', $twitchLogin['message']);
         }
 
-        $userTwitch = $twitchLogin['api_data']['data'][0];
+        $userTwitch = $twitchLogin['user'];
 
         // verify if this Viewer have already an acount User in DB.
-        $userLog = User::where('twitch_id', '=', $userTwitch['id']);
+        $userLog = User::where('twitch_id', '=', $userTwitch['id'])->first();
         if(!isset($userLog)){  // if is not already in DB, add it.
             $userLog = new User();
             $userLog->twitch_id = $userTwitch['id'];
@@ -38,12 +39,19 @@ class UserController extends Controller
 
         // update / create (with refresh token).
         $userLog->twitch_access_token = $twitchLogin['access_Token'];  // refresh token.
-        $userLog->twitch_access_token = $twitchLogin['refresh_Token'];
+        $userLog->twitch_refresh_token = $twitchLogin['refresh_Token'];
         $userLog->twitch_pseudo = $userTwitch['display_name'];  // update pseudo just in case it was rename on twitch.
         $userLog->save();
 
-        // TODO: place userLog on session (or alternative in Laravel).
+        // place userLog on session (log user).
+        Auth::login($userLog);
+        $request->session()->regenerate();
 
+        return redirect()->route('index');
+    }
+
+    public function logout() {
+        Auth::logout();
         return redirect()->route('index');
     }
 }
