@@ -28,10 +28,9 @@
                     $twitchLoginUrl = $twitchAPI->getLoginUrl(env('TWITCH_REDIRECT_URL'))
                     @endphp
                     <input type="button" class="btn btn-twitch" value="Ce connecter avec Twitch" data-href="{{ $twitchLoginUrl }}">
-
+                    
                 @endguest
 
-                <!-- if session log or not : print button log or disconnect OAuth -->
             </div>
 
             <menu>
@@ -43,8 +42,8 @@
                             'view' => 'index'
                         ],
                         [
-                            'name' => 'placeholder_xx', 
-                            'view' => 'index'
+                            'name' => 'personnages', 
+                            'view' => 'characters'
                         ]
                     ];
                     @endphp
@@ -69,9 +68,9 @@
         <section class="border-page" id="border-page-left"></section>
         
 
-
-        @yield('contend')
-
+        <section id="center-page" class="flex-fill">
+            @yield('contend')
+        </section>
 
 
         <section class="border-page" id="border-page-right"></section>

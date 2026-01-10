@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CharacterController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,17 @@ Route::prefix('/login')
 Route::delete('/logout', [UserController::class, 'logout'])
 ->name('logout')
 ->middleware('auth');
+
+Route::prefix('/log')
+->name('log.')
+->middleware('auth')
+->group(function () {
+
+    // see characters of user log.
+    Route::get('/characters', [CharacterController::class, 'getCharactersUserLog'])
+    ->name('characters');
+
+});
 
 // debug.
 Route::get('/debug', function (Request $request) {

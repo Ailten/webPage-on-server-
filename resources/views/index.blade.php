@@ -3,10 +3,6 @@
 
 @section('contend')
 
-<section id="center-page" class="flex-fill">
-
-  <p>line placeholder 1</p>
-
-</section>
+<p>line placeholder 1</p>
 
 @endsection
