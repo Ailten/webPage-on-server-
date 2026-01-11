@@ -17,7 +17,9 @@ class CharacterController extends Controller
         dd($characters);
 
         // TODO : send characters to the view.
-        return view('log.charactersSelection');
+        return view('log.charactersSelection', [
+            'characters' => $characters
+        ]);
 
     }
 }
