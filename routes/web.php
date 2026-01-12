@@ -33,7 +33,7 @@ Route::prefix('/login')
 });
 
 // route to logout.
-Route::delete('/logout', [UserController::class, 'logout'])
+Route::get('/logout', [UserController::class, 'logout'])
 ->name('logout')
 ->middleware('auth');
 

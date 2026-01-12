@@ -13,9 +13,6 @@ class CharacterController extends Controller
         // get character list from user log.
         $characters = Character::where('user_id', '=', Auth::user()->id);
 
-        // TODO: debug.
-        dd($characters);
-
         // TODO : send characters to the view.
         return view('log.charactersSelection', [
             'characters' => $characters

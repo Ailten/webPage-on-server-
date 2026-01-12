@@ -36,7 +36,7 @@
             <menu>
                 <ul>
                     @php
-                    $links = [
+                    $links = array_filter([
                         [
                             'name' => 'acceuil', 
                             'view' => 'index',
@@ -47,15 +47,15 @@
                             'view' => 'log.characters',
                             'isPrint' => Auth::check(),
                         ]
-                    ];
+                    ], fn($l) => $l['isPrint']);
                     @endphp
                     @foreach($links as $link)
-                        @if($link['isPrint'])
+
                         <li class="btn btn-header" 
                             data-href="{{ route($link['view']) }}">
                             {{ $link['name'] }}
                         </li>
-                        @endif
+
                     @endforeach
 
                 </ul>
