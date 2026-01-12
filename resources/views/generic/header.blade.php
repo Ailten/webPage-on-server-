@@ -43,7 +43,7 @@
                         ],
                         [
                             'name' => 'personnages', 
-                            'view' => 'characters'
+                            'view' => 'log.characters'
                         ]
                     ];
                     @endphp

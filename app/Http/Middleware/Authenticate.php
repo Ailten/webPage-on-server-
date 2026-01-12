@@ -12,6 +12,11 @@ class Authenticate extends Middleware
      */
     protected function redirectTo(Request $request): ?string
     {
-        return $request->expectsJson() ? null : redirect()->route('index')->with('error', 'utilisateur non connecté !');
+        // if user not log.
+        if(!$request->expectsJson()){
+            return route('index');
+        }
+        
+        return null;
     }
 }

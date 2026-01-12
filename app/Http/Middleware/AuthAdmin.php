@@ -21,12 +21,20 @@ class AuthAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $userLog = Auth::user();
-
-        if(!isset($userLog)){
-            return redirect()->back()->with('error', 'utilisateur non connecté !');
+        // json exception.
+        if(!$request->expectsJson()){
+            return redirect()->route('index')->with('error', 'erreur json expects !');
         }
 
+        // if user not log.
+        if(!Auth::check()){
+            return redirect()->route('index')->with('error', 'utilisateur non connecté !');
+        }
+
+        // get user obj (can't be null).
+        $userLog = Auth::user();
+
+        // verify id admin (TODO: use a table role).
         if(!in_array($userLog->twitch_id, AuthAdmin::ADMIN_TWITCH_ID)){
             return redirect()->back()->with('error', 'vous devez être Admin !');
         }
