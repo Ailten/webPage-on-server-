@@ -7,13 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+use App\Utils\Admin\AdminCheck;
 
 class AuthAdmin extends Middleware
 {
-
-    private const ADMIN_TWITCH_ID = [
-        450998053
-    ];
 
     /**
      * Handle an incoming request.
@@ -32,11 +29,8 @@ class AuthAdmin extends Middleware
             return redirect()->route('index')->with('error', 'utilisateur non connecté !');
         }
 
-        // get user obj (can't be null).
-        $userLog = Auth::user();
-
         // verify id admin (TODO: use a table role).
-        if(!in_array($userLog->twitch_id, AuthAdmin::ADMIN_TWITCH_ID)){
+        if(!AdminCheck::isAdmin(Auth::user())){
             return redirect()->back()->with('error', 'vous devez être Admin !');
         }
 

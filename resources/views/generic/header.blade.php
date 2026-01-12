@@ -39,19 +39,23 @@
                     $links = [
                         [
                             'name' => 'acceuil', 
-                            'view' => 'index'
+                            'view' => 'index',
+                            'isPrint' => true,
                         ],
                         [
                             'name' => 'personnages', 
-                            'view' => 'log.characters'
+                            'view' => 'log.characters',
+                            'isPrint' => Auth::check(),
                         ]
                     ];
                     @endphp
                     @foreach($links as $link)
+                        @if($link['isPrint'])
                         <li class="btn btn-header" 
                             data-href="{{ route($link['view']) }}">
                             {{ $link['name'] }}
                         </li>
+                        @endif
                     @endforeach
 
                 </ul>
