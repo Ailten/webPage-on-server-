@@ -18,8 +18,14 @@
                 @auth
 
                     <p class="p-align-btn margin-right">{{ auth()->user()->twitch_pseudo }}</p>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        @method('DELETE')
+                        <input type="submit" class="btn btn-twitch" value="Ce déconnecter">
+                    </form>
+                    <!--
                     <input type="button" class="btn btn-twitch" value="Ce déconnecter" data-href="{{ route('logout') }}">
-
+                    -->
                 @endauth
                 @guest
 
