@@ -60,7 +60,9 @@
         </header>
 
         @if(session('error'))
-            <div>
+            <div class="pop-up-error">
+                <!--<span class="btn-x">x</span>-->
+                <input type="button" class="btn-x" value="x">
                 <p>{{ session('error') }}</p>
             </div>
         @endif

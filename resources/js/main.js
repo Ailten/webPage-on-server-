@@ -50,6 +50,19 @@ window.addEventListener('load', () => {
         );
     }
 
+    // button x.
+    {
+        Array.prototype.forEach.call(
+            document.getElementsByClassName("btn-x"),
+            btnX => {
+                btnX.addEventListener('click', (evnt) => {
+                    let elementToDel = evnt.target.parentNode;
+                    elementToDel.parentNode.removeChild(elementToDel);
+                });
+            }
+        );
+    }
+
 });
 
 

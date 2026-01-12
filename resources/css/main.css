@@ -102,3 +102,31 @@ section#center-page {
 .margin-right {
     margin-right: 12px;
 }
+
+
+.pop-up-error {
+    position: absolute;
+    z-index: 100;
+    right: 0;
+    background-color: rgba(226, 41, 41, 0.295);
+    color: red;
+    padding: 20px;
+    border-radius: 5px;
+    border: solid 2px red;
+    margin: 10px;
+}
+.pop-up-error p {
+    margin: 0;
+}
+
+.btn-x {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: red;
+    position: absolute;
+    right: 6px;
+    top: 0px;
+}
+*.btn-x:hover {
+    color: rgb(255, 255, 255);
+}
