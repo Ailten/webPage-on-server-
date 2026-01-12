@@ -14,6 +14,7 @@ class Authenticate extends Middleware
     {
         // if user not log.
         if(!$request->expectsJson()){
+            session()->flash('error', 'Vous devez être connecté !');
             return route('index');
         }
         
