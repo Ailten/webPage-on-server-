@@ -50,6 +50,10 @@ Route::prefix('/log')
     Route::get('/create/character', function(){
         return view('log.characterCreate');
     })->name('create.character');
+    
+    // submit form create character.
+    Route::get('/create/character/validate', [CharacterController::class, 'createCharacterUserLog'])
+    ->name('create.character.validate');
 
 });
 
