@@ -142,3 +142,8 @@ section#center-page {
 .block-character:nth-child(n+2) {
     margin-top: 8px;
 }
+
+
+.title-index {
+    margin-bottom: 65px;
+}
