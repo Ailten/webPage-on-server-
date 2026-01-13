@@ -46,6 +46,11 @@ Route::prefix('/log')
     Route::get('/characters', [CharacterController::class, 'getCharactersUserLog'])
     ->name('characters');
 
+    // form to create a character.
+    Route::get('/create/character', function(){
+        return view('log.characterCreate');
+    })->name('create.character');
+
 });
 
 // debug.

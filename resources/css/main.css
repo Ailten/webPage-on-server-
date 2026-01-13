@@ -66,10 +66,12 @@ header menu ul li:nth-child(n+2) {
     margin-left: 8px;
 }
 
-.btn-header[data-href]:hover
+.btn-header/*[data-href]:hover*/,
+.btn-create
 {
     outline-style: solid;
     outline-width: 2px;
+    border: none;
 }
 
 
@@ -129,4 +131,14 @@ section#center-page {
 }
 *.btn-x:hover {
     color: rgb(255, 255, 255);
+}
+
+
+.block-character {
+    border-radius: 8px;
+    border: 1px solid;
+    padding: 8px 20px;
+}
+.block-character:nth-child(n+2) {
+    margin-top: 8px;
 }

@@ -9,9 +9,9 @@ $charactersLength = sizeof($characters);
 $charactersEmptySlot = max(3 - $charactersLength, 0);
 @endphp
 
-@foreach($character as $characters)
+@foreach($characters as $character)
 
-    <div>
+    <div class="block-character">
         <p>{{ $character->pseudo }} - lvl {{ $character->level }}</p>
         <!--
         <p>{{ $character->is_active }}</p>
@@ -21,14 +21,14 @@ $charactersEmptySlot = max(3 - $charactersLength, 0);
 
 @endforeach
 @if($charactersEmptySlot != 0)
-    @foreach($i as range(0, $charactersEmptySlot))
+    @for($i = 0; $i < $charactersEmptySlot; $i++)
 
-        <div>
-            <p>no-name - lvl 1</p>
-            <input type="button" value="créer un personnage">
+        <div class="block-character">
+            <p>[emplacement-vide] - lvl 1</p>
+            <input type="button" class="btn btn-create" value="créer un personnage" data-href="{{ route('log.create.character') }}">
         </div>
 
-    @endforeach
+    @endfor
 @endif
 
 @endsection
