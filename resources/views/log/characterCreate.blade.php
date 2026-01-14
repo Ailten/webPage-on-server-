@@ -7,6 +7,7 @@
 <h1 class="text-center">Créez votre personnage !</h1>
 
 <form method="POST" action="{{ route('log.create.character.validate') }}">
+    @csrf
 
     <div class="input-line">
         <label for="pseudo">pseudo :</label>

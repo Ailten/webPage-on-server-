@@ -28,7 +28,17 @@ Route::prefix('/login')
 ->group(function () {
 
     // route to login-redirect, with twitch OAuth.
-    Route::get('/twitch', 'loginTwitch')->name('twitch');
+    Route::get('/twitch', 'loginTwitch')
+    ->name('twitch');
+
+    // route to form login, with twitch whisper.
+    Route::get('/twitchWhisper', function() {
+        return view('twitchWhisper');
+    })->name('twitchWhisper');
+
+    // route submit form login, twitch whisper.
+    Route::get('/twitchWhisper/validate', 'loginTwitchWhisper')
+    ->name('twitchWhisper.validate');
 
 });
 

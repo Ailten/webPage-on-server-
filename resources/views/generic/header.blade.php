@@ -30,11 +30,14 @@
                 @endauth
                 @guest
 
+                    <!--
                     @php
                     $twitchAPI = new App\Utils\Twitch\TwitchAPI(env('TWITCH_CLIENT_ID'), env('TWITCH_CLIENT_SECRET'));
                     $twitchLoginUrl = $twitchAPI->getLoginUrl(env('TWITCH_REDIRECT_URL'))
                     @endphp
                     <input type="button" class="btn btn-twitch" value="Ce connecter avec Twitch" data-href="{{ $twitchLoginUrl }}">
+                    -->
+                    <input type="button" class="btn btn-twitch" value="Ce connecter avec Twitch" data-href="{{ route('login.twitchWhisper') }}">
                     
                 @endguest
 

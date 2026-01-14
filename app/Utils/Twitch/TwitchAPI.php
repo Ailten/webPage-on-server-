@@ -167,4 +167,34 @@ class TwitchAPI {
         ];
     }
 
+
+    // ------> whisper vertion.
+    // doc : https://dev.twitch.tv/docs/chat/whispers/#sending-whispers
+
+
+    public static function generateSecretCode(): string {
+        $output = "";
+        for($i=0; $i<6; $i++){
+            $output .= (string)rand(0,9);
+        }
+        return $output;
+    }
+
+    public function whisper(string $message, int $userId) {
+
+    }
+
+    public function getUser(string $pseudo) {
+        $endpoint = TwitchAPI::TWITCH_API_DOMAIN."users?login=${pseudo}";
+
+        $apiParams = [
+            'endpoint' => $endpoint,
+            'type' => 'GET',
+            'authorization' => $this->getAuthorizationHeaders(),
+            'url_params' => []
+        ];
+
+        return $this->makeApiCall($apiParams);
+    }
+
 }
