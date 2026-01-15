@@ -4,6 +4,8 @@
 
 @section('contend')
 
+<h1 class="text-center title-page">Vos personnages</h1>
+
 @php
 $charactersLength = sizeof($characters);
 $charactersEmptySlot = max(3 - $charactersLength, 0);

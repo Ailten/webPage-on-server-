@@ -24,7 +24,7 @@
                         @method('DELETE')
                         <input type="submit" class="btn btn-twitch" value="Ce déconnecter">
                     </form>
-                    
+
                 @endauth
                 @guest
 

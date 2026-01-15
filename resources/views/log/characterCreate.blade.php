@@ -4,29 +4,39 @@
 
 @section('contend')
 
-<h1 class="text-center">Créez votre personnage !</h1>
+<h1 class="text-center title-page">Créez votre personnage !</h1>
 
 <form method="POST" action="{{ route('log.create.character.validate') }}">
     @csrf
 
-    <div class="input-line">
-        <label for="pseudo">pseudo :</label>
-        <input type="text" name="pseudo" id="pseudo">
+    <div class="input-line d-flex justify-content-center">
+        <label for="pseudo" class="p-align-btn">pseudo :</label>
+        <div class="input-error-container">
+            <input type="text" name="pseudo" id="pseudo">
+            @error('pseudo')
+                <p class="input-error">{{ $message }}</p>
+            @enderror
+        </div>
     </div>
 
-    <div class="input-line">
-        <label for="class">class :</label>
-        <select name="class" id="class">
-            <option value="-1">---</option>
-            <option value="0">Tank</option>
-            <option value="1">Soigner</option>
-            <option value="2">Chevalier</option>
-        </select>
+    <div class="input-line d-flex justify-content-center">
+        <label for="class" class="p-align-btn">class :</label>
+        <div class="input-error-container">
+            <select name="class" id="class">
+                <option value="0">---</option>
+                <option value="1">Tank</option>
+                <option value="2">Soigner</option>
+                <option value="3">Chevalier</option>
+            </select>
+            @error('class')
+                <p class="input-error">{{ $message }}</p>
+            @enderror
+        </div>
     </div>
 
-    <div class="input-line">
-        <input type="button" value="Annuler" data-href="{{ url()->previous() }}">
-        <input type="submit" value="Créer le personnage">
+    <div class="input-line submit-line d-flex justify-content-center">
+        <input type="button" value="Annuler" data-href="{{ url()->previous() }}" class="btn btn-create">
+        <input type="submit" value="Créer le personnage" class="btn btn-create">
     </div>
 
 </form>
