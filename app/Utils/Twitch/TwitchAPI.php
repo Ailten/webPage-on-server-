@@ -186,6 +186,7 @@ class TwitchAPI {
         $endpoint = TwitchAPI::TWITCH_API_DOMAIN."whispers?from_user_id=$botTwitchId&to_user_id=$userId";
 
         // TODO : error unauthorized, incorrect user authorization (probably lake of "user:manage:whispers").
+        // and the get token for whisper need a uri redirect (localhost user or https).
 
         $apiParams = [
             'endpoint' => $endpoint,
