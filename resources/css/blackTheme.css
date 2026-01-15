@@ -59,19 +59,10 @@ select:hover
 }
 
 
-#border-page-left
+.border-page
 {
     background: linear-gradient(
         -90deg,
-        rgb(0, 0, 0) 0%,
-        rgb(50, 38, 54) 20%,
-        #18121a 100%
-    );
-}
-#border-page-right
-{
-    background: linear-gradient(
-        90deg,
         rgb(0, 0, 0) 0%,
         rgb(50, 38, 54) 20%,
         #18121a 100%

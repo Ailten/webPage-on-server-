@@ -79,7 +79,9 @@
             </div>
         @endif
 
-        <section class="border-page" id="border-page-left"></section>
+        <section class="border-page" id="border-page-left">
+            <div class="border-image"></div>
+        </section>
         
 
         <section id="center-page" class="flex-fill">
@@ -87,7 +89,9 @@
         </section>
 
 
-        <section class="border-page" id="border-page-right"></section>
+        <section class="border-page" id="border-page-right">
+            <div class="border-image"></div>
+        </section>
 
         <footer>
 

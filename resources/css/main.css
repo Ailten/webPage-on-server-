@@ -40,11 +40,21 @@ footer
 #border-page-right
 {
     right: 0;
+    transform: scaleX(-1);
 }
 #center-page
 {
     margin: 0 20vw;
     overflow: hidden;
+    background-image: url("../img/MotifBack.png");
+    background-size: 300px 300px;
+}
+.border-page .border-image
+{
+    height: 100%;
+    background-image: url("../img/BorderMotif2.png");
+    background-size: 64px;
+    background-repeat: repeat-y;
 }
 
 
