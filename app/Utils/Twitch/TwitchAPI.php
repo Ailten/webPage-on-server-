@@ -120,7 +120,8 @@ class TwitchAPI {
             $curlOptions[CURLOPT_POST] = true;
             $curlOptions[CURLOPT_POSTFIELDS] = http_build_query($params['url_params']);
         }elseif($params['type'] == 'GET'){
-            $curlOptions[CURLOPT_URL] .= '?'.http_build_query($params['url_params']);
+            if(sizeof($params['url_params']) != 0)
+                $curlOptions[CURLOPT_URL] .= '?'.http_build_query($params['url_params']);
         }
 
         // call curl.
@@ -181,7 +182,21 @@ class TwitchAPI {
     }
 
     public function whisper(string $message, int $userId) {
+        $botTwitchId = env('BOT_TWITCH_ID');
+        $endpoint = TwitchAPI::TWITCH_API_DOMAIN."whispers?from_user_id=$botTwitchId&to_user_id=$userId";
 
+        // TODO : error unauthorized, incorrect user authorization (probably lake of "user:manage:whispers").
+
+        $apiParams = [
+            'endpoint' => $endpoint,
+            'type' => 'POST',
+            'authorization' => $this->getAuthorizationHeaders(),
+            'url_params' => [
+                'message' => $message,
+            ]
+        ];
+
+        return $this->makeApiCall($apiParams);
     }
 
     public function getUser(string $pseudo) {
@@ -194,7 +209,25 @@ class TwitchAPI {
             'url_params' => []
         ];
 
-        return $this->makeApiCall($apiParams);
+        $resultFromApi = $this->makeApiCall($apiParams);
+        $output = [
+            'is_success' => $resultFromApi['is_success'],
+            'message' => $resultFromApi['message'],
+        ];
+
+        if($output['is_success']){
+            if(isset($resultFromApi['api_data']['status']) && $resultFromApi['api_data']['status'] >= 400){
+                $output['is_success'] = false;
+                $output['message'] = $resultFromApi['api_data']['message'];
+            }else if(!isset($resultFromApi['api_data']['data'][0])){
+                $output['is_success'] = false;
+                $output['message'] = 'success but no acount found';
+            }else{
+                $output['user'] = $resultFromApi['api_data']['data'][0];
+            }
+        }
+
+        return $output;
     }
 
 }

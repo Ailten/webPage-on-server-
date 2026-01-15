@@ -74,19 +74,27 @@ class UserController extends Controller
             $pseudoTwitch = $validated['pseudo'];
 
             $twitchApi = new TwitchAPI(
-                env('TWITCH_CLIENT_ID'), 
-                env('TWITCH_CLIENT_SECRET'), 
-                env('TWITCH_OAUTH_TOKEN')
+                env('BOT_TWITCH_CLIENT_ID'), 
+                env('BOT_TWITCH_CLIENT_SECRET'), 
+                env('BOT_TWITCH_ACCESS_TOKEN')
             );
             $userTwitch = $twitchApi->getUser($pseudoTwitch);
-            
-            dd($userTwitch);
+            if(!$userTwitch['is_success']){
+                session()->flush();
+                return redirect()->back()->with('error', $userTwitch['message']);
+            }
+            $userTwitch = $userTwitch['user'];
 
-            $twitchApi->whisper(
-                "Voici votre code d'identification pour ${env('WEBSITE_NAME')} : [$secretCode]. Si vous n'avez fait aucune demande d'identification : igniorer simplement ce message.",
-                $userTwitch
+            $websiteName = env('WEBSITE_NAME');
+            $whisperResult = $twitchApi->whisper(
+                "Voici votre code d'identification pour $websiteName : [$secretCode]. Si vous n'avez fait aucune demande d'identification : igniorer simplement ce message.",
+                $userTwitch['id']
             );
-
+            dd($whisperResult);
+            if(!$whisperResult['is_success']){
+                session()->flush();
+                return redirect()->back()->with('error', $whisperResult['message']);
+            }
 
             session()->put('twitch_pseudo_whisper', $pseudoTwitch);
             session()->put('twitch_secret_code_whisper', $secretCode);
