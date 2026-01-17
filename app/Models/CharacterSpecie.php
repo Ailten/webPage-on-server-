@@ -12,4 +12,8 @@ class CharacterSpecie extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function Characters() {
+        return $this->hasMany(Character::class);
+    }
 }

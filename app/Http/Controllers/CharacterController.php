@@ -16,7 +16,7 @@ class CharacterController extends Controller
         $characters = Character::where('user_id', '=', Auth::user()->id)->get();
 
         // send characters to the view.
-        return view('log.charactersSelection', [
+        return view('log.characterListSelf', [
             'characters' => $characters
         ]);
 
@@ -46,6 +46,28 @@ class CharacterController extends Controller
         $champsForCharacter['stat_id'] = $statCharacter->id;
         Character::create($champsForCharacter);
 
-        return view('log.characters');
+        return redirect()->route('log.character.listSelf');
+    }
+
+    public function deleteCharacter(Request $request, $id) {
+
+        $character = Character::find($id);
+
+        // verify if id exist.
+        if(!$character){
+            return redirect()->back()->with('error', 'Ce Character n\'existe pas !');
+        }
+
+        // verify if user log possess the character to delete.
+        $isAuthOwner = $character->user_id == Auth()->user()->id;
+        if(!$isAuthOwner){
+            return redirect()->back()->with('error', 'Vous n\'etes pas propriétaire de ce Character !');
+        }
+
+        // delete.
+        $character->delete();
+
+        return redirect()->back();
+
     }
 }

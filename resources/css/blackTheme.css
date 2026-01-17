@@ -15,7 +15,9 @@ body
 
 header,
 footer,
-.block-character
+.block-character,
+.character-specie-selection,
+.character-selection-illu-container
 {
     border-color: rgb(78, 48, 83);
 }
@@ -53,9 +55,15 @@ select
     outline-color: rgb(78, 48, 83);
 }
 input[type=text]:hover,
-select:hover
+select:hover,
+.character-specie-selection:has( input[type=radio]:checked)
 {
     outline-color: rgb(211, 154, 216);
+}
+
+.character-specie-selection:hover 
+{
+    border-color: rgb(211, 154, 216);
 }
 
 

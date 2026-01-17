@@ -7,6 +7,9 @@
     padding: 0;
     user-select: none;
 }
+p {
+    margin: 0;
+}
 
 
 /* header footer */
@@ -78,11 +81,18 @@ header menu ul li:nth-child(n+2) {
 }
 
 .btn-header/*[data-href]:hover*/,
-.btn-create
+.btn-create,
+.btn-supr
 {
     outline-style: solid;
     outline-width: 2px;
     border: none;
+}
+
+.hidde {
+    width: 0;
+    height: 0;
+    opacity: 0;
 }
 
 
@@ -107,7 +117,6 @@ section#center-page {
 
 
 .p-align-btn {
-    margin: 0;
     padding: 0px 12px;
     padding-top: 7px;
 }
@@ -128,10 +137,6 @@ section#center-page {
     border: solid 2px red;
     margin: 10px;
 }
-.pop-up-error p {
-    margin: 0;
-}
-
 .btn-x {
     background-color: rgba(0, 0, 0, 0);
     border: none;
@@ -141,7 +146,27 @@ section#center-page {
     top: 0px;
 }
 *.btn-x:hover {
-    color: rgb(255, 255, 255);
+    color: white;
+}
+.btn-supr {
+    color: red;
+    outline-color: rgb(160, 48, 48);
+    background: linear-gradient(
+        0deg,
+        rgb(105, 36, 36) 0%,
+        rgb(59, 8, 8) 50%,
+        rgb(105, 36, 36) 100%
+    );
+}
+.btn-supr:hover {
+    color: white;
+    background: linear-gradient(
+        0deg,
+        rgb(212, 45, 45) 0%,
+        rgb(124, 2, 2) 50%,
+        rgb(212, 45, 45) 100%
+    );
+    outline-color: rgb(240, 97, 97);
 }
 
 
@@ -152,6 +177,9 @@ section#center-page {
 }
 .block-character:nth-child(n+2) {
     margin-top: 8px;
+}
+.block-character:has(.character-selection-illu-container) {
+    padding-right: 8px;
 }
 
 
@@ -184,6 +212,12 @@ section#center-page {
     color: red;
 }
 
+.input-line > div.single-line-input {
+    width: 92%;
+    margin: 0;
+}
+
+
 input[type=text],
 select 
 {
@@ -192,4 +226,46 @@ select
     padding: 0.375rem 0.75rem;
     outline-style: solid;
     outline-width: 2px;
+}
+
+
+.character-specie-selection-container {
+    text-align: center;
+    padding-top: 7px;
+}
+.character-specie-selection {
+    width: 30%;
+    border: 1px solid;
+    text-align: center;
+    display: inline-block;
+    border-radius: 8px;
+    padding: 12px;
+}
+.character-specie-selection:has(input[type=radio]:checked){
+    outline-width: 2px;
+    outline-style: solid;
+}
+.character-specie-selection input[type=radio] {
+    display: block;
+    margin: 0 auto;
+}
+.character-specie-selection img {
+    width: 60%;
+}
+
+
+.character-selection-illu-container {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 8px;
+}
+.character-selection-illu-container img {
+    width: 80px;
+}
+
+.block-character .button-container {
+    margin-top: 5px;
+}
+.block-character .button-container > * {
+    margin: 5px;
 }

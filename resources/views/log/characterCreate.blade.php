@@ -6,7 +6,7 @@
 
 <h1 class="text-center title-page">Créez votre personnage !</h1>
 
-<form method="POST" action="{{ route('log.create.character.validate') }}">
+<form method="POST" action="{{ route('log.character.createValidate') }}">
     @csrf
 
     <div class="input-line d-flex justify-content-center">
@@ -20,22 +20,25 @@
     </div>
 
     <div class="input-line d-flex justify-content-center">
-        <label for="character_specie_id" class="p-align-btn">class :</label>
-        <div class="input-error-container">
-            <select name="character_specie_id" id="character_specie_id">
-                <option value="0">---</option>
-                <option value="1">Mercenaire</option>
-                <option value="2">Tank</option>
-                <option value="3">Soigneur</option>
-            </select>
+        <div class="single-line-input">
+            <label for="character_specie_id" class="p-align-btn">class :</label>
             @error('character_specie_id')
-                <p class="input-error">{{ $message }}</p>
+                <p class="input-error p-align-btn">{{ $message }}</p>
             @enderror
+            <div class="character-specie-selection-container">
+                @foreach(DB::table('character_species')->get() as $characterSpecie)
+                    <div class="character-specie-selection radio-container">
+                        <input type="radio" name="character_specie_id" value="{{ $characterSpecie->id }}" class="hidde">
+                        <img src="{{ asset("img/class/$characterSpecie->id.png") }}">
+                        <p>{{ $characterSpecie->name }}</p>
+                    </div>
+                @endforeach
+            </div>
         </div>
     </div>
 
     <div class="input-line submit-line d-flex justify-content-center">
-        <input type="button" value="Annuler" data-href="{{ url()->previous() }}" class="btn btn-create">
+        <input type="button" value="Annuler" data-href="{{ route('log.character.listSelf') }}" class="btn btn-create">
         <input type="submit" value="Créer le personnage" class="btn btn-create">
     </div>
 

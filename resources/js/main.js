@@ -28,7 +28,7 @@ window.addEventListener('load', () => {
         }
     }
 
-    // set link on menu header.
+    // set link data-href.
     {
         Array.prototype.forEach.call(
             document.querySelectorAll("*[data-href]"),
@@ -42,6 +42,18 @@ window.addEventListener('load', () => {
                         return;
                     if(dom.classList.contains("disabled-href"))  // not used.
                         return;
+                    
+                    let isConfirm = dom.classList.contains('href-confirm');
+                    if(isConfirm){
+                        isConfirm = confirm(  // todo: overide confirm function with bootstrap.
+                            'Attention !\n'+
+                            'L\'action que vous voulez réaliser est irévercible !\n'+
+                            'Etes vous sur de vouloir continuer ?'
+                        );
+                        if(isConfirm === false)
+                            return;
+                    }
+
                     let ahref = document.createElement("a");
                     ahref.setAttribute("href", href);
                     ahref.click();
@@ -52,7 +64,7 @@ window.addEventListener('load', () => {
         );
     }
 
-    // button x.
+    // button x (close error pop-up).
     {
         Array.prototype.forEach.call(
             document.getElementsByClassName("btn-x"),
@@ -60,6 +72,22 @@ window.addEventListener('load', () => {
                 btnX.addEventListener('click', (evnt) => {
                     let elementToDel = evnt.target.parentNode;
                     elementToDel.parentNode.removeChild(elementToDel);
+                });
+            }
+        );
+    }
+
+    // button radio (character_spacie).
+    {
+        Array.prototype.forEach.call(
+            document.querySelectorAll("input[type=radio]"),
+            radio => {
+                let divContainer = radio;
+                do{
+                    divContainer = divContainer.parentNode;
+                }while(!divContainer.classList.contains('radio-container'));
+                divContainer.addEventListener('click', (evnt) => {
+                    radio.click();
                 });
             }
         );

@@ -15,5 +15,9 @@ class Character extends Model
         'stat_id',
         'pseudo',
     ];
+
+    public function characterSpecie() {
+        return $this->belongsTo(CharacterSpecie::class);
+    }
     
 }

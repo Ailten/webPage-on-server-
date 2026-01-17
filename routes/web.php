@@ -52,18 +52,31 @@ Route::prefix('/log')
 ->middleware('auth')
 ->group(function () {
 
-    // see characters of user log.
-    Route::get('/characters', [CharacterController::class, 'getCharactersUserLog'])
-    ->name('characters');
+    Route::prefix('/character')
+    ->name('character.')
+    ->group(function() {
 
-    // form to create a character.
-    Route::get('/create/character', function(){
-        return view('log.characterCreate');
-    })->name('create.character');
+        // see characters of user log.
+        Route::get('/listSelf', [CharacterController::class, 'getCharactersUserLog'])
+        ->name('listSelf');
+
+        // form to create a character.
+        Route::get('/create', function(){
+            return view('log.characterCreate');
+        })->name('create');
     
-    // submit form create character.
-    Route::post('/create/character/validate', [CharacterController::class, 'createCharacterUserLog'])
-    ->name('create.character.validate');
+        // submit form create character.
+        Route::post('/createValidate', [CharacterController::class, 'createCharacterUserLog'])
+        ->name('createValidate');
+
+        // delete a character.
+        Route::get('/delete-{id}', [CharacterController::class, 'deleteCharacter'])
+        ->name('delete')
+        ->where([
+            'id' => '[0-9]+',
+        ]);
+
+    });
 
 });
 

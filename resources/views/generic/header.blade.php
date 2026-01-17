@@ -52,7 +52,7 @@
                         ],
                         [
                             'name' => 'personnages', 
-                            'view' => 'log.characters',
+                            'view' => 'log.character.listSelf',
                             'isPrint' => Auth::check(),
                         ]
                     ], fn($l) => $l['isPrint']);
