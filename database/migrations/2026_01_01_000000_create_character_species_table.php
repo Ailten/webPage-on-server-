@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /*
+    insert into character_species (`name`) 
+    values('Mercenaire'),('Tank'),('Soigneur'); 
+    */
+
     /**
      * Run the migrations.
      */

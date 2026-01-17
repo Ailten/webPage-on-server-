@@ -24,9 +24,9 @@
         <div class="input-error-container">
             <select name="class" id="class">
                 <option value="0">---</option>
-                <option value="1">Tank</option>
-                <option value="2">Soigner</option>
-                <option value="3">Chevalier</option>
+                <option value="1">Mercenaire</option>
+                <option value="2">Tank</option>
+                <option value="3">Soigneur</option>
             </select>
             @error('class')
                 <p class="input-error">{{ $message }}</p>
