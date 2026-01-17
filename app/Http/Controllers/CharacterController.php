@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Character;
+use App\Models\CharacterSpecie;
 use App\Models\Stat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +26,7 @@ class CharacterController extends Controller
 
         $champsForCharacter = $request->validate([
             'pseudo' => ['required', 'min:3', 'max:16', 'regex:/^[\w-]+$/', 'unique:characters,pseudo'],
-            'class' => ['required', 'numeric', 'exists:character_species,id']
+            'character_specie_id' => ['required', 'not_in:0', 'numeric', 'exists:character_species,id']
         ],[
             'pseudo.required' => 'champs obligatoire !',
             'pseudo.min' => 'le pseudo doit contenir minimum 3 characters !',
@@ -33,20 +34,18 @@ class CharacterController extends Controller
             'pseudo.regex' => 'le pseudo ne peu contenir que les caractère alphanumeric non-axentué ("_" et "-") !',
             'pseudo.unique' => 'ce pseudo est déja pris !',
             'pseudo.*' => 'ce champs pose probleme (erreur inconnue) !',
-            'class.required' => 'champs obligatoire !',
-            'class.numeric' => 'la class doit etre une valeur numeric !',
-            'class.exists' => 'la class choisie n\'existe pas !',
-            'class.*' => 'ce champs pose probleme (erreur inconnue) !',
+            'character_specie_id.required' => 'champs obligatoire !',
+            'character_specie_id.not_in' => 'champs obligatoire !',
+            'character_specie_id.numeric' => 'la class doit etre une valeur numeric !',
+            'character_specie_id.exists' => 'la class choisie n\'existe pas !',
+            'character_specie_id.*' => 'ce champs pose probleme (erreur inconnue) !',
         ]);
 
         $champsForCharacter['user_id'] = Auth()->user()->id;
         $statCharacter = Stat::create([]);
-        $champsForCharacter['stat'] = $statCharacter->id;
+        $champsForCharacter['stat_id'] = $statCharacter->id;
         Character::create($champsForCharacter);
 
-        // todo: try if create character work.
-        // make html/css of div "select character".
-
-        return view('index');
+        return view('log.characters');
     }
 }

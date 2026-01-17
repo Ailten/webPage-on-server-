@@ -62,7 +62,7 @@ Route::prefix('/log')
     })->name('create.character');
     
     // submit form create character.
-    Route::get('/create/character/validate', [CharacterController::class, 'createCharacterUserLog'])
+    Route::post('/create/character/validate', [CharacterController::class, 'createCharacterUserLog'])
     ->name('create.character.validate');
 
 });

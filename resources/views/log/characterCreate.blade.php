@@ -20,15 +20,15 @@
     </div>
 
     <div class="input-line d-flex justify-content-center">
-        <label for="class" class="p-align-btn">class :</label>
+        <label for="character_specie_id" class="p-align-btn">class :</label>
         <div class="input-error-container">
-            <select name="class" id="class">
+            <select name="character_specie_id" id="character_specie_id">
                 <option value="0">---</option>
                 <option value="1">Mercenaire</option>
                 <option value="2">Tank</option>
                 <option value="3">Soigneur</option>
             </select>
-            @error('class')
+            @error('character_specie_id')
                 <p class="input-error">{{ $message }}</p>
             @enderror
         </div>

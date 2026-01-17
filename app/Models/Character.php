@@ -11,8 +11,9 @@ class Character extends Model
     
     protected $fillable = [
         'user_id',
-        'character_spacie_id',
+        'character_specie_id',
         'stat_id',
         'pseudo',
     ];
+    
 }
