@@ -33,8 +33,10 @@ $charactersEmptySlot = max(3 - $charactersLength, 0);
 @for($i = 0; $i < $charactersEmptySlot; $i++)
 
     <div class="block-character">
-        <p>[emplacement-vide] - lvl 1</p>
-        <input type="button" class="btn btn-create" value="créer un personnage" data-href="{{ route('log.character.create') }}">
+        <p>[ emplacement-vide ]</p>
+        <div class="button-container">
+            <input type="button" class="btn btn-create" value="créer un personnage" data-href="{{ route('log.character.create') }}">
+        </div>
     </div>
 
 @endfor

@@ -42,8 +42,6 @@ class CharacterController extends Controller
         ]);
 
         $champsForCharacter['user_id'] = Auth()->user()->id;
-        $statCharacter = Stat::create([]);
-        $champsForCharacter['stat_id'] = $statCharacter->id;
         Character::create($champsForCharacter);
 
         return redirect()->route('log.character.listSelf');
