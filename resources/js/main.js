@@ -69,9 +69,13 @@ window.addEventListener('load', () => {
         Array.prototype.forEach.call(
             document.getElementsByClassName("btn-x"),
             btnX => {
+                let popUpToClose = btnX;
+                do{
+                    popUpToClose = popUpToClose.parentNode;
+                }while(!popUpToClose.classList.contains('pop-up-container'));
+
                 btnX.addEventListener('click', (evnt) => {
-                    let elementToDel = evnt.target.parentNode;
-                    elementToDel.parentNode.removeChild(elementToDel);
+                    popUpToClose.parentNode.removeChild(popUpToClose);
                 });
             }
         );
@@ -86,6 +90,7 @@ window.addEventListener('load', () => {
                 do{
                     divContainer = divContainer.parentNode;
                 }while(!divContainer.classList.contains('radio-container'));
+
                 divContainer.addEventListener('click', (evnt) => {
                     radio.click();
                 });
@@ -117,4 +122,37 @@ function evalSizeScreen(){
         "Mobile"
     );
     document.body.setAttribute("data-type-size-screen", typeSizeScreen);
+}
+
+// overide confirm function.
+let confirm_base = confirm;
+confirm = function(msg, url=null){
+    if(url===null){  // do basic confirm.
+        return confirm_base(msg);
+    }
+
+    // create a pop-up confirm custom.
+    let popUp = document.createElement('div');
+    popUp.classList.add('pop-up', 'pop-up-container');
+    let xBtn = popUp.appendChild(document.createElement('p'));
+    xBtn.innerText = 'x';
+    xBtn.classList.add('btn-x');
+    let msgContainer = popUp.appendChild(document.createElement('div'));
+    msg.split('\n').forEach((line) => {
+        let p = msgContainer.appendChild('p');
+        p.innerText = line;
+    });
+    let inputContainer = popUp.appendChild(document.createElement('div'));
+    inputContainer.classList.add('input-line');  //submit-line d-flex justify-content-center
+    let cancelBtn = inputContainer.appendChild(document.createElement('input'));
+    cancelBtn.setAttribute('type', 'button');
+    cancelBtn.setAttribute('value', 'Annuler');
+    cancelBtn.classList.add('btn', 'btn-create', 'btn-x');
+    let validBtn = inputContainer.appendChild(document.createElement('input'));
+    validBtn.setAttribute('type', 'button');
+    validBtn.setAttribute('value', 'Confirmer');
+    validBtn.setAttribute('data-href', url);
+    validBtn.classList.add('btn', 'btn-create');
+    document.body.appendChild(popUp);
+
 }

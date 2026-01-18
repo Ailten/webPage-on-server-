@@ -72,8 +72,7 @@
         </header>
 
         @if(session('error'))
-            <div class="pop-up-error">
-                <!--<span class="btn-x">x</span>-->
+            <div class="pop-up-error pop-up-container">
                 <input type="button" class="btn-x" value="x">
                 <p>{{ session('error') }}</p>
             </div>
