@@ -33,33 +33,9 @@ window.addEventListener('load', () => {
         Array.prototype.forEach.call(
             document.querySelectorAll("*[data-href]"),
             hrefDom => {
-
-                hrefDom.addEventListener("click", (e) => {
-
-                    let dom = e.target;
-                    let href = dom.getAttribute("data-href");
-                    if(href === null)
-                        return;
-                    if(dom.classList.contains("disabled-href"))  // not used.
-                        return;
-                    
-                    let isConfirm = dom.classList.contains('href-confirm');
-                    if(isConfirm){
-                        isConfirm = confirm(  // todo: overide confirm function with bootstrap.
-                            'Attention !\n'+
-                            'L\'action que vous voulez réaliser est irévercible !\n'+
-                            'Etes vous sur de vouloir continuer ?'
-                        );
-                        if(isConfirm === false)
-                            return;
-                    }
-
-                    let ahref = document.createElement("a");
-                    ahref.setAttribute("href", href);
-                    ahref.click();
-    
+                hrefDom.addEventListener("click", (evnt) => {
+                    eventDataHrefClick(evnt.target);
                 });
-
             }
         );
     }
@@ -69,13 +45,8 @@ window.addEventListener('load', () => {
         Array.prototype.forEach.call(
             document.getElementsByClassName("btn-x"),
             btnX => {
-                let popUpToClose = btnX;
-                do{
-                    popUpToClose = popUpToClose.parentNode;
-                }while(!popUpToClose.classList.contains('pop-up-container'));
-
                 btnX.addEventListener('click', (evnt) => {
-                    popUpToClose.parentNode.removeChild(popUpToClose);
+                    eventBtnXClick(evnt.target);
                 });
             }
         );
@@ -124,35 +95,83 @@ function evalSizeScreen(){
     document.body.setAttribute("data-type-size-screen", typeSizeScreen);
 }
 
-// overide confirm function.
-let confirm_base = confirm;
-confirm = function(msg, url=null){
-    if(url===null){  // do basic confirm.
-        return confirm_base(msg);
-    }
+// function confirmPopUp : create a pop-up confirm and redirect url when valid confirm.
+function confirmPopUp(msg, url){
 
     // create a pop-up confirm custom.
     let popUp = document.createElement('div');
-    popUp.classList.add('pop-up', 'pop-up-container');
+    popUp.classList.add('pop-up-error', 'pop-up-container', 'pop-up-error-back-gradient');
     let xBtn = popUp.appendChild(document.createElement('p'));
     xBtn.innerText = 'x';
     xBtn.classList.add('btn-x');
+    xBtn.addEventListener('click', (evnt) => {
+        eventBtnXClick(evnt.target);
+    })
     let msgContainer = popUp.appendChild(document.createElement('div'));
     msg.split('\n').forEach((line) => {
-        let p = msgContainer.appendChild('p');
+        let p = msgContainer.appendChild(document.createElement('p'));
+        p.classList.add('text-center');
         p.innerText = line;
     });
+    msgContainer.style.width = 'fit-content';
+    popUp.style.width = 'fit-content';
     let inputContainer = popUp.appendChild(document.createElement('div'));
-    inputContainer.classList.add('input-line');  //submit-line d-flex justify-content-center
+    inputContainer.classList.add('input-line', 'submit-line', 'd-flex', 'justify-content-center');
     let cancelBtn = inputContainer.appendChild(document.createElement('input'));
     cancelBtn.setAttribute('type', 'button');
     cancelBtn.setAttribute('value', 'Annuler');
-    cancelBtn.classList.add('btn', 'btn-create', 'btn-x');
+    cancelBtn.classList.add('btn', 'btn-create', 'btn-x', 'btn-supr');
+    cancelBtn.style.position = 'initial';
+    cancelBtn.addEventListener('click', (evnt) => {
+        eventBtnXClick(evnt.target);
+    })
     let validBtn = inputContainer.appendChild(document.createElement('input'));
     validBtn.setAttribute('type', 'button');
     validBtn.setAttribute('value', 'Confirmer');
     validBtn.setAttribute('data-href', url);
-    validBtn.classList.add('btn', 'btn-create');
+    validBtn.classList.add('btn', 'btn-create', 'btn-supr');
+    validBtn.addEventListener('click', (evnt) => {
+        eventDataHrefClick(evnt.target);
+    })
     document.body.appendChild(popUp);
 
+    // center page.
+    let spaceLeft = (window.innerWidth - popUp.getBoundingClientRect().width) / 2;
+    popUp.style.left = `${spaceLeft}px`;
+    let spaceUp = (window.innerHeight - popUp.getBoundingClientRect().height) / 2;
+    popUp.style.top = `${spaceUp}px`;
+
+}
+
+function eventBtnXClick(btnX) {
+    let popUpToClose = btnX;
+    do{
+        popUpToClose = popUpToClose.parentNode;
+    }while(!popUpToClose.classList.contains('pop-up-container'));
+
+    popUpToClose.parentNode.removeChild(popUpToClose);
+}
+
+function eventDataHrefClick(btnHref) {
+
+    let href = btnHref.getAttribute("data-href");
+    if(href === null)
+        return;
+    if(btnHref.classList.contains("disabled-href"))  // not used.
+        return;
+    
+    let isConfirm = btnHref.classList.contains('href-confirm');
+    if(isConfirm){
+        confirmPopUp(
+            'Attention !\n'+
+            'L\'action que vous voulez réaliser est irévercible !\n'+
+            'Etes vous sur de vouloir continuer ?',
+            href
+        );
+        return;
+    }
+
+    let ahref = document.createElement("a");
+    ahref.setAttribute("href", href);
+    ahref.click();
 }

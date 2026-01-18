@@ -12,12 +12,9 @@ class CharacterController extends Controller
 {
     public function getCharactersUserLog() {
 
-        // get character list from user log.
-        $characters = Character::where('user_id', '=', Auth::user()->id)->get();
-
         // send characters to the view.
         return view('log.characterListSelf', [
-            'characters' => $characters
+            'characters' => Auth::user()->characters
         ]);
 
     }

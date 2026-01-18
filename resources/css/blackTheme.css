@@ -76,3 +76,12 @@ select:hover,
         #18121a 100%
     );
 }
+
+
+.pop-up-error-back-gradient {
+    background: linear-gradient( 0deg, 
+        rgb(68, 15, 15) 0%, 
+        rgb(0, 0, 0) 50%, 
+        rgb(68, 15, 15) 100% 
+    );
+}

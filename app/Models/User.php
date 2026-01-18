@@ -28,4 +28,9 @@ class User extends Authenticatable
         'twitch_email',
         'remember_token',
     ];
+
+
+    public function characters() {
+        return $this->hasMany(Character::class);
+    }
 }

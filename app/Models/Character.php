@@ -16,8 +16,14 @@ class Character extends Model
         'pseudo',
     ];
 
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
     public function characterSpecie() {
         return $this->belongsTo(CharacterSpecie::class);
+    }
+    public function stat() {
+        return $this->belongsTo(Stat::class);
     }
 
     protected static function booted()
@@ -32,7 +38,7 @@ class Character extends Model
 
         // when delete Character, delete also his Stat.
         static::deleting(function ($character) {
-            $character->b->delete();
+            $character->stat->delete();
         });
     }
     
