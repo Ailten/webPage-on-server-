@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CharacterController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -75,6 +76,17 @@ Route::prefix('/log')
         ->where([
             'id' => '[0-9]+',
         ]);
+
+    });
+
+
+    Route::prefix('/item')
+    ->name('item.')
+    ->group(function() {
+
+        // get page of
+        Route::get('/inventory', [ItemController::class, 'getInventoryUserLog'])
+        ->name('inventory');
 
     });
 

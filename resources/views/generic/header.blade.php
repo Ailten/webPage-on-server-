@@ -54,6 +54,11 @@
                             'name' => 'personnages', 
                             'view' => 'log.character.listSelf',
                             'isPrint' => Auth::check(),
+                        ],
+                        [
+                            'name' => 'inventaire', 
+                            'view' => 'log.item.inventory',
+                            'isPrint' => Auth::check(),
                         ]
                     ], fn($l) => $l['isPrint']);
                     @endphp
