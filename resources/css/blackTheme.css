@@ -85,3 +85,16 @@ select:hover,
         rgb(68, 15, 15) 100% 
     );
 }
+
+
+.progress-bar {
+    background-color: rgb(13, 4, 17);
+}
+.progress-bar > div {
+    background: linear-gradient(
+        0deg,
+        rgb(81, 49, 95) 0%,
+        rgb(68, 41, 77) 50%,
+        rgb(109, 74, 120) 100%
+    );
+}

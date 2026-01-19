@@ -77,6 +77,13 @@ Route::prefix('/log')
             'id' => '[0-9]+',
         ]);
 
+        // page menu details of a character (stats, items-equiped, xp).
+        Route::get('/details-{id}', [CharacterController::class, 'detailsCharacter'])
+        ->name('details')
+        ->where([
+            'id' => '[0-9]+',
+        ]);
+
     });
 
 

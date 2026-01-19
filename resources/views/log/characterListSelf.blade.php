@@ -24,7 +24,7 @@ $charactersEmptySlot = max(3 - $charactersLength, 0);
             </div>
         </div>
         <div class="button-container">
-            <input type="button" class="btn btn-create" value="placeholder" data-href="{{ route('log.character.listSelf') }}">
+            <input type="button" class="btn btn-create" value="stats" data-href="{{ route('log.character.details', ['id' => $character->id]) }}">
             <input type="button" class="btn btn-supr href-confirm" value="suprimer" data-href="{{ route("log.character.delete", ['id' => $character->id]) }}">
         </div>
     </div>

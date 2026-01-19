@@ -13,4 +13,8 @@ class Inventory extends Model
         'user_id',
         'item_ref_id',
     ];
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }
