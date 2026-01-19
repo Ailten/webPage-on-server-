@@ -64,7 +64,7 @@ insert into item_categories (`id`, `name`) values
 insert into item_rarities (`id`, `name`) values
 (1, 'commun'),
 (2, 'peu commun'),
-(3, 'rare commun'),
+(3, 'rare'),
 (4, 'legendaire'),
 (5, 'mythique');
 
@@ -76,6 +76,8 @@ insert into item_refs (`id`, `name`, `price`, `level`, `item_categorie_id`, `ite
 (4, 'bois petit', 3, 1, 7, 2),
 (5, 'caillou', 1, 1, 5, 1),
 (6, 'mineré de plomb', 3, 1, 9, 2);
+(7, 'lingo de plomb', 5, 1, 10, 2);
+(8, 'planche petit', 5, 1, 8, 2);
 
 -- mobs
 insert into `stats` () values ();
@@ -96,3 +98,12 @@ insert into loots (`mob_id`, `item_ref_id`, `rate`) values
 (2, 4, 0.5),
 (3, 5, 1.0),
 (3, 6, 0.5);
+
+-- crafts / ingredients.
+insert into crafts (`id`, `item_ref_id`, `quantity`, `rate`) values
+(1, 7, 1, 1.0),
+(2, 8, 1, 1.0);
+insert into crafts (`craft_id`, `item_ref_id`, `quantity`) values
+(1, 6, 2),
+(2, 4, 2);
+
