@@ -99,7 +99,7 @@ insert into item_rarities (`id`, `name`) values
 insert into item_refs (`id`, `name`, `price`, `level`, `item_categorie_id`, `item_rarity_id`) values
 (1, 'mucus de slime', 1, 1, 5, 1),
 (2, 'noyau de slime', 3, 1, 11, 2),
-(3, 'branche de petit bois', 1, 1, 5, 1),
+(3, 'racine de petit bois', 1, 1, 5, 1),
 (4, 'bois petit', 3, 1, 7, 2),
 (5, 'caillou', 1, 1, 5, 1),
 (6, 'mineré de plomb', 3, 1, 9, 2);

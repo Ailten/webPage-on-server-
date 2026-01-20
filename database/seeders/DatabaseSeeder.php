@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             StatTypesSeeder::class,
             ItemCategoriesSeeder::class,
             ItemRaritiesSeeder::class,
+            ItemRefsSeeder::class,
         ]);
     }
 }

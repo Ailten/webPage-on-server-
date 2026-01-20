@@ -25,14 +25,14 @@ class StatTypesSeeder extends Seeder
         $this->insertFourElements('maitrise <e>', 1);
         $this->insertFourElements('dommage <e>', 3);
         $this->insertFourElements('soin <e>', 3);
-        $this->insertFourElements('resistance <e>', 3);
+        $this->insertFourElements('res. <e>', 3);
         $this->insertFourElements('%res. <e>', 5);
 
         $this->insertRow('esquive', 8);
         $this->insertRow('parade', 8);
         $this->insertRow('critique', 6);
         $this->insertRow('butin', 8);
-        $this->insertRow('apprentissage', 8);
+        $this->insertRow('memoire', 8);
 
         $this->insertRow('carac.', 1);
     }
