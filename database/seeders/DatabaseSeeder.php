@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             ItemRaritiesSeeder::class,
             ItemRefsSeeder::class,
             CraftsSeeder::class,
+            MobsSeeder::class,
         ]);
     }
 }

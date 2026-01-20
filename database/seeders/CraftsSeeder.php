@@ -40,7 +40,7 @@ class CraftsSeeder extends Seeder
         ]);
         $this->insertRow('armur de rock', 1, 0.95, [
             'caillou' => 2,
-            'mucus de slime' => 1,
+            'mucus de slime' => 3,
         ]);
         $this->insertRow('casque de plomb', 1, 0.95, [
             'lingo de plomb' => 1,

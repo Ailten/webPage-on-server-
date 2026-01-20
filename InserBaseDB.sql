@@ -158,6 +158,6 @@ insert into ingredients (`craft_id`, `item_ref_id`, `quantity`) values
 (2, 6, 2);
 
 
--- add craft item and their stats.
+-- add craft item and their stats.  ---> see edit on class seeder.
 
 
