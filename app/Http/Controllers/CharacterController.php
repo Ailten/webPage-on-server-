@@ -70,7 +70,14 @@ class CharacterController extends Controller
 
     public function detailsCharacter(Request $request, $id) {
 
-        $character = Character::find($id);
+        $character = Character::with([
+            'xpNeedPerLevel',
+            'stat',
+            'itemRefs' => function($query) {
+                $query->orderBy('item_category_id');
+            },
+        ])
+        ->find($id);
 
         // verify if id exist.
         if(!$character){
@@ -83,16 +90,19 @@ class CharacterController extends Controller
             return redirect()->back()->with('error', 'Vous n\'etes pas propriétaire de ce Character !');
         }
 
-        $xpNeedForLvlUp = XpNeedPerLevel::where('level', '=', $character->level)->first();
-        $xpNeedForLvlUp = (isset($xpNeedForLvlUp)? $xpNeedForLvlUp->xp_need: -1);
+        //$xpNeedForLvlUp = XpNeedPerLevel::where('level', '=', $character->level)->first();
+        //$xpNeedForLvlUp = (isset($xpNeedForLvlUp)? $xpNeedForLvlUp->xp_need: -1);
+
+        //$itemEquiped = $character->itemEquipeds;
+
+        //$stat = $character->stat;
 
         // send characters to the view.
         return view('log.characterDetails', [
             'character' => $character,
-            'xpNeedForLvlUp' => $xpNeedForLvlUp,
-            // send xpNeedPerLevel
-            // send items equiped.
-            // send stats character.
+            //'xpNeedForLvlUp' => $xpNeedForLvlUp,
+            //'itemEquiped' => $itemEquiped,
+            //'stat' => $stat
         ]);
 
     }

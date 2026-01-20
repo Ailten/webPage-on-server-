@@ -25,6 +25,13 @@ class Character extends Model
     public function stat() {
         return $this->belongsTo(Stat::class);
     }
+    public function xpNeedPerLevel() {
+        return $this->belongsTo(XpNeedPerLevel::class, 'level', 'level');
+    }
+
+    public function itemRefs() {
+        return $this->belongsToMany(ItemRef::class, 'equiped');
+    }
 
     protected static function booted()
     {
