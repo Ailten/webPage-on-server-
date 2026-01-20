@@ -13,7 +13,7 @@ class CharacterSpecie extends Model
         'name',
     ];
 
-    public function Characters() {
+    public function characters() {
         return $this->hasMany(Character::class);
     }
 }

@@ -12,4 +12,18 @@ class Stat extends Model
     public $timestamps = false;
 
     protected $fillable = [];
+
+
+    public function statTypeValues() {
+        return $this->hasMany(StatTypeValue::class);
+    }
+
+    protected static function booted()
+    {
+        // when delete Stat, delete also his StatTypeValue.
+        static::deleting(function ($stat) {
+            $stat->statTypeValues()->delete();
+        });
+    }
+
 }

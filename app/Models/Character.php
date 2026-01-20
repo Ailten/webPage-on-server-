@@ -32,6 +32,13 @@ class Character extends Model
         static::creating(function ($character) {
             DB::transaction(function () use ($character) {
                 $stat = Stat::create([]);
+
+                StatTypeValue::create([
+                    'stat_id' => $stat->id,
+                    'stat_type_id' => StatType::where('name', '=', 'vie')->first()->id,
+                    'value' => 60,
+                ]);
+
                 $character->stat_id = $stat->id;
             });
         });
