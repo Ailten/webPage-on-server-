@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             ItemCategoriesSeeder::class,
             ItemRaritiesSeeder::class,
             ItemRefsSeeder::class,
+            CraftsSeeder::class,
         ]);
     }
 }
