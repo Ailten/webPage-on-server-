@@ -15,6 +15,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CharacterSpeciesSeeder::class,
             XpNeedPerLevelsSeeder::class,
+            StatTypesSeeder::class,
+            ItemCategoriesSeeder::class,
+            ItemRaritiesSeeder::class,
         ]);
     }
 }
