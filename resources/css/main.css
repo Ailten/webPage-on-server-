@@ -254,13 +254,23 @@ select
 }
 
 
-.character-selection-illu-container {
+.character-selection-illu-container, 
+.character-details-illu-container,
+.stat-container
+{
     border-style: solid;
     border-width: 1px;
     border-radius: 8px;
 }
+.character-details-illu-container {
+    width: 200px;
+    height: fit-content;
+}
 .character-selection-illu-container img {
     width: 80px;
+}
+.character-details-illu-container img {
+    width: 100%;
 }
 
 .block-character .button-container {
@@ -279,4 +289,22 @@ select
 .progress-bar > div {
     height: 100%;
     width: 0%;
+}
+
+
+.item-equiped-container {
+    margin: 0 15px;
+}
+.item-container {
+    width: 55px;
+    height: 55px;
+    border: solid 1px;
+    border-radius: 8px;
+}
+.item-container:nth-child(n+2) {
+    margin-top: 8px;
+}
+
+.stat-container {
+
 }

@@ -14,4 +14,11 @@ class StatTypeValue extends Model
         'stat_type_id',
         'value',
     ];
+
+    public function stat() {
+        return $this->belongsTo(Stat::class);
+    }
+    public function statType() {
+        return $this->belongsTo(StatType::class);
+    }
 }

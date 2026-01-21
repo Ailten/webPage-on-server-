@@ -17,7 +17,10 @@ header,
 footer,
 .block-character,
 .character-specie-selection,
-.character-selection-illu-container
+.character-selection-illu-container,
+.character-details-illu-container,
+.item-container,
+.stat-container
 {
     border-color: rgb(78, 48, 83);
 }
