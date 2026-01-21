@@ -23,10 +23,16 @@ $percentXp = ($character->xp / $xpNeedForLvlUp) *100;
         <img src="{{ asset("img/class/{$character->characterSpecie->id}.png") }}">
     </div>
     <div>
-        @foreach ($character->itemRefs as $itemRef)
+        @foreach ($inventoriesEquiped as $inventory)
 
             <div>
-                <img src="{{ asset("img/item/{$itemRef->item_category_id}.png") }}">
+
+                @if(!is_string($inventory))
+                    <img src="{{ asset("img/item/{$inventory->itemRef->item_category_id}.png") }}">
+                @else
+                    <p>{{  $inventory  }}</p>
+                @endif
+
             </div>
         
         @endforeach

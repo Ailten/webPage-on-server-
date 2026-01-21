@@ -14,7 +14,7 @@ class ItemCategoriesSeeder extends Seeder
     public function run(): void
     {
         $this->insertRow('casque');
-        $this->insertRow('armur');
+        $this->insertRow('armure');
         $this->insertRow('arme');
         $this->insertRow('bijou');
         $this->insertRow('ressource');

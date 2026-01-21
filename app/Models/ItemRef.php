@@ -16,5 +16,16 @@ class ItemRef extends Model
         'price',
         'level',
     ];
+
+
+    public function itemCateogrie() {
+        return $this->belongsTo(ItemCategorie::class);
+    }
+    public function itemRarity() {
+        return $this->belongsTo(ItemRarity::class);
+    }
+    public function stat() {
+        return $this->belongsTo(Stat::class);
+    }
     
 }

@@ -73,11 +73,18 @@ class CharacterController extends Controller
         $character = Character::with([
             'xpNeedPerLevel',
             'stat',
-            'itemRefs' => function($query) {
-                $query->orderBy('item_category_id');
-            },
+            //'inventories' => function($query) {
+            //    $query->with([
+            //        'item_ref',
+            //        'stat',
+            //    ])
+            //    ->join('item_refs', 'item_refs.id', '=', 'inventories.item_ref_id')
+            //    ->orderBy('item_refs.item_categorie_id');
+            //},
         ])
         ->find($id);
+
+        //dd($character);
 
         // verify if id exist.
         if(!$character){
@@ -102,7 +109,8 @@ class CharacterController extends Controller
             'character' => $character,
             //'xpNeedForLvlUp' => $xpNeedForLvlUp,
             //'itemEquiped' => $itemEquiped,
-            //'stat' => $stat
+            //'stat' => $stat,
+            'inventoriesEquiped' => $character->inventoriesEquiped(),
         ]);
 
     }

@@ -59,7 +59,7 @@ class ItemRefsSeeder extends Seeder
             'maitrise terre' => 5,
             'res. terre' => 1,
         ]);
-        $this->insertWithStat('armur de rock', 6, 1, 'armur', 'peu commun', [
+        $this->insertWithStat('armur de rock', 6, 1, 'armure', 'peu commun', [
             'vie' => 6,
             'maitrise feu' => 10,
             'maitrise terre' => 5,
@@ -73,7 +73,7 @@ class ItemRefsSeeder extends Seeder
             'res. eau' => -1,
             'res. terre' => 1,
         ]);
-        $this->insertWithStat('armure petite', 10, 2, 'armur', 'rare', [
+        $this->insertWithStat('armure petite', 10, 2, 'armure', 'rare', [
             'vie' => 15,
             'maitrise terre' => 5,
             'maitrise air' => 5,

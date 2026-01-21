@@ -29,9 +29,31 @@ class Character extends Model
         return $this->belongsTo(XpNeedPerLevel::class, 'level', 'level');
     }
 
-    public function itemRefs() {
-        return $this->belongsToMany(ItemRef::class, 'equiped');
+    public function inventories() {
+        return $this->belongsToMany(Inventory::class, 'equipeds');
     }
+
+    
+    public function inventoriesEquiped() {
+        $categoriesOrders = ['casque', 'armure', 'arme', 'bijou'];
+
+        $inventories = $this->inventories()
+        ->with('item_refs.item_categories')
+        ->get();
+
+        $indexed = $inventories->mapWithKeys(function ($in) {
+            return [
+                $in->item_ref?->item_categories?->name => $in
+            ];
+        });
+
+        return collect($categoriesOrders)
+        ->map(function ($name) use ($indexed) {
+            return $indexed->get($name, null) ?? $name;  // take string category if no match.
+        });
+
+    }
+
 
     protected static function booted()
     {
