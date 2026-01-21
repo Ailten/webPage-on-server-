@@ -51,18 +51,14 @@ $percentXp = ($character->xp / $xpNeedForLvlUp) *100;
             </thead>
             <tbody>
 
-                @foreach ($character->stat->StatTypeValue as $statTypeValue)
+                @foreach ($character->stat->statTypeValues as $statTypeValue)
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <th>{{ $statTypeValue->statType->name }} :</th>
+                    <td>{{ $statTypeValue->value }}</td>
                 </tr>
                 @endforeach
 
             </tbody>
-            <tfoot>
-                <th></th>
-                <td></td>
-            </tfoot>
         </table>
 
     </div>

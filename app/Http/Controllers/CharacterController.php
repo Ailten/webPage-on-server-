@@ -76,8 +76,6 @@ class CharacterController extends Controller
         ])
         ->find($id);
 
-        dd($character);
-
         // verify if id exist.
         if(!$character){
             return redirect()->back()->with('error', 'Ce Character n\'existe pas !');

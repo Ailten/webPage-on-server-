@@ -305,6 +305,11 @@ select
     margin-top: 8px;
 }
 
-.stat-container {
-
+.stat-container table {
+    margin: 5px auto;
+}
+.stat-container table th,
+.stat-container table td
+{
+    padding: 2px 8px;
 }
