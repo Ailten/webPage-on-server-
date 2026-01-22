@@ -59,6 +59,11 @@
                             'name' => 'inventaire', 
                             'view' => 'log.item.inventory',
                             'isPrint' => Auth::check(),
+                        ],
+                        [
+                            'name' => 'combats', 
+                            'view' => 'log.fight.hub',
+                            'isPrint' => Auth::check(),
                         ]
                     ], fn($l) => $l['isPrint']);
                     @endphp

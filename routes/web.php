@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CharacterController;
+use App\Http\Controllers\FightController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -94,6 +95,16 @@ Route::prefix('/log')
         // get page of
         Route::get('/inventory', [ItemController::class, 'getInventoryUserLog'])
         ->name('inventory');
+
+    });
+
+
+    Route::prefix('/fight')
+    ->name('fight.')
+    ->group(function() {
+
+        Route::get('/hub', [FightController::class, 'getFightHub'])
+        ->name('hub');
 
     });
 
