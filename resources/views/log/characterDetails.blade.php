@@ -40,9 +40,9 @@ $percentXp = ($character->xp / $xpNeedForLvlUp) *100;
 
                 @endforeach
             </div>
-            <div style="height: 200px; margin-right: 15px; margin-top: 10px;">
-                <!-- other block -->
-            </div>
+        </div>
+        <div style="height: 200px; margin-right: 15px; margin-top: 10px;">
+            <!-- other block -->
         </div>
     </div>
     <div class="stat-container flex-grow-1">
