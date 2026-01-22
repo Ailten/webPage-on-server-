@@ -265,12 +265,18 @@ select
 .character-details-illu-container {
     width: 200px;
     height: fit-content;
+    height: 244px;
+    display: inline-block;
 }
 .character-selection-illu-container img {
     width: 80px;
 }
 .character-details-illu-container img {
     width: 100%;
+}
+.character-details-illu-container .div-img-illu-character {
+    background-size: 198px 240.567px;
+    height: 100%;
 }
 
 .block-character .button-container {
@@ -294,6 +300,7 @@ select
 
 .item-equiped-container {
     margin: 0 15px;
+    display: inline-block;
 }
 .item-container {
     width: 55px;
@@ -312,4 +319,8 @@ select
 .stat-container table td
 {
     padding: 2px 8px;
+}
+
+.char-item-container {
+    height: 244px;
 }
