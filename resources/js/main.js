@@ -5,11 +5,13 @@ const CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribut
 // load page.
 window.addEventListener('load', () => {
 
+    let typePage = document.body.classList.values().find(c => c.endsWith('-page')) ?? 'default';
+
     // eval size screen.
     evalSizeScreen();
 
     // set margin-top/bottom and height to center-page (prevent overlap to header/footer and footer position).
-    {
+    if(typePage === 'default') {
         let centerPage = document.getElementById("center-page");
 
         // margin-top for header overlap.

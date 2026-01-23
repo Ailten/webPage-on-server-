@@ -2,12 +2,14 @@
 
 body,
 header .btn-header,
-section .btn-create
+section .btn-create,
+.btn-create
 {
     color: #FFF;
 }
 
-body
+body,
+div.menu
 {
     background-color: #18121a;
 }
@@ -27,7 +29,8 @@ footer,
 
 
 .btn-header,
-section .btn-create
+section .btn-create,
+.btn-create
 {
     background-color: rgb(50, 38, 54);
     background: linear-gradient(
@@ -39,7 +42,8 @@ section .btn-create
     outline-color: rgb(78, 48, 83);
 }
 .btn-header:hover,
-section .btn-create:hover
+section .btn-create:hover,
+.btn-create:hover
 {
     background: linear-gradient(
         0deg,

@@ -1,0 +1,41 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+body.fight-page {
+    background-color: white;
+    overflow: hidden;
+}
+
+header,
+div.menu
+{
+    width: 500px;
+}
+
+div.menu {
+    position: absolute;
+    height: 100%;
+    right: -500px;
+}
+div.menu.menu-unfold {
+    animation-name: menu-unfold;
+    animation-duration: 1s;
+    animation-direction: normal;
+    right: 0px;
+}
+@keyframes menu-unfold {
+    0% {
+        right: -500px;
+    }
+    100% {
+        right: 0px;
+    }
+}
+div.menu .btn-unfold-menu {
+    position: absolute;
+    left: -100px;
+}
+div.menu.menu-fold {
+    animation-name: menu-unfold;
+    animation-duration: 1s;
+    animation-direction: reverse;
+}
