@@ -15,8 +15,8 @@
         <div class="menu">
 
             <header>
-                <input type="button" class="btn btn-unfold-menu btn-create" value="< menu">
-                <input type="button" class="btn" >
+                <input type="button" class="btn btn-create" value="< menu" id="btn-unfold-menu">
+                <input type="button" class="btn btn-create" value="twitch" id="btn-fight-twitch-option">
             </header>
 
             <div class="menu-contend">

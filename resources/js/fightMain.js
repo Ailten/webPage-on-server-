@@ -4,7 +4,7 @@ window.addEventListener('load', () => {
 
     // button unfold/fold menu.
     {
-        document.querySelector('.btn-unfold-menu').addEventListener('click', unfoldMenu);
+        document.querySelector('#btn-unfold-menu')?.addEventListener('click', unfoldMenu);
     }
 
 });
@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
 
 // fold or unfold menu in fight-page.
 function unfoldMenu() {
-    let btn = document.querySelector('.btn-unfold-menu');
+    let btn = document.querySelector('#btn-unfold-menu');
     let menu = document.querySelector('.menu');
     let isUnfoldAction = !menu.classList.contains('menu-unfold');
     if(isUnfoldAction) {
