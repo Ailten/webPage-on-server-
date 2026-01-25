@@ -7,6 +7,11 @@
         <title>Ailten-WebPage</title>
 	    <meta charset="utf-8">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <script>
+            const ACTION_OPTION = {
+                'twitchOption': "{{ route('log.fight.twitchOption') }}"
+            };
+        </script>
 
     </head>
 
@@ -19,7 +24,7 @@
                 <input type="button" class="btn btn-create" value="twitch" id="btn-fight-twitch-option">
             </header>
 
-            <div class="menu-contend">
+            <div id="menu-contend">
 
             </div>
 

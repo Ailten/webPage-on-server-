@@ -103,8 +103,13 @@ Route::prefix('/log')
     ->name('fight.')
     ->group(function() {
 
+        // open page fight.
         Route::get('/hub', [FightController::class, 'getFightHub'])
         ->name('hub');
+
+        // send form twitchOption.
+        Route::post('twitchOption', [FightController::class, 'sendFormTwitchOption'])
+        ->name('twitchOption');
 
     });
 
