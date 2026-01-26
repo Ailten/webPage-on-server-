@@ -15,6 +15,12 @@ window.addEventListener('load', () => {
         });
     }
 
+    // define margin top of menu-contend.
+    //{
+    //    let headerHeight = document.querySelector('header')?.getBoundingClientRect().height;
+    //    document.getElementById('menu-contend').style.marginTop = `${headerHeight}px`;
+    //}
+
 });
 
 // ------>
@@ -36,6 +42,12 @@ function unfoldMenu() {
         btn.setAttribute('value', '< menu');
     }
     void menu.offsetWidth;
+
+    // resize menu-contend on mobile format responcive.
+    if(document.body.getAttribute('data-type-size-screen') === 'Mobile'){
+        let menuHeight = document.getElementsByTagName('header')[0].getBoundingClientRect().height;
+        document.getElementById('menu-contend').style.marginTop = `${menuHeight}px`;
+    }
 }
 
 // clean the menu-contend.
