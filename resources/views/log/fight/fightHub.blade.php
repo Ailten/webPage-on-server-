@@ -1,3 +1,4 @@
+@extends('generic.layoutLink')
 @extends('log.fight.layoutLink')
 
 
@@ -21,7 +22,11 @@
 
             <header>
                 <input type="button" class="btn btn-create" value="< menu" id="btn-unfold-menu">
+
+                <input type="button" class="btn btn-create" value="navigation" id="btn-fight-navigation-option">
                 <input type="button" class="btn btn-create" value="twitch" id="btn-fight-twitch-option">
+                <input type="button" class="btn btn-create" value="personnages" id="btn-fight-character-option">
+                <input type="button" class="btn btn-create" value="monstres" id="btn-fight-mob-option">
             </header>
 
             <div id="menu-contend">
