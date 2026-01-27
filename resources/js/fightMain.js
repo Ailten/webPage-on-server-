@@ -71,12 +71,30 @@ function fillMenu(name, isPreventSubmut=true) {
     });
     return form;
 }
+function fillFormLineButton(label, button, id) {
+    let line = document.createElement('div');
+    line.classList.add('input-line', 'd-flex', 'justify-content-center');
+    let label = line.appendChild(document.createElement('label'));
+    label.setAttribute('for', id);
+    label.classList.add('p-align-btn');
+    label.innerText = label;
+    let inputContainer = line.appendChild(document.createElement('div'));
+    inputContainer.classList.add('input-error-container');
+    let input = inputContainer.appendChild(document.createElement('input'));
+    input.setAttribute('type', 'button');
+    input.setAttribute('name', id);
+    input.setAttribute('id', id);
+    input.setAttribute('value', button);
+    let pError = inputContainer.appendChild(document.createElement('p'));
+    pError.classList.add('input-error', 'hidden-p-error');
+    return line;
+}
 
 // fill the menu-contend with form navigation-option.
 function openMenuNavigation() {
     let menuContend = document.getElementById('menu-contend');
     let form = fillMenu('navigationOption');
-    // todo: add inputs and button submit (maybe make function JS for add line inputs).
+    form.appendChild(fillFormLineButton('retour web-site', 'retour', 'back-main-age'));
     menuContend.appendChild(form);
 }
 // fill the menu-contend with form twitch-option.

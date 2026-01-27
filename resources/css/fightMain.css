@@ -51,3 +51,9 @@ header input:nth-child(n+2) {
 header input:last-child {
     margin-right: 0;
 }
+
+div.menu p.hidden-p-error {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
