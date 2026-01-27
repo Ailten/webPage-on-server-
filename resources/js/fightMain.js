@@ -15,12 +15,6 @@ window.addEventListener('load', () => {
         });
     }
 
-    // define margin top of menu-contend.
-    //{
-    //    let headerHeight = document.querySelector('header')?.getBoundingClientRect().height;
-    //    document.getElementById('menu-contend').style.marginTop = `${headerHeight}px`;
-    //}
-
 });
 
 // ------>
@@ -55,18 +49,42 @@ function closeMenu() {
     let menuContend = document.getElementById('menu-contend');
     menuContend.innerHTML = "";
 }
-
-// fill the menu-contend with form twitch-option.
-function openMenuTwitch() {
-    let menuContend = document.getElementById('menu-contend');
+function fillMenu(name, isPreventSubmut=true) {
     let form = document.createElement('form');
     form.setAttribute('method', 'POST');
-    form.setAttribute('action', ACTION_OPTION['twitchOption']);
-    route('log.character.createValidate')
+    form.setAttribute('action', ACTION_OPTION[name]);
     form.addEventListener('submit', (evnt) => {
         evnt.preventDefault();
         submitFormMenu(evnt.target);
     });
+    return form;
+}
+
+// fill the menu-contend with form navigation-option.
+function openMenuNavigation() {
+    let menuContend = document.getElementById('menu-contend');
+    let form = fillMenu('navigationOption');
+    // todo: add inputs and button submit (maybe make function JS for add line inputs).
+    menuContend.appendChild(form);
+}
+// fill the menu-contend with form twitch-option.
+function openMenuTwitch() {
+    let menuContend = document.getElementById('menu-contend');
+    let form = fillMenu('twitchOption');
+    // todo: add inputs and button submit (maybe make function JS for add line inputs).
+    menuContend.appendChild(form);
+}
+// fill the menu-contend with form character-option.
+function openMenuCharacter() {
+    let menuContend = document.getElementById('menu-contend');
+    let form = fillMenu('characterOption');
+    // todo: add inputs and button submit (maybe make function JS for add line inputs).
+    menuContend.appendChild(form);
+}
+// fill the menu-contend with form mob-option.
+function openMenuCharacter() {
+    let menuContend = document.getElementById('menu-contend');
+    let form = fillMenu('mobOption');
     // todo: add inputs and button submit (maybe make function JS for add line inputs).
     menuContend.appendChild(form);
 }
