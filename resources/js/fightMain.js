@@ -71,7 +71,7 @@ function fillMenu(name, isPreventSubmut=true) {
     });
     return form;
 }
-function fillFormLineButton(label, button, id) {
+function fillFormLineButton(label, button, id, eventClick) {
     let line = document.createElement('div');
     line.classList.add('input-line', 'd-flex', 'justify-content-center');
     let label = line.appendChild(document.createElement('label'));
@@ -85,6 +85,7 @@ function fillFormLineButton(label, button, id) {
     input.setAttribute('name', id);
     input.setAttribute('id', id);
     input.setAttribute('value', button);
+    input.addEventListener('click', eventClick);
     let pError = inputContainer.appendChild(document.createElement('p'));
     pError.classList.add('input-error', 'hidden-p-error');
     return line;
@@ -94,7 +95,11 @@ function fillFormLineButton(label, button, id) {
 function openMenuNavigation() {
     let menuContend = document.getElementById('menu-contend');
     let form = fillMenu('navigationOption');
-    form.appendChild(fillFormLineButton('retour web-site', 'retour', 'back-main-age'));
+    form.appendChild(fillFormLineButton('retour web-site', 'retour', 'back-main-age',
+        () => {
+            window.location.href = ACTION_OPTION['index'];
+        }
+    ));
     menuContend.appendChild(form);
 }
 // fill the menu-contend with form twitch-option.

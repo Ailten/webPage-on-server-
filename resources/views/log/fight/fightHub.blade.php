@@ -10,6 +10,8 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <script>
             const ACTION_OPTION = {
+                'index': "{{ route('index') }}",
+                
                 'navigationOption': "",
                 'twitchOption': "{{ route('log.fight.twitchOption') }}",
                 'characterOption': "",
