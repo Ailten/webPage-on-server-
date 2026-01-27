@@ -9,9 +9,21 @@ window.addEventListener('load', () => {
 
     // buttons fill menu-contend.
     {
+        document.getElementById('btn-fight-navigation-option')?.addEventListener('click', _ => {
+            closeMenu();
+            openMenuNavigation();
+        });
         document.getElementById('btn-fight-twitch-option')?.addEventListener('click', _ => {
             closeMenu();
             openMenuTwitch();
+        });
+        document.getElementById('btn-fight-character-option')?.addEventListener('click', _ => {
+            closeMenu();
+            openMenuCharacter();
+        });
+        document.getElementById('btn-fight-mob-option')?.addEventListener('click', _ => {
+            closeMenu();
+            openMenuMob();
         });
     }
 
@@ -82,7 +94,7 @@ function openMenuCharacter() {
     menuContend.appendChild(form);
 }
 // fill the menu-contend with form mob-option.
-function openMenuCharacter() {
+function openMenuMob() {
     let menuContend = document.getElementById('menu-contend');
     let form = fillMenu('mobOption');
     // todo: add inputs and button submit (maybe make function JS for add line inputs).
