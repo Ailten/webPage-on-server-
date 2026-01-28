@@ -8,8 +8,6 @@ body[data-type-size-screen="Mobile"].fight-page
         width: 100%;
     }
     & header input {
-        margin-top: 5px;
-        margin-bottom: 5px;
         margin: 5px;
     }
 

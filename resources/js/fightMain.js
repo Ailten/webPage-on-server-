@@ -10,20 +10,28 @@ window.addEventListener('load', () => {
     // buttons fill menu-contend.
     {
         document.getElementById('btn-fight-navigation-option')?.addEventListener('click', _ => {
-            closeMenu();
-            openMenuNavigation();
+            switchMenu(_ => {
+                closeMenu();
+                openMenuNavigation();
+            });
         });
         document.getElementById('btn-fight-twitch-option')?.addEventListener('click', _ => {
-            closeMenu();
-            openMenuTwitch();
+            switchMenu(_ => {
+                closeMenu();
+                openMenuTwitch();
+            });
         });
         document.getElementById('btn-fight-character-option')?.addEventListener('click', _ => {
-            closeMenu();
-            openMenuCharacter();
+            switchMenu(_ => {
+                closeMenu();
+                openMenuCharacter();
+            });
         });
         document.getElementById('btn-fight-mob-option')?.addEventListener('click', _ => {
-            closeMenu();
-            openMenuMob();
+            switchMenu(_ => {
+                closeMenu();
+                openMenuMob();
+            });
         });
     }
 
@@ -49,8 +57,8 @@ function unfoldMenu() {
     }
     void menu.offsetWidth;
 
-    // resize menu-contend on mobile format responcive.
-    if(document.body.getAttribute('data-type-size-screen') === 'Mobile'){
+    // set margin-top on menu-contend based on current header height.
+    {
         let menuHeight = document.getElementsByTagName('header')[0].getBoundingClientRect().height;
         document.getElementById('menu-contend').style.marginTop = `${menuHeight}px`;
     }
@@ -61,6 +69,33 @@ function closeMenu() {
     let menuContend = document.getElementById('menu-contend');
     menuContend.innerHTML = "";
 }
+
+// switch to one menu to another (animated).
+function switchMenu(eventChange) {
+    let menuContend = document.getElementById('menu-contend');
+
+    if(menuContend.classList.contains('menu-change-lock'))
+        return;
+    menuContend.classList.add('menu-change-lock');  // lock.
+
+    console.log('A');
+    menuContend.addEventListener('animationend', _ => {
+        console.log('B');
+        menuContend.classList.remove('hidde-opacity');
+        eventChange();  // do changes.
+        menuContend.addEventListener('animationend', _ => {
+            console.log('C');
+            menuContend.classList.remove('show-opacity');
+            menuContend.classList.remove('menu-change-lock');
+        }, { once: true });
+        void menuContend.offsetWidth;
+        menuContend.classList.add('show-opacity');
+    }, { once: true });
+    void menuContend.offsetWidth;
+    menuContend.classList.add('hidde-opacity');
+}
+
+// fill menu DOM html.
 function fillMenu(name, isPreventSubmut=true) {
     let form = document.createElement('form');
     form.setAttribute('method', 'POST');
@@ -85,6 +120,7 @@ function fillFormLineButton(labelStr, button, id, eventClick) {
     input.setAttribute('name', id);
     input.setAttribute('id', id);
     input.setAttribute('value', button);
+    input.classList.add('btn', 'btn-create');
     input.addEventListener('click', eventClick);
     let pError = inputContainer.appendChild(document.createElement('p'));
     pError.classList.add('input-error', 'hidden-p-error');
@@ -95,8 +131,8 @@ function fillFormLineButton(labelStr, button, id, eventClick) {
 function openMenuNavigation() {
     let menuContend = document.getElementById('menu-contend');
     let form = fillMenu('navigationOption');
-    form.appendChild(fillFormLineButton('retour web-site', 'retour', 'back-main-age',
-        () => {
+    form.appendChild(fillFormLineButton('retour au site', 'retour', 'back-main-age',
+        _ => {
             window.location.href = ACTION_OPTION['index'];
         }
     ));

@@ -57,3 +57,28 @@ div.menu p.hidden-p-error {
     width: 0;
     height: 0;
 }
+
+div.menu form {
+    padding: 5px;
+}
+
+.show-opacity {
+    animation-name: show-opacity;
+    animation-duration: 0.3s;
+    animation-direction: normal;
+    opacity: 0;
+}
+.hidde-opacity {
+    animation-name: show-opacity;
+    animation-duration: 0.3s;
+    animation-direction: reverse;
+    opacity: 1;
+}
+@keyframes show-opacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
