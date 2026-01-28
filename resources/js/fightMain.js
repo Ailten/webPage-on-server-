@@ -71,13 +71,13 @@ function fillMenu(name, isPreventSubmut=true) {
     });
     return form;
 }
-function fillFormLineButton(label, button, id, eventClick) {
+function fillFormLineButton(labelStr, button, id, eventClick) {
     let line = document.createElement('div');
     line.classList.add('input-line', 'd-flex', 'justify-content-center');
     let label = line.appendChild(document.createElement('label'));
     label.setAttribute('for', id);
     label.classList.add('p-align-btn');
-    label.innerText = label;
+    label.innerText = labelStr;
     let inputContainer = line.appendChild(document.createElement('div'));
     inputContainer.classList.add('input-error-container');
     let input = inputContainer.appendChild(document.createElement('input'));

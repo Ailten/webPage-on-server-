@@ -1,0 +1,38 @@
+
+/* --- mobile --- */
+/* @media (max-width: 600px) */
+body[data-type-size-screen="Mobile"].fight-page
+{
+    & header {
+        padding: 0;
+        width: 100%;
+    }
+    & header input {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin: 5px;
+    }
+
+    & div.menu {
+        width: 100%;
+        right: -100vw;
+    }
+    & div.menu.menu-unfold {
+        right: 0vw;
+    }
+    & div.menu.menu-fold {
+        right: -100vw;
+    }
+    @keyframes menu-unfold {
+        0% {
+            right: -100vw;
+        }
+        100% {
+            right: 0vw;
+        }
+    }
+
+    & div.menu.menu-unfold input#btn-unfold-menu {
+        position: initial;
+    }
+}
