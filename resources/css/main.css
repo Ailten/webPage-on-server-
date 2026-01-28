@@ -197,7 +197,7 @@ section#center-page {
 .input-line > * {
     width: 45%;
 }
-.input-line > *:first-child {
+.input-line:not(.single-element) > *:first-child {
     margin-right: 2%;
 }
 .input-line.submit-line {

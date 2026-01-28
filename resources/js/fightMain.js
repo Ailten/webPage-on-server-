@@ -78,15 +78,11 @@ function switchMenu(eventChange) {
         return;
     menuContend.classList.add('menu-change-lock');  // lock.
 
-    console.log('A');
     menuContend.addEventListener('animationend', _ => {
-        console.log('B');
         menuContend.classList.remove('hidde-opacity');
         eventChange();  // do changes.
         menuContend.addEventListener('animationend', _ => {
-            console.log('C');
-            menuContend.classList.remove('show-opacity');
-            menuContend.classList.remove('menu-change-lock');
+            menuContend.classList.remove('show-opacity', 'menu-change-lock');
         }, { once: true });
         void menuContend.offsetWidth;
         menuContend.classList.add('show-opacity');
@@ -99,7 +95,7 @@ function switchMenu(eventChange) {
 function fillMenu(name, isPreventSubmut=true) {
     let form = document.createElement('form');
     form.setAttribute('method', 'POST');
-    form.setAttribute('action', ACTION_OPTION[name]);
+    form.setAttribute('action', DATA_VIEW_TO_JS[name]);
     form.addEventListener('submit', (evnt) => {
         evnt.preventDefault();
         submitFormMenu(evnt.target);
@@ -126,6 +122,14 @@ function fillFormLineButton(labelStr, button, id, eventClick) {
     pError.classList.add('input-error', 'hidden-p-error');
     return line;
 }
+function fillFormLineP(pStr) {
+    let line = document.createElement('div');
+    line.classList.add('input-line', 'd-flex', 'justify-content-center', 'single-element');
+    let p = line.appendChild(document.createElement('p'));
+    p.classList.add('p-align-btn', 'text-center', 'w-100');
+    p.innerText = pStr;
+    return line;
+}
 
 // fill the menu-contend with form navigation-option.
 function openMenuNavigation() {
@@ -133,7 +137,7 @@ function openMenuNavigation() {
     let form = fillMenu('navigationOption');
     form.appendChild(fillFormLineButton('retour au site', 'retour', 'back-main-age',
         _ => {
-            window.location.href = ACTION_OPTION['index'];
+            window.location.href = DATA_VIEW_TO_JS['index'];
         }
     ));
     menuContend.appendChild(form);
@@ -142,7 +146,7 @@ function openMenuNavigation() {
 function openMenuTwitch() {
     let menuContend = document.getElementById('menu-contend');
     let form = fillMenu('twitchOption');
-    // todo: add inputs and button submit (maybe make function JS for add line inputs).
+    form.appendChild(fillFormLineP(`compt twitch : ${DATA_VIEW_TO_JS['pseudoTwitch']}`));
     menuContend.appendChild(form);
 }
 // fill the menu-contend with form character-option.

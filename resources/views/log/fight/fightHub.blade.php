@@ -9,8 +9,9 @@
 	    <meta charset="utf-8">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <script>
-            const ACTION_OPTION = {
+            const DATA_VIEW_TO_JS = {
                 'index': "{{ route('index') }}",
+                'pseudoTwitch': "{{ auth()->user()->twitch_pseudo }}",
                 
                 'navigationOption': "",
                 'twitchOption': "{{ route('log.fight.twitchOption') }}",
