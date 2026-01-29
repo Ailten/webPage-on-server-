@@ -130,6 +130,24 @@ function fillFormLineP(pStr) {
     p.innerText = pStr;
     return line;
 }
+function fillFormLineInput(labelStr, inputStr, id) {
+    let line = document.createElement('div');
+    line.classList.add('input-line', 'd-flex', 'justify-content-center');
+    let label = line.appendChild(document.createElement('label'));
+    label.setAttribute('for', id);
+    label.classList.add('p-align-btn');
+    label.innerText = labelStr;
+    let inputContainer = line.appendChild(document.createElement('div'));
+    inputContainer.classList.add('input-error-container');
+    let input = inputContainer.appendChild(document.createElement('input'));
+    input.setAttribute('type', 'text');
+    input.setAttribute('name', id);
+    input.setAttribute('id', id);
+    input.setAttribute('value', inputStr);
+    let pError = inputContainer.appendChild(document.createElement('p'));
+    pError.classList.add('input-error', 'hidden-p-error');
+    return line;
+}
 
 // fill the menu-contend with form navigation-option.
 function openMenuNavigation() {
@@ -147,6 +165,7 @@ function openMenuTwitch() {
     let menuContend = document.getElementById('menu-contend');
     let form = fillMenu('twitchOption');
     form.appendChild(fillFormLineP(`compt twitch : ${DATA_VIEW_TO_JS['pseudoTwitch']}`));
+    form.appendChild(fillFormLineInput(`commande rejoindre : `, DATA_VIEW_TO_JS['cmdJoin'], 'cmdJoin'));
     menuContend.appendChild(form);
 }
 // fill the menu-contend with form character-option.
