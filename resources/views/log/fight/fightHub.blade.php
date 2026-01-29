@@ -12,7 +12,7 @@
             const DATA_VIEW_TO_JS = {
                 'index': "{{ route('index') }}",
                 'pseudoTwitch': "{{ auth()->user()->twitch_pseudo }}",
-                'cmdJoin': "!join ?{pseudo}"
+                'cmdJoin': "!join {pseudo}",  // todo: edit DB table user to add cmd twitch.
                 
                 'navigationOption': "",
                 'twitchOption': "{{ route('log.fight.twitchOption') }}",
