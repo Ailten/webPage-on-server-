@@ -110,6 +110,12 @@ Route::prefix('/log')
         // send form twitchOption.
         Route::post('twitchOption', [FightController::class, 'sendFormTwitchOption'])
         ->name('twitchOption');
+        // send form characterOption.
+        Route::post('characterOption', [FightController::class, 'sendFormCharacterOption'])
+        ->name('characterOption');
+        // send form mobOption.
+        Route::post('mobOption', [FightController::class, 'sendFormMobOption'])
+        ->name('mobOption');
 
     });
 
