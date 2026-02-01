@@ -16,8 +16,8 @@
                 
                 'navigationOption': "",
                 'twitchOption': "{{ route('log.fight.twitchOption') }}",
-                'characterOption': "",
-                'mobOption': ""
+                'characterOption': "{{ route('log.fight.characterOption') }}",
+                'mobOption': "{{ route('log.fight.mobOption') }}"
             };
         </script>
 
