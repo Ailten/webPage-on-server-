@@ -166,6 +166,7 @@ function openMenuTwitch() {
     let form = fillMenu('twitchOption');
     form.appendChild(fillFormLineP(`compt twitch : ${DATA_VIEW_TO_JS['pseudoTwitch']}`));
     form.appendChild(fillFormLineInput(`commande rejoindre : `, DATA_VIEW_TO_JS['cmdJoin'], 'cmdJoin'));
+    // todo : fill form with submit button.
     menuContend.appendChild(form);
 }
 // fill the menu-contend with form character-option.

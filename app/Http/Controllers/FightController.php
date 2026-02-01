@@ -21,4 +21,23 @@ class FightController extends Controller
         ]);
 
     }
+    public function sendFormCharacterOption(Request $request) {
+
+        // todo: debug request.
+
+        return response()->json([
+            'message' => 'it\'s work'
+        ]);
+
+    }
+    public function sendFormMobOption(Request $request) {
+
+        // todo: debug request.
+
+        return response()->json([
+            'message' => 'it\'s work'
+        ]);
+
+    }
+
 }
