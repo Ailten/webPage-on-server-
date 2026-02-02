@@ -197,6 +197,7 @@ function submitFormMenu(form) {
     let method = form.getAttribute('method');
     let url = form.getAttribute('action');
     let formData = new FormData(form);  // todo: debug console ?.
+    const CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
     fetch(url, {
         method: method,
@@ -208,6 +209,7 @@ function submitFormMenu(form) {
     .then(response => response.json())
     .then(data => {
         console.log('Succes :', data);
+        // return object it's work.
     })
     .catch(error => {
         console.error('Error :', error);
