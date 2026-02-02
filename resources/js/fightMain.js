@@ -131,7 +131,7 @@ function fillFormLineP(pStr) {
     p.innerText = pStr;
     return line;
 }
-function fillFormLineInput(labelStr, inputStr, id) {
+function fillFormLineInput(labelStr, inputStr, id, eventChange=null) {
     let line = document.createElement('div');
     line.classList.add('input-line', 'd-flex', 'justify-content-center');
     let label = line.appendChild(document.createElement('label'));
@@ -145,6 +145,8 @@ function fillFormLineInput(labelStr, inputStr, id) {
     input.setAttribute('name', id);
     input.setAttribute('id', id);
     input.setAttribute('value', inputStr);
+    if(eventChange !== null)
+        input.addEventListener('change', eventChange);
     let pError = inputContainer.appendChild(document.createElement('p'));
     pError.classList.add('input-error', 'hidden-p-error');
     return line;
@@ -172,7 +174,16 @@ function openMenuTwitch() {
     let menuContend = document.getElementById('menu-contend');
     let form = fillMenu('twitchOption');
     form.appendChild(fillFormLineP(`compt twitch : ${DATA_VIEW_TO_JS['pseudoTwitch']}`));
-    form.appendChild(fillFormLineInput(`commande rejoindre : `, DATA_VIEW_TO_JS['cmdJoin'], 'cmdJoin'));
+    // todo : add an event change to input cmd, for edit color outline when change but not submit.
+    form.appendChild(fillFormLineInput(`commande rejoindre : `, cmdTwitch['cmdJoin'], 'cmdJoin',
+        (evnt) => {
+            let input = evnt.target;
+            let isEdited = evnt.target.value !== cmdTwitch['cmdJoin'];
+            if(isEdited ^ input.classList.contains('input-edited-not-saved')){
+                input.classList.toggle('input-edited-not-saved');
+            }
+        }
+    ));
     form.appendChild(fillFormLineSubmit('confirm : ', 'valider'));
     menuContend.appendChild(form);
 }
@@ -213,5 +224,6 @@ function submitFormMenu(form) {
     })
     .catch(error => {
         console.error('Error :', error);
+        // todo : return error on object from back, instead of crashing in back, and print it in p-error.
     });
 }

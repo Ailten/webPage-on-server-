@@ -324,3 +324,7 @@ select
 .char-item-container {
     height: 244px;
 }
+
+input[type="text"].input-edited-not-saved {
+    outline-color: rgb(209, 106, 69);
+}
