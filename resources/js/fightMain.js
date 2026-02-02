@@ -102,7 +102,7 @@ function fillMenu(name, isPreventSubmut=true) {
     });
     return form;
 }
-function fillFormLineButton(labelStr, button, id, eventClick) {
+function fillFormLineButton(labelStr, button, id, eventClick=null) {
     let line = document.createElement('div');
     line.classList.add('input-line', 'd-flex', 'justify-content-center');
     let label = line.appendChild(document.createElement('label'));
@@ -117,7 +117,8 @@ function fillFormLineButton(labelStr, button, id, eventClick) {
     input.setAttribute('id', id);
     input.setAttribute('value', button);
     input.classList.add('btn', 'btn-create');
-    input.addEventListener('click', eventClick);
+    if(eventClick !== null)
+        input.addEventListener('click', eventClick);
     let pError = inputContainer.appendChild(document.createElement('p'));
     pError.classList.add('input-error', 'hidden-p-error');
     return line;
@@ -148,6 +149,12 @@ function fillFormLineInput(labelStr, inputStr, id) {
     pError.classList.add('input-error', 'hidden-p-error');
     return line;
 }
+function fillFormLineSubmit(labelStr, inputStr) {
+    let line = fillFormLineButton(labelStr, inputStr, 'submit');
+    line.classList.add('submit-line');
+    line.getElementsByTagName('input')[0].setAttribute('type', 'submit');
+    return line;
+}
 
 // fill the menu-contend with form navigation-option.
 function openMenuNavigation() {
@@ -166,7 +173,7 @@ function openMenuTwitch() {
     let form = fillMenu('twitchOption');
     form.appendChild(fillFormLineP(`compt twitch : ${DATA_VIEW_TO_JS['pseudoTwitch']}`));
     form.appendChild(fillFormLineInput(`commande rejoindre : `, DATA_VIEW_TO_JS['cmdJoin'], 'cmdJoin'));
-    // todo : fill form with submit button.
+    form.appendChild(fillFormLineSubmit('confirm : ', 'valider'));
     menuContend.appendChild(form);
 }
 // fill the menu-contend with form character-option.
