@@ -24,17 +24,21 @@ class FightController extends Controller
         //]);
 
         // todo : try it to see what return in console.
-        $paramValidated = Validator::make([
+        $validator = Validator::make([
             'cmdJoin' => ['string', 'regex:/^![a-zA-Z_-]+ \{pseudo\}$/']
         ], [
             'cmdJoin.string' => 'cmdJoin doit être une commande (text).',
             'cmdJoin.regex' => 'cmdJoin doit commencer par "!" et finir par "{pseudo}".'
         ]);
 
+        //$validator->fails()  // return if the validation test is fail (to cancel action).
+        //$validator->errors()  // return an object with all error find in validation (to print at user).
+        //$validator->validated()  // return all champs validated (to get what champs is already good), can throw an error (ValidationException).
+
         return response()->json([
             'message' => 'it\'s work',
 
-            'params' => $paramValidated
+            'params' => $validator
         ]);
 
     }
