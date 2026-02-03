@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class FightController extends Controller
 {
@@ -21,6 +22,13 @@ class FightController extends Controller
         //    'cmdJoin.string' => 'cmdJoin doit être une commande (text).',
         //    'cmdJoin.regex' => 'cmdJoin doit commencer par "!" et finir par "{pseudo}".'
         //]);
+
+        $paramValidated = Validator::make([
+            'cmdJoin' => ['string', 'regex:/^![a-zA-Z_-]+ \{pseudo\}$/']
+        ], [
+            'cmdJoin.string' => 'cmdJoin doit être une commande (text).',
+            'cmdJoin.regex' => 'cmdJoin doit commencer par "!" et finir par "{pseudo}".'
+        ]);
 
         return response()->json([
             'message' => 'it\'s work',
