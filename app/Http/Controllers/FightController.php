@@ -23,6 +23,7 @@ class FightController extends Controller
         //    'cmdJoin.regex' => 'cmdJoin doit commencer par "!" et finir par "{pseudo}".'
         //]);
 
+        // todo : try it to see what return in console.
         $paramValidated = Validator::make([
             'cmdJoin' => ['string', 'regex:/^![a-zA-Z_-]+ \{pseudo\}$/']
         ], [
