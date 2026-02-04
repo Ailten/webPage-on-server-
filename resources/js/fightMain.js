@@ -223,14 +223,28 @@ function submitFormMenu(form) {
 
             console.log('succes');
             console.log(data.values);
+
+            // todo : 
+            // clean 'p-errors'.
+            // edit let cmdTwitch with new values.
+            // maybe, pop up success confirm.
+
             return;
         }
 
         console.log('error');
         console.log(data.errors);
+
+        // todo : 
+        // add new 'p-errors' contend.
+        // maybe, pop up error confirm.
+
     })
     .catch(error => {
         console.error('Error :', error);
-        // todo : make a pop-up error message.
+
+        // todo : 
+        // make a pop-up error message.
+
     });
 }
