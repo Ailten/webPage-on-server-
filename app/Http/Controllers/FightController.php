@@ -16,11 +16,14 @@ class FightController extends Controller
     public function sendFormTwitchOption(Request $request) {
 
         // get validator obj from input request.
-        $validator = Validator::make([
-            'cmdJoin' => ['string', 'regex:/^![a-zA-Z_-]+ \{pseudo\}$/']
+        $validator = Validator::make($request->only(
+        [
+            'cmdJoin', 
+        ]) ,[
+            'cmdJoin' => ['string', 'regex:/^![a-zA-Z_-]+ \{pseudo\}$/'],
         ], [
             'cmdJoin.string' => 'cmdJoin doit être une commande (text).',
-            'cmdJoin.regex' => 'cmdJoin doit commencer par "!" et finir par "{pseudo}".'
+            'cmdJoin.regex' => 'cmdJoin doit commencer par "!" et finir par "{pseudo}".',
         ]);
 
         // do update.
@@ -38,7 +41,7 @@ class FightController extends Controller
 
         // return error.
         return response()->json([
-            'isSuccess' => false,
+            'isSucces' => false,
             'errors' => $validator->errors(),
         ]);
 

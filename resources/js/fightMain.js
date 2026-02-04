@@ -219,11 +219,18 @@ function submitFormMenu(form) {
     })
     .then(response => response.json())
     .then(data => {
-        console.log('Succes :', data);
-        // return object it's work.
+        if(data.isSucces){
+
+            console.log('succes');
+            console.log(data.values);
+            return;
+        }
+
+        console.log('error');
+        console.log(data.errors);
     })
     .catch(error => {
         console.error('Error :', error);
-        // todo : return error on object from back, instead of crashing in back, and print it in p-error.
+        // todo : make a pop-up error message.
     });
 }
