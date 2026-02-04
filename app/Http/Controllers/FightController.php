@@ -15,15 +15,7 @@ class FightController extends Controller
 
     public function sendFormTwitchOption(Request $request) {
 
-        // validator : return an object with param (crash if find an error).
-        //$paramValidated = $request->validate([
-        //    'cmdJoin' => ['string', 'regex:/^![a-zA-Z_-]+ \{pseudo\}$/']
-        //], [
-        //    'cmdJoin.string' => 'cmdJoin doit être une commande (text).',
-        //    'cmdJoin.regex' => 'cmdJoin doit commencer par "!" et finir par "{pseudo}".'
-        //]);
-
-        // todo : try it to see what return in console.
+        // get validator obj from input request.
         $validator = Validator::make([
             'cmdJoin' => ['string', 'regex:/^![a-zA-Z_-]+ \{pseudo\}$/']
         ], [
@@ -31,14 +23,23 @@ class FightController extends Controller
             'cmdJoin.regex' => 'cmdJoin doit commencer par "!" et finir par "{pseudo}".'
         ]);
 
-        //$validator->fails()  // return if the validation test is fail (to cancel action).
-        //$validator->errors()  // return an object with all error find in validation (to print at user).
-        //$validator->validated()  // return all champs validated (to get what champs is already good), can throw an error (ValidationException).
+        // do update.
+        if(!$validator->fails()){
+            $dataFromRequest = $validator->validated();
 
+            // todo : update twitchForm.
+
+            // return succes.
+            return response()->json([
+                'isSucces' => true,
+                'values' => $dataFromRequest,
+            ]);
+        }
+
+        // return error.
         return response()->json([
-            'message' => 'it\'s work',
-
-            'params' => $validator
+            'isSuccess' => false,
+            'errors' => $validator->errors(),
         ]);
 
     }
