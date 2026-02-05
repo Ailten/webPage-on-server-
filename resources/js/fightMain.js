@@ -226,7 +226,15 @@ function submitFormMenu(form) {
 
             // todo : 
             // clean 'p-errors'.
+            Array.prototype.forEach(
+                document.querySelectorAll('p.input-error'),
+                (p) => {
+                    p.innerText = '';
+                    p.classList.remove('hidden-p-error');
+                }
+            );
             // edit let cmdTwitch with new values.
+            
             // maybe, pop up success confirm.
 
             return;
