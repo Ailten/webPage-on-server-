@@ -235,7 +235,7 @@ function submitFormMenu(form) {
             console.log(data.values);
 
             // todo : 
-            // edit let cmdTwitch with new values.
+            // edit let cmdTwitch with new values.  // <-- see the console of data.values for make foreachKeyValues.
             // maybe, pop up success confirm.
 
             return;
