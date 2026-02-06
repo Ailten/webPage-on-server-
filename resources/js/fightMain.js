@@ -254,7 +254,8 @@ function submitFormMenu(form) {
 
         // add new 'p-errors' contend.
         for(const [key, value] of Object.entries(data.errors)){
-            //document.
+            let pError = document.getElementById(key).nextSibling;
+            pError.innerText = value[0];
         }
 
         // pop up error.
