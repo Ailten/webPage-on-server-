@@ -209,6 +209,7 @@ function submitFormMenu(form) {
     let url = form.getAttribute('action');
     let formData = new FormData(form);  // todo: debug console ?.
     const CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    let formEndPointDest = form.getAttribute('action').split('/').findLast(_ => true);
 
     fetch(url, {
         method: method,
@@ -221,7 +222,7 @@ function submitFormMenu(form) {
     .then(data => {
 
         // clean 'p-errors'.
-        Array.prototype.forEach(
+        Array.prototype.forEach.call(
             document.querySelectorAll('p.input-error'),
             (p) => {
                 p.innerText = '';
@@ -231,29 +232,58 @@ function submitFormMenu(form) {
 
         if(data.isSucces){
 
-            console.log('succes');
-            console.log(data.values);
-
-            // todo : 
-            // edit let cmdTwitch with new values.  // <-- see the console of data.values for make foreachKeyValues.
-            // maybe, pop up success confirm.
+            // edit let cmdTwitch with new values.
+            if(formEndPointDest === 'twitchOption'){
+                for(const [key, value] of Object.entries(data.values)){
+                    if(key.startsWith('cmd'))
+                        cmdTwitch[key] = value;
+                }
+            }
+            // remove all class "input-edited-not-saved".
+            Array.prototype.forEach.call(
+                document.querySelectorAll('.input-edited-not-saved'),
+                (input) => {
+                    input.classList.remove('input-edited-not-saved');
+                }
+            );
+            // pop up success confirm.
+            setConfirmSubmit('success !');
 
             return;
         }
 
-        console.log('error');
-        console.log(data.errors);
-
-        // todo : 
         // add new 'p-errors' contend.
-        // maybe, pop up error confirm.
+        for(const [key, value] of Object.entries(data.errors)){
+            //document.
+        }
+
+        // pop up error.
+        setErrorSubmit('rejeté, champ(s) invalide.');
 
     })
     .catch(error => {
         console.error('Error :', error);
-
-        // todo : 
-        // make a pop-up error message.
-
+        // pop up error.
+        setErrorSubmit('une erreur server est survenue !');
     });
+}
+
+// write an error in p-error of submit button form.
+function setErrorSubmit(msg) {
+    let pErrorSubmit = document.querySelector('div.submit-line p.input-error');
+    pErrorSubmit.innerText = msg;
+    pErrorSubmit.classList.remove('hidden-p-error');
+}
+// write an error in p-error (but in green, and auto-erase it after some secondes).
+function setConfirmSubmit(msg) {
+    let pErrorSubmit = document.querySelector('div.submit-line p.input-error');
+    pErrorSubmit.innerText = msg;
+    pErrorSubmit.classList.remove('hidden-p-error');
+    pErrorSubmit.classList.add('p-error-set-in-confirm');
+    setTimeout(_ => {
+        pErrorSubmit.innerText = '';
+        pErrorSubmit.classList.add('hidden-p-error');
+        pErrorSubmit.classList.remove('p-error-set-in-confirm');
+    }, 600);
+
 }

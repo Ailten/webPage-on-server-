@@ -57,6 +57,9 @@ div.menu p.hidden-p-error {
     width: 0;
     height: 0;
 }
+div.menu p.p-error-set-in-confirm {
+    color: rgb(49, 221, 49);
+}
 
 div.menu form {
     padding: 5px;
