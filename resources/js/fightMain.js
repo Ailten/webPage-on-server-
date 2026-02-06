@@ -256,6 +256,7 @@ function submitFormMenu(form) {
         for(const [key, value] of Object.entries(data.errors)){
             let pError = document.getElementById(key).nextSibling;
             pError.innerText = value[0];
+            pError.classList.remove('hidden-p-error');
         }
 
         // pop up error.
