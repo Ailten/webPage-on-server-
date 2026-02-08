@@ -32,9 +32,13 @@ $percentXp = ($character->xp / $xpNeedForLvlUp) *100;
 
                         @if(!is_string($inventory))
                             <img src="{{ asset("img/item/{$inventory->itemRef->item_category_id}.png") }}"
+                                title="{{ $inventory->itemRef->name }}"
                                 alt="{{ $inventory->itemRef->name }}">
                         @else
-                            <img src="{{ asset("img/item/{$inventory}.png") }}" style="opacity: 0.3">
+                            <img src="{{ asset("img/item/{$inventory}.png") }}" 
+                                style="opacity: 0.3"
+                                title="{{ $inventory }} : vide"
+                                alt="{{ $inventory }}">
                         @endif
 
                     </div>
