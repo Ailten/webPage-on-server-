@@ -25,15 +25,16 @@ $percentXp = ($character->xp / $xpNeedForLvlUp) *100;
                 <!--<img src="{{ asset("img/class/{$character->characterSpecie->id}.png") }}">-->
                 <div class="div-img-illu-character" style="background-image: url({{ asset("img/class/{$character->characterSpecie->id}.png") }})"></div>
             </div>
-            <div class="item-equiped-container">
+            <div class="item-equiped-container align-self-start">
                 @foreach ($inventoriesEquiped as $inventory)
 
                     <div class="item-container">
 
                         @if(!is_string($inventory))
-                            <img src="{{ asset("img/item/{$inventory->itemRef->item_category_id}.png") }}">
+                            <img src="{{ asset("img/item/{$inventory->itemRef->item_category_id}.png") }}"
+                                alt="{{ $inventory->itemRef->name }}">
                         @else
-                            <img src="{{ asset("img/item/{$inventory}.png") }}">
+                            <img src="{{ asset("img/item/{$inventory}.png") }}" style="opacity: 0.3">
                         @endif
 
                     </div>
