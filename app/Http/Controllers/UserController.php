@@ -42,6 +42,7 @@ class UserController extends Controller
         $userLog->twitch_access_token = $twitchLogin['access_Token'];  // refresh token.
         $userLog->twitch_refresh_token = $twitchLogin['refresh_Token'];
         $userLog->twitch_pseudo = $userTwitch['display_name'];  // update pseudo just in case it was rename on twitch.
+        $userLog->twitch_profile_picture = $userTwitch['profile_image_url'];  // update pfp.
         $userLog->save();
 
         // place userLog on session (log user).

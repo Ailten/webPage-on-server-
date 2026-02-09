@@ -19,6 +19,7 @@ return new class extends Migration
             $table->longText('twitch_refresh_token');  // token to renouvelle token twitch.
             $table->string('twitch_email')->unique();  // email from twitch acount (only use to recuperation acount).
             $table->string('twitch_pseudo');  // pseudo twitch.  ->  get from obj twitch User, no need to be stocked.
+            $table->string('twitch_profile_picture')->nullable()->default(null);  // url of pfp twitch.
 
             $table->boolean('is_dark_theme')->default(true);  // to know preference CSS.
 

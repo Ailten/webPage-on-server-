@@ -19,6 +19,7 @@ class User extends Authenticatable
         'twitch_refresh_token',  // not sur need to fillable.
         'twitch_email',
         'twitch_pseudo',
+        'twitch_profile_picture',
     ];
 
     // champs ignored when cast into array or json (to protect secret data befor print at screen).
