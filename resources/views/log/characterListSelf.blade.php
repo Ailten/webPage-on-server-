@@ -8,7 +8,7 @@
 
 @php
 $charactersLength = sizeof($characters);
-$charactersEmptySlot = max(3 - $charactersLength, 0);
+$charactersEmptySlot = max(auth()->user()->character_count - $charactersLength, 0);
 @endphp
 
 @foreach($characters as $character)
