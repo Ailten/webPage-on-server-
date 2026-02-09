@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use App\Utils\Twitch\TwitchAPI;
 use Illuminate\Http\Request;
@@ -36,6 +37,7 @@ class UserController extends Controller
             $userLog = new User();
             $userLog->twitch_id = $userTwitch['id'];
             $userLog->twitch_email = $userTwitch['email'];
+            $userLog->role_id = Role::where('name', '=', 'Player')->first()->id;
         }
 
         // update / create (with refresh token).
