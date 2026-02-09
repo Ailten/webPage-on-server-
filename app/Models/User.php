@@ -31,6 +31,11 @@ class User extends Authenticatable
     ];
 
 
+    public function user() {
+        return $this->belongsTo(Role::class);
+    }
+
+
     public function characters() {
         return $this->hasMany(Character::class);
     }

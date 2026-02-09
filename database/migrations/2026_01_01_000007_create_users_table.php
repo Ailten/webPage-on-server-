@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
 
+            // FK.
+            $table->foreignId('role_id')->constrained()->onDelete('cascade');
+
             $table->integer('twitch_id')->unique();  // id twitch acount (to match OAuth connection).
             $table->longText('twitch_access_token');  // token twitch.
             $table->longText('twitch_refresh_token');  // token to renouvelle token twitch.
@@ -23,7 +26,6 @@ return new class extends Migration
 
             $table->boolean('is_dark_theme')->default(true);  // to know preference CSS.
 
-            //$table->integer('xp')->default(0);  // need a function to cast xp as level (stock in user obj for nor re-calculate).
             $table->integer('gold')->default(0);  // money in game.
             $table->integer('gemme')->default(0);  // money ++.
 
