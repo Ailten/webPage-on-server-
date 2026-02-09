@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class StatTypeValue extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     protected $fillable = [
         'stat_id',

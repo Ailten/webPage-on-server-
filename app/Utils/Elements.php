@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Utils\Elements;
+namespace App\Utils;
 
 enum Elements: string 
 {

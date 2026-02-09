@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Utils\Elements\Elements;
+use App\Utils\Elements;
 use DB;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class StatTypesSeeder extends Seeder

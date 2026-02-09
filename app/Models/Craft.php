@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Craft extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     protected $fillable = [
         'item_ref_id',

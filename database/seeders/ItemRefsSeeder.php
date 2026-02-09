@@ -9,7 +9,6 @@ use App\Models\Stat;
 use App\Models\StatType;
 use App\Models\StatTypeValue;
 use DB;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ItemRefsSeeder extends Seeder

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ItemRef extends Model
 {
     use HasFactory;
+    public $timestamps = false;
     
     protected $fillable = [
         'item_categorie_id',

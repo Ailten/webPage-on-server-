@@ -1,5 +1,6 @@
 <?php
 
+use App\Utils\Elements;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 
@@ -17,3 +18,10 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
+
+// my commande test custom for enum.
+Artisan::command('test:enum', function () {
+    dd(
+        Elements::terre
+    );
+});

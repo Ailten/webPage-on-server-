@@ -33,10 +33,10 @@ class MobsSeeder extends Seeder
         ]);
         $this->insertRow('petit bois', 1, 100, 10, [
             'attaque terre' => 3,
-            'vol vie vent' => 3,
+            'vol vie air' => 3,
             'vie' => 100,
             'critique' => 4,
-            'parade' => 4,
+            'parade' => 4, 
         ], [
             'racine de petit bois' => 1.0,
             'bois petit' => 0.5,
@@ -48,7 +48,7 @@ class MobsSeeder extends Seeder
             'vie' => 50,
             'res. terre' => 1,
             'res. feu' => 1,
-            'res. vent' => 1,
+            'res. air' => 1,
             'critique' => 1,
             'parade' => 8,
         ], [
@@ -63,6 +63,9 @@ class MobsSeeder extends Seeder
         $stat = Stat::create([]);
 
         foreach($statsArray as $key => $value) {
+            if(StatType::where('name', '=', $key)->first() == null){
+                dd($key);
+            }
             StatTypeValue::create([
                 'stat_id' => $stat->id,
                 'stat_type_id' => StatType::where('name', '=', $key)->first()->id,
