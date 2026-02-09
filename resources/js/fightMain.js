@@ -131,7 +131,7 @@ function fillFormLineP(pStr) {
     p.innerText = pStr;
     return line;
 }
-function fillFormLineInput(labelStr, inputStr, id, eventChange=null) {
+function fillFormLineInput(labelStr, inputStr, id, eventChange=null, isDisabled=false) {
     let line = document.createElement('div');
     line.classList.add('input-line', 'd-flex', 'justify-content-center');
     let label = line.appendChild(document.createElement('label'));
@@ -147,6 +147,8 @@ function fillFormLineInput(labelStr, inputStr, id, eventChange=null) {
     input.setAttribute('value', inputStr);
     if(eventChange !== null)
         input.addEventListener('change', eventChange);
+    if(isDisabled)
+        input.setAttribute('disabled', '');
     let pError = inputContainer.appendChild(document.createElement('p'));
     pError.classList.add('input-error', 'hidden-p-error');
     return line;
@@ -182,7 +184,8 @@ function openMenuTwitch() {
             if(isEdited ^ input.classList.contains('input-edited-not-saved')){
                 input.classList.toggle('input-edited-not-saved');
             }
-        }
+        },  // eventChange.
+        true  // isDisabled.
     ));
     form.appendChild(fillFormLineSubmit('confirm : ', 'valider'));
     menuContend.appendChild(form);
