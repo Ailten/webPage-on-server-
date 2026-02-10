@@ -176,6 +176,15 @@ function openMenuTwitch() {
     let menuContend = document.getElementById('menu-contend');
     let form = fillMenu('twitchOption');
     form.appendChild(fillFormLineP(`compt twitch : ${DATA_VIEW_TO_JS['pseudoTwitch']}`));
+
+    // add pfp twitch to p.
+    let pfpTwitch = form.getElementsByTagName('p')[0].appendChild(document.createElement('img'));
+    pfpTwitch.setAttribute('src', DATA_VIEW_TO_JS['pfpTwitch']);
+    pfpTwitch.classList.add('image-twitch-pfp');
+    pfpTwitch.style.display = 'inline';
+    pfpTwitch.style.marginLeft = '10px';
+    pfpTwitch.style.marginBottom = '4px';
+
     // todo : add an event change to input cmd, for edit color outline when change but not submit.
     form.appendChild(fillFormLineInput(`commande rejoindre : `, cmdTwitch['cmdJoin'], 'cmdJoin',
         (evnt) => {

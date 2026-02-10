@@ -237,6 +237,12 @@ select
     outline-width: 2px;
 }
 
+input[type=text][disabled] 
+{
+    color: #575757;
+    outline: none;
+}
+
 
 .character-specie-selection-container {
     text-align: center;
