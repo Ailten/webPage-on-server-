@@ -18,9 +18,9 @@
 
                 @auth
 
-                    <p class="p-align-btn margin-right">{{ auth()->user()->twitch_pseudo }}</p>
+                    <p class="p-align-btn">{{ auth()->user()->twitch_pseudo }}</p>
                     <img src="{{ auth()->user()->twitch_profile_picture }}"
-                        class="image-twitch-pfp">
+                        class="image-twitch-pfp margin-right">
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         @method('DELETE')

@@ -117,6 +117,12 @@ section#center-page {
 .btn.btn-twitch:active{
     background-color: #5c16c5;
 }
+.image-twitch-pfp {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: 2px #9147ff solid;
+}
 
 
 .p-align-btn {
