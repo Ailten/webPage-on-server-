@@ -1,6 +1,6 @@
 <?php
 
-use App\Utils\Elements;
+use App\Utils\Enum\Elements;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 

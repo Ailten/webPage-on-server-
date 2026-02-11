@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Role;
+use App\Utils\Enum\Roles;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class RolesSeeder extends Seeder
 {
@@ -13,14 +13,18 @@ class RolesSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->insertRow('Player');
-        $this->insertRow('Admin');
-        $this->insertRow('Banned');
+        // reset.
+        Role::all()->delete();
+
+        foreach(Roles::cases() as $r) {
+            $this->insertRowWithId($r->value, $r->name);
+        }
     }
 
-    private function insertRow(string $name) {
-        DB::table('roles')->insert([
-            'name' => $name
-        ]);
+    private function insertRowWithId(int $id, string $name) {
+        $role = new Role();
+        $role->id = $id;
+        $role->name = $name;
+        $role->save();
     }
 }

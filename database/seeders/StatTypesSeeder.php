@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Utils\Elements;
+use App\Utils\Enum\Elements;
 use DB;
 use Illuminate\Database\Seeder;
 
