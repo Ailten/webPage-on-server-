@@ -3,16 +3,11 @@
 namespace App\Utils\Admin;
 
 use App\Models\User;
+use App\Utils\Enum\Roles;
 
 class AdminCheck {
 
-    private const ADMIN_TWITCH_ID = [
-        450998053
-    ];
-
     public static function isAdmin(User $user): bool {
-
-        return in_array($user->twitch_id, AdminCheck::ADMIN_TWITCH_ID);
-
+        return ($user->role_id == Roles::Admin);
     }
 }
