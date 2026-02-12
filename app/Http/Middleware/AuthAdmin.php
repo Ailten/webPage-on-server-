@@ -29,7 +29,7 @@ class AuthAdmin extends Middleware
             return redirect()->route('index')->with('error', 'utilisateur non connecté !');
         }
 
-        // verify id admin (TODO: use a table role).
+        // verify is admin.
         if(!AdminCheck::isAdmin(Auth::user())){
             return redirect()->back()->with('error', 'vous devez être Admin !');
         }
