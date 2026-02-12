@@ -2,12 +2,12 @@
 
 namespace App\Http\Middleware;
 
+use App\Utils\Role\RoleCheck;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
-use App\Utils\Admin\AdminCheck;
 
 class AuthAdmin extends Middleware
 {
@@ -30,7 +30,7 @@ class AuthAdmin extends Middleware
         }
 
         // verify is admin.
-        if(!AdminCheck::isAdmin(Auth::user())){
+        if(!RoleCheck::isAdmin(Auth::user())){
             return redirect()->back()->with('error', 'vous devez être Admin !');
         }
 

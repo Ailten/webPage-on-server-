@@ -3,10 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Character;
-use App\Models\CharacterSpecie;
-use App\Models\Stat;
-use App\Models\XpNeedPerLevel;
-use App\Utils\Admin\AdminCheck;
+use App\Utils\Role\RoleCheck;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -57,7 +54,7 @@ class CharacterController extends Controller
 
         // verify if user log possess the character to delete.
         $isAuthOwner = $character->user_id == Auth()->user()->id;
-        if(!$isAuthOwner && !AdminCheck::isAdmin(Auth()->user())){
+        if(!$isAuthOwner && !RoleCheck::isAdmin(Auth()->user())){
             return redirect()->back()->with('error', 'Vous n\'etes pas propriétaire de ce Character !');
         }
 
@@ -83,7 +80,7 @@ class CharacterController extends Controller
 
         // verify if user log possess the character to delete.
         $isAuthOwner = $character->user_id == Auth()->user()->id;
-        if(!$isAuthOwner && !AdminCheck::isAdmin(Auth()->user())){
+        if(!$isAuthOwner && !RoleCheck::isAdmin(Auth()->user())){
             return redirect()->back()->with('error', 'Vous n\'etes pas propriétaire de ce Character !');
         }
 
