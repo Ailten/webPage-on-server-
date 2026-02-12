@@ -6,6 +6,7 @@
     <head>
         <title>Ailten-WebPage</title>
 	    <meta charset="utf-8">
+        <link rel="icon" type="{{ asset("img/Logo.png") }}" href="Logo.png"/>
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
     </head>
