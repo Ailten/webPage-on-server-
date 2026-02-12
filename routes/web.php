@@ -65,11 +65,14 @@ Route::prefix('/log')
         // form to create a character.
         Route::get('/create', function(){
             return view('log.characterCreate');
-        })->name('create');
+        })
+        ->name('create')
+        ->middleware('auth.notbanned');
     
         // submit form create character.
         Route::post('/createValidate', [CharacterController::class, 'createCharacterUserLog'])
-        ->name('createValidate');
+        ->name('createValidate')
+        ->middleware('auth.notbanned');
 
         // delete a character.
         Route::get('/delete-{id}', [CharacterController::class, 'deleteCharacter'])
@@ -101,6 +104,7 @@ Route::prefix('/log')
 
     Route::prefix('/fight')
     ->name('fight.')
+    ->middleware('auth.notbanned')
     ->group(function() {
 
         // open page fight.
