@@ -175,7 +175,7 @@ function openMenuNavigation() {
 function openMenuTwitch() {
     let menuContend = document.getElementById('menu-contend');
     let form = fillMenu('twitchOption');
-    form.appendChild(fillFormLineP(`compt twitch : ${DATA_VIEW_TO_JS['pseudoTwitch']}`));
+    form.appendChild(fillFormLineP(`compte twitch : ${DATA_VIEW_TO_JS['pseudoTwitch']}`));
 
     // add pfp twitch to p.
     let pfpTwitch = form.getElementsByTagName('p')[0].appendChild(document.createElement('img'));

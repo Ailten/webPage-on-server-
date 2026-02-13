@@ -20,6 +20,7 @@ div.menu {
     position: absolute;
     height: 100%;
     right: -500px;
+    z-index: 1000;
 }
 div.menu.menu-unfold {
     animation-name: menu-unfold;

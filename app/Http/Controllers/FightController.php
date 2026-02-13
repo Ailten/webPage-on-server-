@@ -31,6 +31,9 @@ class FightController extends Controller
             $dataFromRequest = $validator->validated();
 
             // todo : update twitchForm.
+            // todo : connect bot twitch to channel auth. (disconnect before if already connected).
+            // see DB structur for the "botTwitchParameter".
+            // see how to dev botTwitch on a php web-backend.
 
             // return succes.
             return response()->json([
