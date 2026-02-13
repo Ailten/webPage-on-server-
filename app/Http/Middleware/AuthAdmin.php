@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use App\Utils\Role\RoleCheck;
+use App\Utils\RoleCheck;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\Middleware;
@@ -20,9 +20,9 @@ class AuthAdmin extends Middleware
     public function handle(Request $request, Closure $next): Response
     {
         // json exception.
-        if(!$request->expectsJson()){
-            return redirect()->route('index')->with('error', 'erreur json expects !');
-        }
+        //if(!$request->expectsJson()){
+        //    return redirect()->route('index')->with('error', 'erreur json expects !');
+        //}
 
         // if user not log.
         if(!Auth::check()){

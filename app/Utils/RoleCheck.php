@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Utils\Role;
+namespace App\Utils;
 
 use App\Models\User;
 use App\Utils\Enum\Roles;

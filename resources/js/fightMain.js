@@ -186,7 +186,7 @@ function openMenuTwitch() {
     pfpTwitch.style.marginBottom = '4px';
 
     // todo : add an event change to input cmd, for edit color outline when change but not submit.
-    form.appendChild(fillFormLineInput(`commande rejoindre : `, cmdTwitch['cmdJoin'], 'cmdJoin',
+    form.appendChild(fillFormLineInput(`commande rejoindre :`, cmdTwitch['cmdJoin'], 'cmdJoin',
         (evnt) => {
             let input = evnt.target;
             let isEdited = evnt.target.value !== cmdTwitch['cmdJoin'];
@@ -196,7 +196,7 @@ function openMenuTwitch() {
         },  // eventChange.
         true  // isDisabled.
     ));
-    form.appendChild(fillFormLineSubmit('confirm : ', 'valider'));
+    form.appendChild(fillFormLineSubmit('connecte bot :', 'valider'));
     menuContend.appendChild(form);
 }
 // fill the menu-contend with form character-option.
