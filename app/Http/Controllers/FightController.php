@@ -32,6 +32,7 @@ class FightController extends Controller
 
             // todo : update twitchForm.
             // todo : connect bot twitch to channel auth. (disconnect before if already connected).
+            // create a row BotTwitch in DB.
             // see DB structur for the "botTwitchParameter".
             // see how to dev botTwitch on a php web-backend.
 
