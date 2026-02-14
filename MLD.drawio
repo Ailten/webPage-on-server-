@@ -557,10 +557,10 @@
         <mxCell id="WFce17U2Ro7BjeoDHFYf-8" parent="WFce17U2Ro7BjeoDHFYf-7" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" value="// jointure for all character ask to join." vertex="1">
           <mxGeometry height="30" width="140" y="30" as="geometry" />
         </mxCell>
-        <mxCell id="WFce17U2Ro7BjeoDHFYf-10" parent="WFce17U2Ro7BjeoDHFYf-7" style="text;whiteSpace=wrap;html=1;" value="&amp;nbsp;- [FK] user_id" vertex="1">
+        <mxCell id="WFce17U2Ro7BjeoDHFYf-10" parent="WFce17U2Ro7BjeoDHFYf-7" style="text;whiteSpace=wrap;html=1;" value="&amp;nbsp;- [FK] bot_twitch_id" vertex="1">
           <mxGeometry height="30" width="140" y="60" as="geometry" />
         </mxCell>
-        <mxCell id="WFce17U2Ro7BjeoDHFYf-12" parent="WFce17U2Ro7BjeoDHFYf-7" style="text;whiteSpace=wrap;html=1;" value="&amp;nbsp;- [FK] user_id" vertex="1">
+        <mxCell id="WFce17U2Ro7BjeoDHFYf-12" parent="WFce17U2Ro7BjeoDHFYf-7" style="text;whiteSpace=wrap;html=1;" value="&amp;nbsp;- [FK] character_id" vertex="1">
           <mxGeometry height="30" width="140" y="90" as="geometry" />
         </mxCell>
         <mxCell id="WFce17U2Ro7BjeoDHFYf-15" parent="WFce17U2Ro7BjeoDHFYf-7" style="text;whiteSpace=wrap;html=1;" value="&amp;nbsp;- selected" vertex="1">
