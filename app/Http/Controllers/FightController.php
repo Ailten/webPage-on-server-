@@ -32,17 +32,20 @@ class FightController extends Controller
         if(!$validator->fails()){
             $dataFromRequest = $validator->validated();
 
-            // todo : update twitchForm.
-            // todo : connect bot twitch to channel auth. (disconnect before if already connected).
-            // create a row BotTwitch in DB.
-
+            // get botTwitch row (or create).
             $botTwitchModel = BotTwitch::where('user_id', '=', Auth()->user()->id)->first();
             if(is_null($botTwitchModel)){
                 $botTwitchModel = new BotTwitch();
                 $botTwitchModel->user_id = Auth()->user()->id;
             }
 
-            // todo :
+            // update botTwitch row (and save).
+            $botTwitchModel->cmdJoin = $dataFromRequest['cmdJoin'];
+            $botTwitchModel->save();
+
+
+            // todo : update twitchForm.
+            // todo : connect bot twitch to channel auth. (disconnect before if already connected).
             // see DB structur for the "botTwitchParameter".
             // see how to dev botTwitch on a php web-backend.
 
