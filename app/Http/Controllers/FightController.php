@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BotTwitch;
+use App\Models\CharInQueue;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -37,16 +38,18 @@ class FightController extends Controller
             if(is_null($botTwitchModel)){
                 $botTwitchModel = new BotTwitch();
                 $botTwitchModel->user_id = Auth()->user()->id;
+            }else{
+
+                // clean all charInQueue (from last stream).
+                $botTwitchModel->charInQueues()->delete();
+
             }
 
             // update botTwitch row (and save).
             $botTwitchModel->cmdJoin = $dataFromRequest['cmdJoin'];
             $botTwitchModel->save();
 
-
-            // todo : update twitchForm.
             // todo : connect bot twitch to channel auth. (disconnect before if already connected).
-            // see DB structur for the "botTwitchParameter".
             // see how to dev botTwitch on a php web-backend.
 
             // return succes.
