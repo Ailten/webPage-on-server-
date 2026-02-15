@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BotTwitch;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class FightController extends Controller
@@ -33,6 +35,14 @@ class FightController extends Controller
             // todo : update twitchForm.
             // todo : connect bot twitch to channel auth. (disconnect before if already connected).
             // create a row BotTwitch in DB.
+
+            $botTwitchModel = BotTwitch::where('user_id', '=', Auth()->user()->id)->first();
+            if(is_null($botTwitchModel)){
+                $botTwitchModel = new BotTwitch();
+                $botTwitchModel->user_id = Auth()->user()->id;
+            }
+
+            // todo :
             // see DB structur for the "botTwitchParameter".
             // see how to dev botTwitch on a php web-backend.
 
