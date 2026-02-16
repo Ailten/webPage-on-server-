@@ -4,6 +4,7 @@ use App\Http\Controllers\CharacterController;
 use App\Http\Controllers\FightController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -126,11 +127,19 @@ Route::prefix('/log')
 });
 
 // debug.
-Route::get('/debug', function (Request $request) {
+Route::prefix('/debug')
+->name('debug.')
+->group(function () {
 
-    $debugOutput = [
-        'request_all'=> $request->all(),
-    ];
-    return $debugOutput;
-    //return view('debug');
+    Route::get('/users', function (Request $request) {
+        
+        return User::all();
+
+        $debugOutput = [
+            'request_all'=> $request->all(),
+        ];
+        return $debugOutput;
+        //return view('debug');
+    });
+
 });
