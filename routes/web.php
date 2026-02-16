@@ -128,8 +128,6 @@ Route::prefix('/log')
 // debug.
 Route::get('/debug', function (Request $request) {
 
-    // TODO: add a controller, to verify is loged and if it's an user who has permission to this page (table permissions, maybe role).
-
     $debugOutput = [
         'request_all'=> $request->all(),
     ];
