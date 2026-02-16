@@ -131,15 +131,15 @@ Route::prefix('/debug')
 ->name('debug.')
 ->group(function () {
 
+    // debug all users.
     Route::get('/users', function (Request $request) {
-        
         return User::all();
-
-        $debugOutput = [
-            'request_all'=> $request->all(),
-        ];
-        return $debugOutput;
-        //return view('debug');
     });
+    // debug one user (by id).
+    Route::get('/user-{id}', function (Request $request, $id) {
+        return User::find($id);
+    })->where([
+        'id' => '[0-9]+',
+    ]);
 
 });
