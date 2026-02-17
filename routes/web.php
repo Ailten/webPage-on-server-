@@ -142,12 +142,12 @@ Route::prefix('/debug')
     })->where(['id' => '[0-9]+'])
     ->name('user');
 
-    Route::get('/chars', function (Request $request) {
+    Route::get('/characters', function (Request $request) {
         return Character::all()->paginate(10);
-    })->name('chars');;
-    Route::get('/char-{id}', function (Request $request, $id) {
+    })->name('characters');;
+    Route::get('/character-{id}', function (Request $request, $id) {
         return Character::find($id);
     })->where(['id' => '[0-9]+'])
-    ->name('char');
+    ->name('character');
 
 });
