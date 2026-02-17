@@ -142,12 +142,19 @@ Route::prefix('/debug')
     })->where(['id' => '[0-9]+'])
     ->name('user');
 
+    // debug all characters.
     Route::get('/characters', function (Request $request) {
         return Character::all()->paginate(10);
-    })->name('characters');;
+    })->name('characters');
+    // debug one character (by id).
     Route::get('/character-{id}', function (Request $request, $id) {
         return Character::find($id);
     })->where(['id' => '[0-9]+'])
     ->name('character');
+    // debug all characters of an user (by idUser).
+    Route::get('/characterFromUser-{idUser}', function (Request $request, $idUser) {
+        return User::find($idUser)->characters();
+    })->where(['idUser' => '[0-9]+'])
+    ->name('characterFromUser');
 
 });
