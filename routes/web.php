@@ -4,6 +4,7 @@ use App\Http\Controllers\CharacterController;
 use App\Http\Controllers\FightController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\UserController;
+use App\Models\Character;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -133,13 +134,20 @@ Route::prefix('/debug')
 
     // debug all users.
     Route::get('/users', function (Request $request) {
-        return User::all();
-    });
+        return User::all()->paginate(10);
+    })->name('users');
     // debug one user (by id).
     Route::get('/user-{id}', function (Request $request, $id) {
         return User::find($id);
-    })->where([
-        'id' => '[0-9]+',
-    ]);
+    })->where(['id' => '[0-9]+'])
+    ->name('user');
+
+    Route::get('/chars', function (Request $request) {
+        return Character::all()->paginate(10);
+    })->name('chars');;
+    Route::get('/char-{id}', function (Request $request, $id) {
+        return Character::find($id);
+    })->where(['id' => '[0-9]+'])
+    ->name('char');
 
 });
