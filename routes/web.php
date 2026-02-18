@@ -162,5 +162,10 @@ Route::prefix('/debug')
     Route::get('/items', function (Request $request) {
         return ItemRef::all()->paginate(10);
     })->name('items');
+    // debug one item (by id).
+    Route::get('/item-{id}', function (Request $request, $id) {
+        return ItemRef::find($id);
+    })->where(['id' => '[0-9]+'])
+    ->name('items');
 
 });
