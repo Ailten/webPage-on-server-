@@ -5,6 +5,7 @@ use App\Http\Controllers\FightController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\UserController;
 use App\Models\Character;
+use App\Models\ItemRef;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -156,5 +157,10 @@ Route::prefix('/debug')
         return User::find($idUser)->characters();
     })->where(['idUser' => '[0-9]+'])
     ->name('characterFromUser');
+
+    // debug items.
+    Route::get('/items', function (Request $request) {
+        return ItemRef::all()->paginate(10);
+    })->name('items');
 
 });
