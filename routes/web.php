@@ -171,7 +171,7 @@ Route::prefix('/debug')
     Route::get('/inventory-{idUser}', function (Request $request, $idUser) {
         return User::find($idUser)
             ->inventories()
-            ->withDetailsInventory();
+            ->withDetailsInventory();  // todo : try.
     })->where(['idUser' => '[0-9]+'])
     ->name('inventory');
 
