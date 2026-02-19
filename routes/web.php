@@ -171,23 +171,7 @@ Route::prefix('/debug')
     Route::get('/inventory-{idUser}', function (Request $request, $idUser) {
         return User::find($idUser)
             ->inventories()
-            ->leftJoin('equipeds', 'equipeds.inventory_id', '=', 'inventories.id')
-            ->leftJoin('characters', 'characters.id', '=', 'equipeds.character_id')
-            ->join('item_refs', 'item_refs.id', '=', 'inventories.item_ref_id')
-            ->join('item_categories', 'item_categories.id', '=', 'item_refs.item_categorie_id')
-            ->join('item_rarities', 'item_rarities.id', '=', 'item_refs.item_rarity_id')
-            
-            ->paginate(10, [  // pagination.
-                'inventories.id as id',
-                'inventories.quantity as quantity',
-                DB::raw('COUNT(characters.id) as equiped_quantity'),
-                'item_refs.name as name',
-                'item_refs.price as price',
-                'item_refs.level as level',
-                'item_categories.name as item_categorie',
-                'item_rarities.name as item_rarity',
-
-            ]);
+            ->withDetailsInventory();
     })->where(['idUser' => '[0-9]+'])
     ->name('inventory');
 
