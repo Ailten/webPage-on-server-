@@ -8,7 +8,7 @@ export default defineConfig({
                 'resources/css/blackTheme.css',
                 'resources/css/fightMain.css',
                 'resources/css/fightResponcive.css',
-                'resources/css/main.css', 
+                'resources/css/main.css',
                 'resources/css/responcive.css',
 
                 'resources/js/bootstrap.js',
