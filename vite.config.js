@@ -4,7 +4,17 @@ import laravel from 'laravel-vite-plugin';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/main.css', 'resources/js/main.js'],  // maybe doublon ? (already extend in view).
+            input: [
+                'resources/css/blackTheme.css',
+                'resources/css/fightMain.css',
+                'resources/css/fightResponcive.css',
+                'resources/css/main.css', 
+                'resources/css/responcive.css',
+                
+                'resources/js/bootstrap.js',
+                'resources/js/fightMain.js',
+                'resources/js/main.js',
+            ],
             refresh: true,
         }),
     ],
