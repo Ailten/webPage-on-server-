@@ -7,6 +7,7 @@ use App\Models\Ingredient;
 use App\Models\ItemRef;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 
 class CraftsSeeder extends Seeder
 {
@@ -16,7 +17,9 @@ class CraftsSeeder extends Seeder
     public function run(): void
     {
         // reset.
+        Schema::disableForeignKeyConstraints();
         Craft::truncate();
+        Schema::enableForeignKeyConstraints();
 
         $this->insertRow('baton gluant', 1, 0.95, [
             'mucus de slime' => 1,

@@ -6,6 +6,7 @@ use App\Models\ItemRarity;
 use DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 
 class ItemRaritiesSeeder extends Seeder
 {
@@ -15,7 +16,9 @@ class ItemRaritiesSeeder extends Seeder
     public function run(): void
     {
         // reset.
+        Schema::disableForeignKeyConstraints();
         ItemRarity::truncate();
+        Schema::enableForeignKeyConstraints();
 
         $this->insertRow('commun');
         $this->insertRow('peu commun');

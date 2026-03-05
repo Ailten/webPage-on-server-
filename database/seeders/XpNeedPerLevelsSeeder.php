@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\XpNeedPerLevel;
 use DB;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 
 class XpNeedPerLevelsSeeder extends Seeder
 {
@@ -14,7 +15,9 @@ class XpNeedPerLevelsSeeder extends Seeder
     public function run(): void
     {
         // reset.
+        Schema::disableForeignKeyConstraints();
         XpNeedPerLevel::truncate();
+        Schema::enableForeignKeyConstraints();
 
         $this->insertRow(1, 100);
         $this->insertRow(2, 500);

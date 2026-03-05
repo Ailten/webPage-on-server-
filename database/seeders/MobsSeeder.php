@@ -10,6 +10,7 @@ use App\Models\StatType;
 use App\Models\StatTypeValue;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 
 class MobsSeeder extends Seeder
 {
@@ -19,7 +20,9 @@ class MobsSeeder extends Seeder
     public function run(): void
     {
         // reset.
+        Schema::disableForeignKeyConstraints();
         Mob::truncate();
+        Schema::enableForeignKeyConstraints();
 
         $this->insertRow('slime', 1, 100, 10, [
             'attaque eau' => 8,

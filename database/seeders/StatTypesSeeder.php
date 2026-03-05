@@ -6,6 +6,7 @@ use App\Models\StatType;
 use App\Utils\Enum\Elements;
 use DB;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 
 class StatTypesSeeder extends Seeder
 {
@@ -15,7 +16,9 @@ class StatTypesSeeder extends Seeder
     public function run(): void
     {
         // reset.
+        Schema::disableForeignKeyConstraints();
         StatType::truncate();
+        Schema::enableForeignKeyConstraints();
 
         $this->insertFourElements('attaque <e>', 0);
         $this->insertFourElements('soigne <e>', 0);

@@ -10,6 +10,7 @@ use App\Models\StatType;
 use App\Models\StatTypeValue;
 use DB;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 
 class ItemRefsSeeder extends Seeder
 {
@@ -19,7 +20,9 @@ class ItemRefsSeeder extends Seeder
     public function run(): void
     {
         // reset.
+        Schema::disableForeignKeyConstraints();
         ItemRef::truncate();
+        Schema::enableForeignKeyConstraints();
 
         $this->insertRow('mucus de slime', 1, 1, 'ressource', 'commun');
         $this->insertRow('noyau de slime', 3, 1, 'pierre précieuse', 'peu commun');

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Role;
 use App\Utils\Enum\Roles;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 
 class RolesSeeder extends Seeder
 {
@@ -14,7 +15,9 @@ class RolesSeeder extends Seeder
     public function run(): void
     {
         // reset.
+        Schema::disableForeignKeyConstraints();
         Role::truncate();
+        Schema::enableForeignKeyConstraints();
 
         foreach(Roles::cases() as $r) {
             $this->insertRowWithId($r->value, $r->name);

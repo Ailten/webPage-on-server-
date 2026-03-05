@@ -6,6 +6,7 @@ use App\Models\ItemCategorie;
 use DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 
 class ItemCategoriesSeeder extends Seeder
 {
@@ -15,7 +16,9 @@ class ItemCategoriesSeeder extends Seeder
     public function run(): void
     {
         // reset.
+        Schema::disableForeignKeyConstraints();
         ItemCategorie::truncate();
+        Schema::enableForeignKeyConstraints();
 
         $this->insertRow('casque');
         $this->insertRow('armure');
