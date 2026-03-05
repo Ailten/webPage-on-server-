@@ -12,7 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bot_twitchs', function (Blueprint $table) {
+        Schema::create('bot_twitches', function (Blueprint $table) {
             $table->id();
 
             // FK.
@@ -27,9 +27,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('bot_twitchs', function(Blueprint $table){
+        Schema::table('bot_twitches', function(Blueprint $table){
             $table->dropForeignIdFor(User::class);
         });
-        Schema::dropIfExists('bot_twitchs');
+        Schema::dropIfExists('bot_twitches');
     }
 };
