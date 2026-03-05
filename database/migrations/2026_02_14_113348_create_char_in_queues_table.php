@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\BotTwitch;
+use App\Models\CharInQueue;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -28,6 +30,12 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('char_in_queues', function(Blueprint $table){
+            $table->dropForeignIdFor(BotTwitch::class);
+        });
+        Schema::table('char_in_queues', function(Blueprint $table){
+            $table->dropForeignIdFor(CharInQueue::class);
+        });
         Schema::dropIfExists('char_in_queues');
     }
 };
