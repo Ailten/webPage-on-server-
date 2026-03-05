@@ -10,7 +10,7 @@ export default defineConfig({
                 'resources/css/fightResponcive.css',
                 'resources/css/main.css', 
                 'resources/css/responcive.css',
-                
+
                 'resources/js/bootstrap.js',
                 'resources/js/fightMain.js',
                 'resources/js/main.js',
@@ -20,14 +20,14 @@ export default defineConfig({
     ],
 
     // test.
-    //server: {
-    //    host: '80.201.20.68',
-    //    port: 8000,
-    //    strictPort: true,
-    //    hmr: {
-    //        host: '80.201.20.68'
-    //    },
-    //    https: false
-    //}
+    server: {
+        host: '80.201.20.68',
+        port: 8000,
+        strictPort: true,
+        hmr: {
+            host: '80.201.20.68'
+        },
+        https: false
+    }
 
 });
