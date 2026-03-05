@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\XpNeedPerLevel;
 use DB;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class XpNeedPerLevelsSeeder extends Seeder
@@ -13,6 +13,9 @@ class XpNeedPerLevelsSeeder extends Seeder
      */
     public function run(): void
     {
+        // reset.
+        XpNeedPerLevel::truncate();
+
         $this->insertRow(1, 100);
         $this->insertRow(2, 500);
         $this->insertRow(3, 800);

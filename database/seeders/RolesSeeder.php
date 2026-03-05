@@ -14,7 +14,7 @@ class RolesSeeder extends Seeder
     public function run(): void
     {
         // reset.
-        Role::all()->delete();
+        Role::truncate();
 
         foreach(Roles::cases() as $r) {
             $this->insertRowWithId($r->value, $r->name);

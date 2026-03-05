@@ -15,6 +15,9 @@ class CraftsSeeder extends Seeder
      */
     public function run(): void
     {
+        // reset.
+        Craft::truncate();
+
         $this->insertRow('baton gluant', 1, 0.95, [
             'mucus de slime' => 1,
             'racine de petit bois' => 1,

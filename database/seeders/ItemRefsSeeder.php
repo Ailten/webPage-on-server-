@@ -18,6 +18,9 @@ class ItemRefsSeeder extends Seeder
      */
     public function run(): void
     {
+        // reset.
+        ItemRef::truncate();
+
         $this->insertRow('mucus de slime', 1, 1, 'ressource', 'commun');
         $this->insertRow('noyau de slime', 3, 1, 'pierre précieuse', 'peu commun');
         $this->insertRow('racine de petit bois', 1, 1, 'ressource', 'commun');

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\StatType;
 use App\Utils\Enum\Elements;
 use DB;
 use Illuminate\Database\Seeder;
@@ -13,6 +14,9 @@ class StatTypesSeeder extends Seeder
      */
     public function run(): void
     {
+        // reset.
+        StatType::truncate();
+
         $this->insertFourElements('attaque <e>', 0);
         $this->insertFourElements('soigne <e>', 0);
         $this->insertFourElements('attaque soi <e>', 0);

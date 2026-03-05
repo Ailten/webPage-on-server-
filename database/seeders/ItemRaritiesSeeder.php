@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\ItemRarity;
 use DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,6 +14,9 @@ class ItemRaritiesSeeder extends Seeder
      */
     public function run(): void
     {
+        // reset.
+        ItemRarity::truncate();
+
         $this->insertRow('commun');
         $this->insertRow('peu commun');
         $this->insertRow('rare');

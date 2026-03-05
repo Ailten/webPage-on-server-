@@ -18,6 +18,9 @@ class MobsSeeder extends Seeder
      */
     public function run(): void
     {
+        // reset.
+        Mob::truncate();
+
         $this->insertRow('slime', 1, 100, 10, [
             'attaque eau' => 8,
             'vie' => 80,

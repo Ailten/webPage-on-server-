@@ -16,7 +16,7 @@ class CharacterSpeciesSeeder extends Seeder
     public function run(): void
     {
         // reset.
-        CharacterSpecie::all()->delete();
+        CharacterSpecie::truncate();
 
         foreach(CharacterSpecies::cases() as $cs) {
             $this->insertRowWithId($cs->value, $cs->name);

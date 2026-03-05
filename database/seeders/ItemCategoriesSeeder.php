@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\ItemCategorie;
 use DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,6 +14,9 @@ class ItemCategoriesSeeder extends Seeder
      */
     public function run(): void
     {
+        // reset.
+        ItemCategorie::truncate();
+
         $this->insertRow('casque');
         $this->insertRow('armure');
         $this->insertRow('arme');
