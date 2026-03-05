@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bot_twitchs', function (Blueprint $table) {
-            //$table->id();  // no need PK : get by only one match to FK User.
+            $table->id();
 
             // FK.
             $table->foreignId('user_id')->constrained()->onDelete('cascade');

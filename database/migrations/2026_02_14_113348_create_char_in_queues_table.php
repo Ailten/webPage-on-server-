@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\BotTwitch;
-use App\Models\CharInQueue;
+use App\Models\Character;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,7 +18,7 @@ return new class extends Migration
 
             // FK.
             $table->foreignId('bot_twitch_id')->constrained()->onDelete('cascade');
-            $table->foreignId('char_in_queue_id')->constrained()->onDelete('cascade');
+            $table->foreignId('character_id')->constrained()->onDelete('cascade');
 
             $table->boolean('selected')->default(false);
 
@@ -34,7 +34,7 @@ return new class extends Migration
             $table->dropForeignIdFor(BotTwitch::class);
         });
         Schema::table('char_in_queues', function(Blueprint $table){
-            $table->dropForeignIdFor(CharInQueue::class);
+            $table->dropForeignIdFor(Character::class);
         });
         Schema::dropIfExists('char_in_queues');
     }
